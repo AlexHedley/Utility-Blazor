@@ -23,6 +23,10 @@ jobs:
       with:
         dotnet-version: 3.1
 
+    # Run Tests
+    - name: Unit Testing
+      run: dotnet test
+    
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
       run: dotnet publish src/Utility-Blazor/Utility-Blazor.csproj -c Release -o release --nologo
