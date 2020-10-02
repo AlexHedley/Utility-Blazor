@@ -1,0 +1,66 @@
+@page "/url"
+
+<div class="row">
+    <div class="input-group mb-3">
+        <!-- <input class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+        <input type="text" id="url" name="url" class="form-control" @bind="url">
+        <div class="input-group-append">
+            <span class="input-group-text" id="urlCount">#</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button id="btnUrlSplit" name="btnUrlSplit" class="btn btn-success float-right">Split</button>
+</div>
+
+<br />
+
+<!-- Hostname -->
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Hostname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="hostname" aria-label="hostname" id="hostname" name="hostname" disabled>
+        </div>
+    </div>
+</div>
+
+<!-- Pathname -->
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Pathname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="pathname" aria-label="pathname" id="pathname" name="pathname" disabled>
+        </div>
+    </div>
+</div>
+
+<!-- Params -->
+<div class="row">
+    <div class="col-12">
+        <table id="urlParams">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tfoot></tfoot>
+            <tbody>
+                <tr>
+                    <td><em>key</em></td>
+                    <td><em>value</em></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+@code {
+    string url ="http://www.alexhedley.com/path?query=this&param=that";
+}
