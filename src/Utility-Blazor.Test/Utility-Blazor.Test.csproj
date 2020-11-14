@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GuidGeneratorTest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="GuidGeneratorTest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bunit" Version="1.0.0-beta-10" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="Moq" Version="4.14.5" />

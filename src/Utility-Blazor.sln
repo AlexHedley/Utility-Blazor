@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility-Blazor", "Utility-Blazor\Utility-Blazor.csproj", "{C7869C5E-48B0-484D-A634-AEE8595462AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility-Blazor.Test", "Utility-Blazor.Test\Utility-Blazor.Test.csproj", "{FCFBE71F-3D42-41E6-B374-C28E1228A2CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility-Blazor.Test", "Utility-Blazor.Test\Utility-Blazor.Test.csproj", "{FCFBE71F-3D42-41E6-B374-C28E1228A2CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
