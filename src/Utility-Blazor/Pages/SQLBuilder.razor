@@ -1,0 +1,141 @@
+﻿@page "/sql"
+
+@using System.Text;
+@inject IJSRuntime JSRuntime
+
+<h1>SQL Builder</h1>
+
+<div class="container">
+
+    @*<ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="in-tab" data-toggle="tab" href="#in" role="tab" aria-controls="in" aria-selected="true">IN Clause</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contains-tab" data-toggle="tab" href="#contains" role="tab" aria-controls="contains" aria-selected="false">CONTAINS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="like-tab" data-toggle="tab" href="#like" role="tab" aria-controls="like" aria-selected="false">LIKE</a>
+            </li>
+        </ul>*@
+
+    @*<div class="tab-content" id="myTabContent">*@
+    @*<div class="tab-pane fade show active" id="in" role="tabpanel" aria-labelledby="in-tab">*@
+
+    <div class="row" style="display: none;">
+
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">SQL Builder (IN Clause)</h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+                <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success float-right">Clear</button>
+            </div>
+            <div class="row">
+                <label class="label-control">Wrapper:</label>
+                <div class="input-group">
+                    <select id="wrapper" name="wrapper">
+                        <option value=""></option>
+                        <option value="'">'</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button" id="btnParse" name="btnParse">Parse</button>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="chkRemoveDuplicates">
+                    <label class="form-check-label" for="chkRemoveDuplicates">
+                        Remove Duplicates
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+                <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    @*</div>*@
+
+    @*<div class="tab-pane fade" id="contains" role="tabpanel" aria-labelledby="contains-tab">*@
+
+    <div class="row" style="display: none;">
+    </div>
+
+    @*<div class="tab-pane fade" id="like" role="tabpanel" aria-labelledby="like-tab">*@
+
+    <label class="label-control">Field:</label>
+    <div class="input-group">
+        <input type="text" id="guidZero" name="guidZero" class="form-control" @bind="Field">@*placeholder="i.[Guid]"*@
+        <span class="input-group-btn">
+            <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
+            <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
+        </span>
+    </div>
+    <div class="row">
+        <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+    </div>
+    <div class="row">
+        <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success" @onclick="Clear">Clear</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-info" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
+    </div>
+    <div class="row">
+        <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+    </div>
+    <div class="row">
+        <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success" @onclick="Copy"><i class="far fa-copy"></i></button>
+    </div>
+
+    @*</div>*@
+
+    @*</div>*@
+
+</div>
+
+@code {
+
+    string Field = string.Empty;
+    string Input = string.Empty;
+    string Output = string.Empty;
+    string wildcard = "%";
+
+    async Task CopyField()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Field);
+    }
+
+    private void ClearField()
+    {
+        Field = string.Empty;
+    }
+
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+
+    private void Parse()
+    {
+        var items = Input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        var likeItems = string.Join(" OR ", items.Select(i => $"{Field} LIKE {wildcard}{i.Trim()}{wildcard}"));
+
+        Output = likeItems;
+    }
+
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+}
