@@ -1,0 +1,190 @@
+﻿@page "/guid"
+
+@using System.Text;
+@inject IJSRuntime JSRuntime
+
+@*@inject ClipboardService ClipboardService*@
+
+<h1>Guid</h1>
+
+<div class="container">
+    <div class="row">
+        <label class="label-control">Zero:</label>
+        <div class="input-group">
+            <input type="text" id="guidZero" name="guidZero" class="form-control" @bind="@zeroGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly>
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="button" id="btnGuidZeroCopy" name="btnGuidZeroCopy" @onclick="CopyZeroGuid"><i class="far fa-copy"></i></button>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="@removeDashes" id="chkRemoveDashesZero"
+                   @onchange="@(eventArgs => { removeDashes = (bool)eventArgs.Value; RemoveDashesFromZeroGuid(); })" />
+            <label class="form-check-label" for="chkRemoveDashesZero">
+                Remove Dashes
+            </label>
+        </div>
+        &nbsp;|&nbsp;
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="@addBraces" id="chkAddBracesZero"
+                   @onchange="@(eventArgs => { addBraces = (bool)eventArgs.Value; AddBracesToZeroGuid(); })" />
+            <label class="form-check-label" for="chkAddBracesZero">
+                Add Braces
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <label class="label-control">New:</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate" @onclick="GenerateNewGuid">Generate</button>
+            </span>
+            <input type="text" id="newGuid" name="newGuid" class="form-control" value="@newGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly>
+            <input type="hidden" id="newGuidHidden" name="newGuidHidden" class="form-control" value="@newGuidHidden" placeholder="00000000-0000-0000-0000-000000000000" readonly>
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="button" id="btnNewGuidCopy" name="btnNewGuidCopy" @onclick="CopyNewGuid"><i class="far fa-copy"></i></button>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="@removeDashesNew" id="chkRemoveDashes"
+                   @onchange="@(eventArgs => { removeDashesNew = (bool)eventArgs.Value; RemoveDashesFromNewGuid(); })">
+            <label class="form-check-label" for="chkRemoveDashes">
+                Remove Dashes
+            </label>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <label class="label-control">How many Guids do you wish to generate:</label>
+        <div class="input-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="chkRemoveDashesMultiple">
+                <label class="form-check-label" for="chkRemoveDashesMultiple">
+                    Remove Dashes
+                </label>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="number" class="form-control" id="guidCount" name="guidCount" @bind="@guidCount">
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="button" id="btnGuidNewCreateMultiple" name="btnGuidNewCreateMultiple" 
+                    @onclick="GenerateMultipleGuids">Go!</button>
+                <button class="btn btn-info" type="button" id="btnGuidMultipleCopy" name="btnGuidMultipleCopy"
+                    @onclick="CopyMultipleGuids">
+                    <i class="far fa-copy" ></i>
+                </button>
+                <button class="btn btn-danger" type="button" id="btnGuidMultipleClear" name="btnGuidMultipleClear"
+                    @onclick="DeleteMultipleGuids">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <textarea id="guids" class="form-control" @bind="NewGuids"></textarea>
+    </div>
+</div>
+
+@code {
+
+    private string newGuid;
+    private Guid newGuidHidden;
+    private int guidCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var guid = Guid.NewGuid();
+        newGuid = guid.ToString();
+        newGuidHidden = guid;
+
+        guidCount = 5;
+    }
+
+    #region Zero
+
+    private Guid defaultZeroGuid = new Guid(); //"00000000000000000000000000000000" //"00000000-0000-0000-0000-000000000000"
+    private string zeroGuid = new Guid().ToString();
+
+    async Task CopyZeroGuid()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", zeroGuid);
+    }
+
+    private bool removeDashes = false;
+    void RemoveDashesFromZeroGuid()
+    {
+        zeroGuid = (removeDashes) ? defaultZeroGuid.ToString().Replace("-", "") : defaultZeroGuid.ToString();
+        //removeDashes = !removeDashes;
+    }
+
+    private bool addBraces = false;
+    void AddBracesToZeroGuid()
+    {
+        zeroGuid = (addBraces) ? $"{{{zeroGuid}}}" : zeroGuid.Replace("{", "").Replace("}", "");
+    }
+
+    #endregion Zero
+
+    #region New
+
+    void GenerateNewGuid()
+    {
+        var guid = Guid.NewGuid();
+        newGuid = guid.ToString();
+        newGuidHidden = guid;
+    }
+
+    private bool removeDashesNew = false;
+    void RemoveDashesFromNewGuid()
+    {
+        newGuid = (removeDashesNew) ? newGuidHidden.ToString().Replace("-", "") : newGuidHidden.ToString();
+        //removeDashes = !removeDashes;
+    }
+
+    async Task CopyNewGuid()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", newGuid);
+    }
+
+    #endregion New
+
+    #region Multiple
+
+    string NewGuids;
+
+    async Task GenerateMultipleGuids()
+    {
+        NewGuids = string.Empty; //Checkbox to append?
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < guidCount; i++)
+        {
+            var guid = System.Guid.NewGuid().ToString() + Environment.NewLine;
+
+            //if (RemoveDashesMultiple)
+            ///{
+            //    guid = Regex.Replace(guid, @"\-", "");
+            //}
+
+            builder.Append(guid);
+        }
+
+        NewGuids = builder.ToString();
+    }
+
+    async Task CopyMultipleGuids()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", NewGuids);
+    }
+
+    async Task DeleteMultipleGuids()
+    {
+        NewGuids = string.Empty;
+    }
+
+    #endregion Multiple
+
+}
