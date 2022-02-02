@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
 <div class="sidebar">
     <NavMenu />
 </div>
@@ -13,3 +15,13 @@
         @Body
     </div>
 </div>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await localStorage.SetItemAsync("tab", "url");
+        var name = await localStorage.GetItemAsync<string>("tab");
+        Console.WriteLine(name);
+    }
+}
