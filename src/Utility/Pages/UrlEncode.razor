@@ -1,0 +1,38 @@
+﻿@using System.Net;
+@*@using System.Net.WebUtility;*@
+
+@page "/urlencode"
+
+<h1>Url Encode</h1>
+
+<div class="container">
+    <div class="row">
+        <!--<input id="urlEncode" name="urlEncode" class="form-control" value="http://www.alexhedley.com">-->
+        <input id="urlEncode" name="urlEncode" class="form-control" @bind="url">
+    </div>
+    <div class="row">
+        <button id="btnEncode" name="btnEncode" @onclick="Encode" class="btn btn-success float-right">Encode</button>
+    </div>
+    <div class="row">
+        <input id="urlDecode" name="urlDecode" class="form-control" @bind="dUrl">
+    </div>
+    <div class="row">
+        <button id="btnDecode" name="btnDecode" @onclick="Decode" class="btn btn-success float-right">Decode</button>
+    </div>
+</div>
+
+@code {
+
+    string url = "http://www.alexhedley.com";
+    string dUrl = "";
+
+    private void Encode()
+    {
+        dUrl = WebUtility.UrlEncode(url);
+    }
+
+    private void Decode()
+    {
+        url = WebUtility.UrlDecode(dUrl);
+    }
+}
