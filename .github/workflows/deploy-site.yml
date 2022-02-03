@@ -33,8 +33,8 @@ jobs:
       run: dotnet publish src/Utility/Utility.csproj -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'Utility' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to Utility
-      run: sed -i 's/<base href="\/" \/>/<base href="\/Utility\/" \/>/g' release/wwwroot/index.html
+    - name: Change base-tag in index.html from / to Utility-Blazor
+      run: sed -i 's/<base href="\/" \/>/<base href="\/Utility-Blazor\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
