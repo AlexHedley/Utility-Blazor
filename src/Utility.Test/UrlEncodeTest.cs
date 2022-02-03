@@ -3,9 +3,9 @@
 using Bunit;
 using Xunit;
 
-using Utility_Blazor.Pages;
+using Utility.Pages;
 
-namespace Utility_Blazor.Test
+namespace Utility.Test
 {
     public class UrlEncodeTest : TestContext
     {

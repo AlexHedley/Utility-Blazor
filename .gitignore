@@ -351,3 +351,9 @@ MigrationBackup/
 
 #MFractor
 .mfractor
+
+# macOS
+.DS_Store
+
+# JetBrains
+src/.idea/
