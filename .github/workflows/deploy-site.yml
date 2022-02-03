@@ -18,23 +18,23 @@ jobs:
     # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
     
-    - name: Setup .NET 3.1 # 5.0
+    - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1
-#         dotnet-version: 5.0.x
+        dotnet-version: '6.0.x'
+        include-prerelease: true
     
     # Run Tests
     - name: Unit Testing
-      run: dotnet test src/Utility-Blazor.Test/Utility-Blazor.Test.csproj
+      run: dotnet test src/Utility.Test/Utility.Test.csproj
     
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish src/Utility-Blazor/Utility-Blazor.csproj -c Release -o release --nologo
+      run: dotnet publish src/Utility/Utility.csproj -c Release -o release --nologo
     
-    # changes the base-tag in index.html from '/' to 'Utility-Blazor' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to Utility-Blazor
-      run: sed -i 's/<base href="\/" \/>/<base href="\/Utility-Blazor\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'Utility' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to Utility
+      run: sed -i 's/<base href="\/" \/>/<base href="\/Utility\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
