@@ -1,8 +1,145 @@
 ﻿@page "/hcf"
+@using System.IO
 
 <h1>Hidden Character Finder</h1>
 
 <p><a href="https://www.soscisurvey.de/tools/view-chars.php" target="_blank">View non-printable unicode characters</a></p>
+<p><a href="https://github.com/BurninLeo/see-non-printable-characters/blob/main/view-chars.php"target="_blank">Source</a></p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>View non-printable unicode characters</h2>
+            <p>Online tool to display non-printable characters that may be hidden in copy&pasted strings.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="s">Please paste the string here:</label>
+            <textarea id="s" name="s" class="form-control" rows="8" cols="40" 
+                @bind="s" style="width: 100%; box-sizing: border-box;"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnEncode" name="btnEncode" class="btn btn-success float-right"
+                    @onclick="Encode">
+                Show me the characters
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @* <div>@((MarkupString)output)</div> *@
+            
+            <div class="output">
+            </div>
+            
+            <p># characters, # bytes</p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="output">
+                <span class="S2Tooltip anchor">S</span>
+                <span class="S2Tooltip container">
+                    <span class="S2Tooltip tiptext rounded shadow">83<br>0x53</span>
+                </span>
+                <span class="hex S2Tooltip anchor">U+A0</span>
+                <span class="S2Tooltip container">
+                    <span class="S2Tooltip tiptext rounded shadow">&amp;#160;<br>\u00A0</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <h2>Helpful Sites for Details on UTF Characters</h2>
+            <ul>
+                <li><a href="https://www.branah.com/unicode-converter" target="_blank">Branah.com Unicode Converter</a></li>
+                <li><a href="http://www.fileformat.info/info/unicode/char/search.htm" target="_blank">FileFormat.Info</a></li>
+                <li><a href="http://utf8-chartable.de/unicode-utf8-table.pl" target="_blank">utf8-chartable.de</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
 
 @code {
+    string s;
+    string output;
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* s = "See what's hidden in your string…	or be​hind﻿"; *@
+        s = "See\u00A0what\'s hidden in your string\u2026\tor be\\u200Bhind\uFEFF";
+        output = string.Empty;
+    }
+
+    private void Encode()
+    {
+        var writer = new StringWriter();
+        output = "abc"; // writer.ToString();
+    }
+
+    private void Decode()
+    {
+        s = "";
+    }
+
+    private string htmlChar(char c)
+    {
+        if (c.Length == 1)
+        {
+            var desc = Convert.ToByte(c) + "<br>\r\n" + String.Format("0x{0,2:X2}", (Convert.ToByte(c)));
+			var hex = String.Format("{0,2:X2}", (Convert.ToByte(c)));
+        } 
+        else 
+        {
+            @* $n = unpack('V', iconv('UTF-8', 'UCS-4LE', $c))[1]; *@
+            // unassigned long
+            var n = "";
+
+            var bytes = BitConverter.GetBytes(c);
+            var isLittleEndian = BitConverter.IsLittleEndian;
+            if (isLittleEndian) {
+                Array.Reverse(bytes);
+            }
+            var desc = "&amp;#" + bytes.Select(x => (int)x).Sum(); + ";<br>";
+            desc = "\u" + BitConverter.ToString(bytes).Replace("-", String.Empty);
+            // \u00A0
+            
+        }
+
+        return s;
+    }
+
+    private void text2html(string s)
+    {
+        // UTF-8 global?
+        var html = "<div class='output'>\r\n";
+        
+        var sl = s.Length;
+        var nlc = 0;
+
+        for (var i=0; i<sl; i++) 
+        {
+            @* $c = mb_substr($s, $i, 1); *@
+            var c = s.Substring(i, 1); // .ToCharArray()[0];
+            if (c == "\r") // Environment.NewLine
+            {
+                if (nlc == 0)
+                {
+                    nlc = 1;
+	                html += htmlChar(c);
+                }
+            }
+        }
+    }
 }
