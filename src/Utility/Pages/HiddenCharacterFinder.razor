@@ -1,5 +1,7 @@
 ﻿@page "/hcf"
 @using System.IO
+@using System.Text
+@using System.Text.RegularExpressions
 
 <h1>Hidden Character Finder</h1>
 
@@ -31,9 +33,8 @@
 
     <div class="row">
         <div class="col">
-            @* <div>@((MarkupString)output)</div> *@
-            
             <div class="output">
+                @((MarkupString)output)
             </div>
             
             <p># characters, # bytes</p>
@@ -43,7 +44,7 @@
 
     <div class="row">
         <div class="col">
-            <div class="output">
+            <div class="output2">
                 <span class="S2Tooltip anchor">S</span>
                 <span class="S2Tooltip container">
                     <span class="S2Tooltip tiptext rounded shadow">83<br>0x53</span>
@@ -78,8 +79,14 @@
     protected override async Task OnInitializedAsync()
     {
         @* s = "See what's hidden in your string…	or be​hind﻿"; *@
-        s = "See\u00A0what\'s hidden in your string\u2026\tor be\\u200Bhind\uFEFF";
+        //s = "See\u00A0what\'s hidden in your string\u2026\tor be\\u200Bhind\uFEFF";
+        s = "a …	​﻿⟶b";
         output = string.Empty;
+        @* var conversion = htmlChar("S"); *@
+        //var conversion = htmlChar("⟶");
+        var conversion = htmlChar("a …	​﻿⟶b");
+        Console.WriteLine($"Conversion: {conversion}");
+        output = conversion;
     }
 
     private void Encode()
@@ -93,31 +100,77 @@
         s = "";
     }
 
-    private string htmlChar(char c)
+    private string htmlChar(string c)
     {
+        var desc = "";
+        var hex = "";
+        //var theSize = System.Runtime.InteropServices.Marshal.SizeOf(c);
+
+        Console.WriteLine($"Length: {c.Length}");
+        //Console.WriteLine($"Size: {theSize}");
+
         if (c.Length == 1)
         {
-            var desc = Convert.ToByte(c) + "<br>\r\n" + String.Format("0x{0,2:X2}", (Convert.ToByte(c)));
-			var hex = String.Format("{0,2:X2}", (Convert.ToByte(c)));
-        } 
+            var c1 = char.Parse(c);
+            desc = Convert.ToByte(c1) + "<br>\r\n" + String.Format("0x{0,2:X2}", (Convert.ToByte(c1)));
+            hex = String.Format("{0,2:X2}", (Convert.ToByte(c1)));
+        }
         else 
         {
-            @* $n = unpack('V', iconv('UTF-8', 'UCS-4LE', $c))[1]; *@
+            //@* $n = unpack('V', iconv('UTF-8', 'UCS-4LE', $c))[1]; *@
             // unassigned long
-            var n = "";
 
-            var bytes = BitConverter.GetBytes(c);
+            var bytes = Encoding.UTF8.GetBytes(c);
+            //var bytes = BitConverter.GetBytes(c);
             var isLittleEndian = BitConverter.IsLittleEndian;
             if (isLittleEndian) {
                 Array.Reverse(bytes);
             }
-            var desc = "&amp;#" + bytes.Select(x => (int)x).Sum(); + ";<br>";
-            desc = "\u" + BitConverter.ToString(bytes).Replace("-", String.Empty);
-            // \u00A0
-            
+            desc = $"&amp;#{bytes.Select(x => (int)x).Sum()};<br>";
+            hex = "\\u" + BitConverter.ToString(bytes).Replace("-", String.Empty); // \u00A0
         }
 
-        return s;
+        Console.WriteLine($"CHAR: {c}");
+        Console.WriteLine($"DESC: {desc}");
+        Console.WriteLine($"HEX: {hex}");
+
+        var pattern = @"/^[\\p{L}\\p{M}\\p{N}\\p{P}\\p{S}]$/u";
+        Regex rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        MatchCollection matches = rx.Matches(c);
+
+        var symbol = "";
+        if (c == "\r")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>CR</span>";
+        }
+        else if (c == "\n")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>LF</span>";
+        }
+        else if (c == "\t")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>⟶</span>&#8203;";
+        }
+        else if (c == " ")
+        {
+            symbol = "<span class='white S2Tooltip anchor'>·</span>&#8203;";
+        }
+        else
+        {
+            if (matches.Count > 0)
+            {
+                symbol = "<span class='S2Tooltip anchor'>" + c + "</span>";
+            }
+            else
+            {
+                symbol = "<span class='hex S2Tooltip anchor'>" + hex + "</span>";
+            }
+        }
+
+        return symbol + 
+            "<span class='S2Tooltip container'>" + 
+            "<span class='S2Tooltip tiptext rounded shadow'>" + desc + "</span>" +
+            "</span>";
     }
 
     private void text2html(string s)
