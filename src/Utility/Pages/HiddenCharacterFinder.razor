@@ -127,6 +127,22 @@
         return symbol;
     }
 
+    // Checks that the character is not in other or seperator groups.
+    private bool isRegularUnicodeCharacter(string c) 
+    {
+
+        Console.WriteLine($"isRegularUnicodeCharacter Character: {c}");
+
+        //\p{M}\p{N}\p{P}\p{S}
+        var pattern = @"[\p{L}\p{M}\p{N}\p{P}\p{S}]";
+        Regex rx = new Regex(pattern);
+        MatchCollection matches = rx.Matches(c);
+
+        Console.WriteLine($"isRegularUnicodeCharacter Character: {matches.Count}");
+
+        return matches.Count > 0;
+    }
+
     private string htmlChar(string c)
     {
         var desc = "";
@@ -169,11 +185,9 @@
         // If symbol is not a whitespace char.
         if (symbol == String.Empty)
         {
-            var pattern = @"/^[\p{L}\p{M}\p{N}\p{P}\p{S}]$/u";
-            Regex rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase); // RegexOptions.IgnorePatternWhitespace.
-            MatchCollection matches = rx.Matches(c);
+            var isRegularCharacter = isRegularUnicodeCharacter(c);
             
-            if (matches.Count > 0)
+            if (isRegularCharacter)
             {
                 symbol = "<span class='S2Tooltip anchor'>" + c + "</span>";
             }
