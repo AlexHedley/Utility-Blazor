@@ -24,9 +24,9 @@ jobs:
         dotnet-version: '6.0.x'
         include-prerelease: true
     
-    # Run Tests
-    - name: Unit Testing
-      run: dotnet test src/Utility.Test/Utility.Test.csproj
+#     Run Tests
+#     - name: Unit Testing
+#       run: dotnet test src/Utility.Test/Utility.Test.csproj
     
     # https://github.com/zyborg/dotnet-tests-report
     # https://github.com/marketplace/actions/dotnet-tests-report
@@ -37,3 +37,6 @@ jobs:
         report_name: Tests
         report_title: My Tests
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        gist_name: utility_blazor_tests.md
+        gist_badge_label: 'Utility Blazor: %Counters_passed%/%Counters_total%'
+        gist_token: ${{ secrets.GIST_TOKEN }}
