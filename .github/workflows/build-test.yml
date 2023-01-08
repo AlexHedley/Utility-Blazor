@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build / Test (with Reports)
 
 # Run workflow on every push to the master branch
 on:
