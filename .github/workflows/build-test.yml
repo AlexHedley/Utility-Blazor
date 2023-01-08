@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+# Run workflow on every push to the master branch
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, dev ]
+    paths: src/**
+  pull_request:
+    branches: [ main ]
+    paths: src/**
+
+jobs:
+  build-test:
+    # use ubuntu-latest image to run steps on
+    runs-on: ubuntu-latest
+    steps:
+    # uses GitHub's checkout action to checkout code form the master branch
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET 6.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+        include-prerelease: true
+    
+    # Run Tests
+    - name: Unit Testing
+      run: dotnet test src/Utility.Test/Utility.Test.csproj
+    
+    # https://github.com/zyborg/dotnet-tests-report
+    # https://github.com/marketplace/actions/dotnet-tests-report
+    - name: use this action, test solution dir
+      uses: zyborg/dotnet-tests-report@v1
+      with:
+        project_path: src/Utility.Test
+        report_name: Tests
+        report_title: My Tests
+        github_token: ${{ secrets.GITHUB_TOKEN }}
