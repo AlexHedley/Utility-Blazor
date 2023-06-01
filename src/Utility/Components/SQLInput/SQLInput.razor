@@ -1,0 +1,73 @@
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <label class="label-control">Field:</label>
+    <div class="input-group">
+        <input type="text" id="field" name="field" class="form-control" @bind="Field">@*placeholder="i.[Guid]"*@
+        <span class="input-group-btn">
+            <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
+            <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
+        </span>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success" @onclick="Clear">Clear</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-info" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success" @onclick="Copy"><i class="far fa-copy"></i></button>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    string Field = string.Empty;
+    string Input = string.Empty;
+    string Output = string.Empty;
+    string wildcard = "%";
+
+    async Task CopyField()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Field);
+    }
+
+    private void ClearField()
+    {
+        Field = string.Empty;
+    }
+
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+
+    private void Parse()
+    {
+        var items = Input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        var likeItems = string.Join(" OR ", items.Select(i => $"{Field} LIKE {wildcard}{i.Trim()}{wildcard}"));
+
+        Output = likeItems;
+    }
+
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+}

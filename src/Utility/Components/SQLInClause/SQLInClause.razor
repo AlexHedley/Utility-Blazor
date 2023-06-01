@@ -1,0 +1,78 @@
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success float-right" @onclick="Clear">Clear</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label class="label-control">Wrapper:</label>
+            <div class="input-group">
+                <select id="wrapper" name="wrapper" class="form-control" @bind="Wrapper">
+                    <option value=""></option>
+                    <option value="'">'</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkRemoveDuplicates" @bind-value="RemoveDuplicates" checked="@(RemoveDuplicates ? "checked" : null)">
+                <label class="form-check-label" for="chkRemoveDuplicates">
+                    Remove Duplicates
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+        </div>
+    </div>
+</div>
+
+@code {
+    string Input = string.Empty;
+    string Output = string.Empty;
+    bool RemoveDuplicates = false;
+    string Wrapper = "";
+    
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+
+    private void Parse()
+    {
+        Output = string.Empty;
+        var items = Input.Split().Where(x => x != string.Empty);
+        if (RemoveDuplicates) items = items.Distinct();
+        foreach (var item in items)
+        {
+            Output += $"{Wrapper}{item}{Wrapper},";
+        }
+        Output = Output.Remove(Output.Length - 1, 1);
+        Output = "IN (" + Output + ")";
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+}
