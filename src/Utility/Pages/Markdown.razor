@@ -1,0 +1,53 @@
+﻿@using System.Net
+
+@page "/markdown"
+
+<PageTitle>Markdown</PageTitle>
+
+<h1>Markdown</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <textarea id="html" class="form-control" rows="5" @bind="html"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnConvert" name="btnConvert" class="btn btn-success float-right"
+                    @onclick="Convert">
+                Convert
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="markdown" class="form-control" rows="5" @bind="markdown"></textarea>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    string html;
+    string markdown;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // html = "&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;";
+        html = "<html><body><h1>Hello</h1></body></html>";
+        markdown = string.Empty;
+    }
+
+    private void Convert()
+    {
+        var writer = new StringWriter();
+        WebUtility.HtmlDecode(html, writer);
+        html = writer.ToString();
+        
+        var converter = new ReverseMarkdown.Converter();
+        string result = converter.Convert(html);
+        markdown = result;
+    }
+
+}
