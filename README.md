@@ -26,16 +26,16 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Ascii (WIP)
 - HEX to RGB
 - Binary
+- String Convert
+- Epoch Converter
 
 ### Todo
 
 - Remove whitespace
-- String Convert
 - Diff
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
-- Epoch Converter
 - Unicode
 - kb - mb - gb converter
 - time converter
