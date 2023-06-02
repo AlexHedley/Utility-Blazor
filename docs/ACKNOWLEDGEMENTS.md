@@ -5,3 +5,6 @@
 - Moq
 - Shouldly
 - ReverseMarkdown
+
+- OpenIconic https://www.appstudio.dev/app/OpenIconic.html
+  - https://github.com/iconic/open-iconic
