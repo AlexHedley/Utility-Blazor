@@ -3,21 +3,47 @@
 
 @page "/urlencode"
 
-<h1>Url Encode</h1>
+<h1>Url Encode / Decode</h1>
 
 <div class="container">
     <div class="row">
-        <!--<input id="urlEncode" name="urlEncode" class="form-control" value="http://www.alexhedley.com">-->
-        <input id="urlEncode" name="urlEncode" class="form-control" @bind="url">
+        <div class="col">
+            
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Encode:</span>
+                </div>
+                <input id="urlEncode" name="urlEncode" class="form-control" @bind="url">
+                <span class="input-group-btn">
+                    <button id="btnEncode" name="btnEncode" @onclick="Encode" class="btn btn-success float-right">Encode</button>
+                </span>
+            </div>
+            
+        </div>
     </div>
+
     <div class="row">
-        <button id="btnEncode" name="btnEncode" @onclick="Encode" class="btn btn-success float-right">Encode</button>
+        <div class="col">
+            
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Decode:</span>
+                </div>
+                <input id="urlDecode" name="urlDecode" class="form-control" @bind="dUrl">
+                <div class="input-group-append">
+                    <button id="btnDecode" name="btnDecode" @onclick="Decode" class="btn btn-success float-right">Decode</button>
+                </div>
+            </div>
+            
+        </div>
     </div>
+    
+    <hr />
+    
     <div class="row">
-        <input id="urlDecode" name="urlDecode" class="form-control" @bind="dUrl">
-    </div>
-    <div class="row">
-        <button id="btnDecode" name="btnDecode" @onclick="Decode" class="btn btn-success float-right">Decode</button>
+        <div class="col">
+            <p>Inspired from <a href="https://meyerweb.com/eric/tools/dencoder/" target="_blank">meyerweb URL Decoder/Encoder</a></p>
+        </div>
     </div>
 </div>
 
