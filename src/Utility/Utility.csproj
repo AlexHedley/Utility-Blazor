@@ -12,4 +12,8 @@
     <PackageReference Include="ReverseMarkdown" Version="3.25.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Utility.Common\Utility.Common.csproj" />
+  </ItemGroup>
+
 </Project>
