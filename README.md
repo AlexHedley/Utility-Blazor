@@ -25,13 +25,13 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Markdown
 - Ascii (WIP)
 - HEX to RGB
+- Binary
 
 ### Todo
 
 - Remove whitespace
 - String Convert
 - Diff
-- Binary
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
@@ -40,6 +40,8 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - kb - mb - gb converter
 - time converter
 - MD5
+
+---
 
 - Remember selected tab
 
