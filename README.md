@@ -24,6 +24,7 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - HTML
 - Markdown
 - Ascii (WIP)
+- HEX to RGB
 
 ### Todo
 
@@ -34,7 +35,6 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
-- HEX to RGB
 - Epoch Converter
 - Unicode
 - kb - mb - gb converter
