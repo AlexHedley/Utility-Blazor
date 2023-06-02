@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            
+            <label class="label-control">Character:</label>
+            <div class="input-group">
+                @* <input type="text" id="guidZero" name="guidZero" class="form-control" @bind="@zeroGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly> *@
+                <input id="ascii" name="ascii" class="form-control" @bind="AsciiValue" placeholder="'">
+                <span class="input-group-btn">
+                    @* <button class="btn btn-info" type="button" id="btnGuidZeroCopy" name="btnGuidZeroCopy" @onclick="CopyZeroGuid"><i class="far fa-copy"></i></button> *@
+                    <button id="btnAscii" name="btnAscii" type="button" class="btn btn-info float-right" @onclick="GetAsciiValues">Get ASCII Values</button>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <br />
+    
+    <div class="row">
+        <div class="col">
+            
+            <table id="asciiItems">
+                <thead>
+                <tr>
+                    <th>Char</th>
+                    <th>Dec</th>
+                    <th>Hex</th>
+                    <th>Oct</th>
+                </tr>
+                </thead>
+                <tfoot></tfoot>
+                <tbody>
+                <tr>
+                    <td>@Char</td>
+                    <td>@Dec</td>
+                    <td>@Hex</td>
+                    <td>@Oct</td>
+                </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    
+    <hr />
+    
+    <div class="row">
+        <div class="col">
+            <p>Inspired from <a href="http://asciivalue.com/" target="_blank">ASCIIvalue</a></p>
+        </div>
+    </div>
+</div>
+
+@code {
+    string AsciiValue = "'";
+    string Char = string.Empty;
+    string Dec = string.Empty;
+    string Hex = string.Empty;
+    string Oct = string.Empty;
+
+    void GetAsciiValues()
+    {
+        Char = AsciiValue;
+        Dec = "N/A";
+        Hex = String.Concat(AsciiValue.Select(x => ((int)x).ToString("x2")));
+        Oct = "N/A"; //Convert.ToInt32(AsciiValue, 8).ToString();
+    }
+
+}

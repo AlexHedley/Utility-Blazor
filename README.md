@@ -4,7 +4,6 @@
 [![Blazor](https://img.shields.io/badge/blazor-%235C2D91.svg?style=for-the-badge&logo=blazor&logoColor=white)](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=for-the-badge)](LICENSE) <!-- https://opensource.org/licenses/MIT -->
 
-
 Utility Web App written in Blazor WebAssembly (WASM)
 
 [![Build / Test (with Reports)](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/build-test.yml/badge.svg)](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/build-test.yml)
@@ -19,11 +18,30 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Url Encode
 - Url
 - Guid
-- SQL
+- SQL (IN Clause / LIKE)
 - Luhn
 - Hidden Char Finder ([Original](https://www.soscisurvey.de/tools/view-chars.php) [Source](https://github.com/BurninLeo/see-non-printable-characters/blob/main/view-chars.php))
 - HTML
 - Markdown
+- Ascii (WIP)
+
+### Todo
+
+- Remove whitespace
+- String Convert
+- Diff
+- Binary
+- SQL Formatter
+- XML Pretty
+- JSON Pretty
+- HEX to RGB
+- Epoch Converter
+- Unicode
+- kb - mb - gb converter
+- time converter
+- MD5
+
+- Remember selected tab
 
 ## Docs
 
