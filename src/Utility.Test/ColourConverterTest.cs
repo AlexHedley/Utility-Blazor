@@ -4,9 +4,9 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class ColourConverter : TestContext
+public class ColourConverterTest : TestContext
 {
-    public ColourConverter()
+    public ColourConverterTest()
     {
     }
     
