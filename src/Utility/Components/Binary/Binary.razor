@@ -1,0 +1,66 @@
+@using System.Text
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <textarea id="binary" class="form-control" rows="5" @bind="Input"></textarea>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <button id="btnBinary" name="btnBinary" class="btn btn-success float-right" @onclick="Swap">Swap</button>
+            <button id="btnBinaryClear" name="btnBinaryClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>@*Clear*@</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="outputBinary" class="form-control" @bind="Output"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnCopyBinary" name="btnCopyBinary" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>    
+        </div>
+    </div>
+   
+</div>
+
+@code {
+    string Input = "01101111 01101110 01100101 00100000 01101100 01101001 01101110 01100101"; //string.Empty;
+    string Output = string.Empty;
+    
+    void Swap()
+    {
+        Input = String.Concat(Input.Where(c => !Char.IsWhiteSpace(c)));
+        var data = GetBytesFromBinaryString(Input);
+        var text = Encoding.ASCII.GetString(data);
+        Output = text;
+    }
+    
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+    
+    // https://stackoverflow.com/a/6008872/2895831
+    private Byte[] GetBytesFromBinaryString(String binary)
+    {
+        var list = new List<Byte>();
+
+        for (int i = 0; i < binary.Length; i += 8)
+        {
+            String t = binary.Substring(i, 8);
+
+            list.Add(Convert.ToByte(t, 2));
+        }
+
+        return list.ToArray();
+    }
+}
