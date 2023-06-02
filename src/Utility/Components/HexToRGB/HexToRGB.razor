@@ -1,0 +1,87 @@
+@using System
+@using System.Drawing
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            
+            <label class="label-control">Hex:</label>
+            <div class="input-group">
+                <input type="color" id="colour" name="colour" class="form-control" @bind="Colour">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button" id="btnConvert" name="btnConvert" @onclick="ConvertColour">Convert</button>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <label class="label-control">Hex:</label>
+            <label class="label-control" id="colourId">@ColourId</label>
+        </div>
+    </div>
+    
+    <br />
+    
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="rgbRed" class="control-label col-xs-3">🔴Red:</label>
+                <div class="col-xs-9">
+                    <input type="number" class="form-control" id="rgbRed" placeholder="🔴" @bind="Red">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="rgbGreen" class="control-label col-xs-3">🟢Green:</label>
+                <div class="col-xs-9">
+                    <input type="number" class="form-control" id="rgbGreen" placeholder="🟢" @bind="Green">
+                </div>
+            </div>  
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="rgbBlue" class="control-label col-xs-3">🔵Blue:</label>
+                <div class="col-xs-9">
+                    <input type="number" class="form-control" id="rgbBlue" placeholder="🔵" @bind="Blue">
+                </div>
+            </div>     
+        </div>
+        
+    </div>
+
+    <hr />
+    
+    <div class="row">
+        <div class="col">
+            <p>See mac one: <a href="https://github.com/AlexHedley/HEXtoObjCColor" target="_blank">HEXtoObjCColor</a>.</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    string Colour = "#26264C";
+    string ColourId = "#";
+    
+    int Red = 0;
+    int Green = 0;
+    int Blue = 0;
+
+    // void UpdateColourLabel()
+    // {
+    //     ColourId = Colour;
+    // }
+
+    void ConvertColour()
+    {
+        ColourId = Colour;
+        Color color = ColorTranslator.FromHtml(Colour);
+        Red = Convert.ToInt16(color.R);
+        Green = Convert.ToInt16(color.G);
+        Blue = Convert.ToInt16(color.B);
+    }
+
+}
