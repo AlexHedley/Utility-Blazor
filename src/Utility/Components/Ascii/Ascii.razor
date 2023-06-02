@@ -4,10 +4,8 @@
             
             <label class="label-control">Character:</label>
             <div class="input-group">
-                @* <input type="text" id="guidZero" name="guidZero" class="form-control" @bind="@zeroGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly> *@
                 <input id="ascii" name="ascii" class="form-control" @bind="AsciiValue" placeholder="'">
                 <span class="input-group-btn">
-                    @* <button class="btn btn-info" type="button" id="btnGuidZeroCopy" name="btnGuidZeroCopy" @onclick="CopyZeroGuid"><i class="far fa-copy"></i></button> *@
                     <button id="btnAscii" name="btnAscii" type="button" class="btn btn-info float-right" @onclick="GetAsciiValues">Get ASCII Values</button>
                 </span>
             </div>
