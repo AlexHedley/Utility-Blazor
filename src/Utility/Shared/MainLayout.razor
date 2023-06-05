@@ -1,8 +1,10 @@
-﻿@implements IDisposable
+@implements IDisposable
 @inherits LayoutComponentBase
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject NavigationManager NavigationManager
+
+@inherits LayoutComponentBase
 
 <div class="page">
     <div class="sidebar">
@@ -54,4 +56,4 @@
         // Unsubscribe from the event when our component is disposed
         NavigationManager.LocationChanged -= LocationChanged;
     }
-} 
+}
