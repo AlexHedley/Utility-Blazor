@@ -30,15 +30,21 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Epoch Converter
 - Remove whitespace
 
+### WIP
+
+- Unicode
+
 ### Todo
 
 - Diff
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
-- Unicode
 - kb - mb - gb converter
 - time converter
+
+### Not Possible
+
 - MD5 ⛔️
 
 ---
