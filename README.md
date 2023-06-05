@@ -28,10 +28,10 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Binary
 - String Convert
 - Epoch Converter
+- Remove whitespace
 
 ### Todo
 
-- Remove whitespace
 - Diff
 - SQL Formatter
 - XML Pretty
@@ -39,7 +39,7 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Unicode
 - kb - mb - gb converter
 - time converter
-- MD5
+- MD5 ⛔️
 
 ---
 

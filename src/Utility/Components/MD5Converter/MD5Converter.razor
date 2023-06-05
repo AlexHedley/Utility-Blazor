@@ -1,0 +1,73 @@
+@using System.Security.Cryptography
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <p>⛔️<a href="https://learn.microsoft.com/en-us/dotnet/core/compatibility/cryptography/5.0/cryptography-apis-not-supported-on-blazor-webassembly" target="_blank">System.Security.Cryptography APIs not supported on Blazor WebAssembly</a></p>
+            <p><code>System.Security.Cryptography.Algorithms is not supported on this platform.</code></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+
+            <label class="label-control">String:</label>
+            <div class="input-group">
+                <input id="ascii" name="md5" class="form-control" @bind="md5" placeholder="">
+                <span class="input-group-btn">
+                    <button id="btnConvert" name="btnConvert" type="button" class="btn btn-success float-right" @onclick="ConvertString">Convert</button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col">
+            <textarea id="Output" name="Output" class="form-control" rows="5" @bind="Output"></textarea>
+        </div>
+    </div>
+
+    @* <hr/> *@
+
+    @* <div class="row"> *@
+    @*     <div class="col"> *@
+    @*         <p>Inspired from <a href="" target="_blank"></a></p> *@
+    @*     </div> *@
+    @* </div> *@
+</div>
+
+@code {
+    string md5 = "";
+    string Output = string.Empty;
+
+    void ConvertString()
+    {
+        Output = CreateMD5(md5);
+    }
+
+    // https://stackoverflow.com/a/24031467/2895831
+    // https://msdn.microsoft.com/en-us/library/system.security.cryptography.md5%28v=vs.110%29.aspx
+    public static string CreateMD5(string input)
+    {
+    // Use input string to calculate MD5 hash
+        using (MD5 md5 = MD5.Create())
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            return Convert.ToHexString(hashBytes); // .NET 5 +
+
+            // Convert the byte array to hexadecimal string prior to .NET 5
+            // StringBuilder sb = new System.Text.StringBuilder();
+            // for (int i = 0; i < hashBytes.Length; i++)
+            // {
+            //     sb.Append(hashBytes[i].ToString("X2"));
+            // }
+            // return sb.ToString();
+        }
+    }
+}
