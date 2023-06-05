@@ -3,9 +3,9 @@
 using Bunit;
 using Xunit;
 
-using Utility_Blazor.Shared;
+using Utility.Shared;
 
-namespace Utility_Blazor.Test
+namespace Utility.Test
 {
     public class MainLayoutTest : TestContext
     {
