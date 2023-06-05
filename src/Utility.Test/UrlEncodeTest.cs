@@ -29,7 +29,7 @@ namespace Utility.Test
         }
 
         [Fact]
-        public void UrlShouldDeccodeWhenClicked()
+        public void UrlShouldDecodeWhenClicked()
         {
             // Arrange: render the Counter.razor component
             // Act: find and click the <button> element to increment

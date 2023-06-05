@@ -1,4 +1,10 @@
-﻿@inherits LayoutComponentBase
+@implements IDisposable
+@inherits LayoutComponentBase
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject NavigationManager NavigationManager
+
+@inherits LayoutComponentBase
 
 <div class="page">
     <div class="sidebar">
@@ -7,7 +13,7 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="http://alexhedley.com/Utility/" target="_blank" class="ml-md-auto">About</a>
+            <a href="https://alexhedley.com/Utility/" target="_blank" class="ml-md-auto">About</a>
         </div>
 
         <article class="content px-4">
@@ -15,3 +21,39 @@
         </article>
     </main>
 </div>
+
+@code {
+    // Detecting navigation events
+    // https://blazor-university.com/routing/detecting-navigation-events/
+    protected override async Task OnInitializedAsync()
+    {
+        // Subscribe to the event
+        NavigationManager.LocationChanged += LocationChanged;
+        
+        var name = await localStorage.GetItemAsync<string>(Constants.LOCAL_STORAGE_TAB);
+        if (!string.IsNullOrEmpty(name))
+        {
+            NavigationManager.NavigateTo(name); // Navigate
+        }
+        
+        base.OnInitialized();
+    }
+
+    async void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        // string navigationMethod = e.IsNavigationIntercepted ? "HTML" : "code";
+        // System.Diagnostics.Debug.WriteLine($"Notified of navigation via {navigationMethod} to {e.Location}");
+        
+        Uri uri = new Uri(e.Location);
+        string pathName = uri.AbsolutePath;
+        pathName = pathName.Replace("/", "");
+        
+        await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, pathName);
+    }
+
+    void IDisposable.Dispose()
+    {
+        // Unsubscribe from the event when our component is disposed
+        NavigationManager.LocationChanged -= LocationChanged;
+    }
+}
