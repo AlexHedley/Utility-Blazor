@@ -3,6 +3,14 @@
 /* /Components/EpochConverter/EpochConverter.razor.rz.scp.css */
 /* /Components/HexToRGB/HexToRGB.razor.rz.scp.css */
 /* /Components/MD5Converter/MD5Converter.razor.rz.scp.css */
+/* /Components/MonacoDiffEditor/MonacoDiffEditor.razor.rz.scp.css */
+[b-63a95zpfsk] #diff-editor {
+    height: 500px;
+}
+/* /Components/MonacoEditor/MonacoEditor.razor.rz.scp.css */
+[b-cxzijckphf] #editor {
+    height: 500px;
+}
 /* /Components/SQLInClause/SQLInClause.razor.rz.scp.css */
 /* /Components/SQLInput/SQLInput.razor.rz.scp.css */
 /* /Components/StringConverter/StringConverter.razor.rz.scp.css */
