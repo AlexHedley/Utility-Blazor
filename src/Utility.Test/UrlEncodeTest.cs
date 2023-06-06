@@ -1,9 +1,7 @@
-﻿using System;
-
-using Bunit;
+﻿using Bunit;
 using Xunit;
 
-using Utility.Pages;
+using Utility.Components.UrlEncode;
 
 namespace Utility.Test
 {

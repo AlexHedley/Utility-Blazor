@@ -1,14 +1,17 @@
 ﻿@using System.Net;
 @*@using System.Net.WebUtility;*@
 
-@page "/urlencode"
-
-<h1>Url Encode / Decode</h1>
-
 <div class="container">
+    
     <div class="row">
         <div class="col">
-            
+            <h2>Url Encode / Decode</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Encode:</span>
@@ -18,13 +21,13 @@
                     <button id="btnEncode" name="btnEncode" @onclick="Encode" class="btn btn-success float-right">Encode</button>
                 </span>
             </div>
-            
+
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Decode:</span>
@@ -34,12 +37,12 @@
                     <button id="btnDecode" name="btnDecode" @onclick="Decode" class="btn btn-success float-right">Decode</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
-    <hr />
-    
+
+    <hr/>
+
     <div class="row">
         <div class="col">
             <p>Inspired from <a href="https://meyerweb.com/eric/tools/dencoder/" target="_blank">meyerweb URL Decoder/Encoder</a></p>

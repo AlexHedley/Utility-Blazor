@@ -1,25 +1,32 @@
-﻿@using System.Web;
+@using System.Web;
 @using System.Collections.Specialized;
 
-@page "/url"
-
-<h1>Url</h1>
-
 <div class="container">
+    
     <div class="row">
-        <div class="input-group mb-3">
-            <input type="text" id="path" name="path" class="form-control" @bind="path">
-            <div class="input-group-append">
-                <span class="input-group-text" id="urlCount">@pathLength</span>
+        <div class="col">
+            <h2>Url Splitter</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <input type="text" id="path" name="path" class="form-control" @bind="Path">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="urlCount">@pathLength</span>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <button id="btnPathSplit" name="btnPathSplit" class="btn btn-success float-right"
+        <div class="col">
+            <button id="btnPathSplit" name="btnPathSplit" class="btn btn-success float-right"
                 @onclick="Split">Split</button>
+        </div>
     </div>
 
-    <br />
+    <br/>
 
     <!-- Hostname -->
     <div class="row">
@@ -54,20 +61,20 @@
         <div class="col-12">
             <table id="urlParams">
                 <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Value</th>
-                    </tr>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
                 </thead>
                 <tfoot></tfoot>
                 <tbody>
-                    @foreach (string key in queryString)
-                    {
+                @foreach (string key in queryString)
+                {
                     <tr>
                         <td><em>@key</em></td>
                         <td><em>@queryString[key]</em></td>
                     </tr>
-                    }
+                }
                 </tbody>
 
             </table>
@@ -77,25 +84,26 @@
 </div>
 
 @code {
-
-    string path;
+    [Parameter]
+    public string Path { get; set; }
+    
     int pathLength;
     string hostname;
     string pathName;
     NameValueCollection queryString;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        path = "http://www.alexhedley.com/path?query=this&param=that";
-        pathLength = path.Length;
+        Path = "https://www.alexhedley.com/path?query=this&param=that";
+        pathLength = Path.Length;
         queryString = new NameValueCollection();
     }
 
     private void Split()
     {
-        pathLength = path.Length;
+        pathLength = Path.Length;
 
-        Uri uri = new Uri(path);
+        Uri uri = new Uri(Path);
         hostname = uri.Host;
         pathName = uri.AbsolutePath;
         queryString = HttpUtility.ParseQueryString(uri.Query);
