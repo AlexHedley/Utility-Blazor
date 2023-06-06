@@ -30,6 +30,8 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Epoch Converter
 - Remove whitespace
 - Monaco Editor
+- kb - mb - gb converter
+- time converter
 
 ---
 
@@ -45,8 +47,6 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
-- kb - mb - gb converter
-- time converter
 
 ### Not Possible
 
