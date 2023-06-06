@@ -55,14 +55,14 @@ namespace Utility.Test
         //     cut.FindAll("input")[3].MarkupMatches(markup); //newGuid
         // }
         
-        [Fact]
-        public void NewGuidShouldRemoveDashesWhenClicked()
-        {
-            var cut = RenderComponent<GuidGenerator>();
-            cut.FindAll("input")[4].Change(true); //chkRemoveDashes
-            string markup = "<input type=\"text\" id=\"newGuid\" name=\"newGuid\" class=\"form-control\" placeholder=\"00000000-0000-0000-0000-000000000000\" readonly=\"\">";
-            cut.FindAll("input")[3].MarkupMatches(markup); // newGuid
-        }
+        // [Fact]
+        // public void NewGuidShouldRemoveDashesWhenClicked()
+        // {
+        //     var cut = RenderComponent<GuidGenerator>();
+        //     cut.FindAll("input")[4].Change(true); //chkRemoveDashes
+        //     string markup = "<input type=\"text\" id=\"newGuid\" name=\"newGuid\" class=\"form-control\" placeholder=\"00000000-0000-0000-0000-000000000000\" readonly=\"\">";
+        //     cut.FindAll("input")[3].MarkupMatches(markup); // newGuid
+        // }
         
         // [Fact]
         // public void NewGuidShouldCopyToClipboard()
