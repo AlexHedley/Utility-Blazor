@@ -1,0 +1,76 @@
+@using System.Text
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <h2>⏱️ Time Converter</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Seconds:</span>
+                </div>
+                <input type="number" id="input" class="form-control" @bind="Input" placeholder="60" />
+                <span class="input-group-btn">
+                    <button id="btnClear" name="btnBinaryClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>@*Clear*@</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="btnConvert" name="btnConvert" class="btn btn-success float-right" @onclick="Convert">Convert</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">hh:mm:ss:fff</span>
+                </div>
+                <input id="output" class="form-control" @bind="Output" placeholder="hh:mm:ss:fff" readonly="readonly" />
+                <span class="input-group-btn">
+                    <button id="btnCopy" name="btnCopy" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@code {
+    long Input = 60;
+    string Output = string.Empty;
+    
+    void Convert()
+    {
+        var data = ConvertTime(Input);
+        Output = data;
+    }
+    
+    private void Clear()
+    {
+        Input = 0;
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+    
+    #region Convert
+    static string ConvertTime(long seconds)
+    {
+        TimeSpan time = TimeSpan.FromSeconds(seconds);
+        return time.ToString(@"hh\:mm\:ss\:fff");
+    }
+    #endregion Convert
+}
