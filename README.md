@@ -29,14 +29,19 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - String Convert
 - Epoch Converter
 - Remove whitespace
+- Monaco Editor
+
+---
+
+- Remember selected tab
 
 ### WIP
 
 - Unicode
+- Diff
 
 ### Todo
 
-- Diff
 - SQL Formatter
 - XML Pretty
 - JSON Pretty
@@ -49,8 +54,8 @@ Utility Web App written in Blazor WebAssembly (WASM)
 
 ---
 
-- Remember selected tab
-
 ## Docs
 
 - [docs](docs/README.md)
+
+- [Utility](https://github.com/AlexHedley/Utility)

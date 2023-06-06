@@ -1,0 +1,54 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <div style="margin:10px 0;">
+                Theme:
+                <select id="theme" @onchange="ChangeTheme">
+                    <option value="vs">Visual Studio</option>
+                    <option value="vs-dark">Visual Studio Dark</option>
+                    <option value="hc-black">High Contrast Black</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p><strong>Language:</strong> javascript</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <StandaloneCodeEditor
+                Id="editor"
+                ConstructionOptions="EditorConstructionOptions"
+                CssClass="editor"
+                @ref="_editor" />
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private StandaloneCodeEditor _editor = null!;
+    
+    private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
+    {
+        return new StandaloneEditorConstructionOptions
+        {
+            AutomaticLayout = true,
+            Language = "javascript",
+            Value = "function xyz() {\n" +
+                    "   console.log(\"Hello world!\");\n" +
+                    "}"
+        };
+    }
+
+    private async Task ChangeTheme(ChangeEventArgs e)
+    {
+        Console.WriteLine($"setting theme to: {e.Value?.ToString()}");
+        await Global.SetTheme(e.Value?.ToString());
+    }
+}

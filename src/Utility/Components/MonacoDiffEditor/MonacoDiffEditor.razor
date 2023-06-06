@@ -1,0 +1,95 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <div style="margin:10px 0;">
+                Theme:
+                <select id="theme" @onchange="ChangeTheme">
+                    <option value="vs">Visual Studio</option>
+                    <option value="vs-dark">Visual Studio Dark</option>
+                    <option value="hc-black">High Contrast Black</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p>⚠️ <strong>WIP</strong></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p><strong>Language:</strong> @Language</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <StandaloneDiffEditor 
+                Id="diff-editor"
+                ConstructionOptions="DiffEditorConstructionOptions"
+                OnKeyUpOriginal="OnKeyUpOriginal"
+                OnKeyUpModified="OnKeyUpModified"
+                @ref="_diffEditor"
+            />
+            @* OnDidInit="EditorOnDidInit" *@
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public string Language { get; set; } = "javascript";
+
+    [Parameter] public string Original { get; set; }
+
+    [Parameter] public string Modified { get; set; }
+    
+    private StandaloneDiffEditor _diffEditor = null!;
+    
+    private StandaloneDiffEditorConstructionOptions DiffEditorConstructionOptions(StandaloneDiffEditor editor)
+    {
+        return new StandaloneDiffEditorConstructionOptions
+        {
+            OriginalEditable = true
+        };
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        try
+        {
+            await _diffEditor.SetModel(new DiffEditorModel()
+            {
+                Original = await Global.CreateModel(Original, Language),
+                Modified = await Global.CreateModel(Modified, Language)
+            });
+        }
+        catch (JSException)
+        {
+        }
+    }
+
+    // private async Task EditorOnDidInit()
+    // {
+    //     
+    // }
+    
+    private void OnKeyUpOriginal(KeyboardEvent keyboardEvent)
+    {
+        Console.WriteLine("OnKeyUpOriginal : " + keyboardEvent.Code);
+    }
+    
+    private void OnKeyUpModified(KeyboardEvent keyboardEvent)
+    {
+        Console.WriteLine("OnKeyUpModified : " + keyboardEvent.Code);
+    }
+
+    private async Task ChangeTheme(ChangeEventArgs e)
+    {
+        Console.WriteLine($"setting theme to: {e.Value?.ToString()}");
+        await Global.SetTheme(e.Value?.ToString());
+    }
+}
