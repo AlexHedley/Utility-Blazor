@@ -44,9 +44,9 @@
         
         Uri uri = new Uri(e.Location);
         string pathName = uri.AbsolutePath;
-        pathName = pathName.Replace("/", "");
+        var path = pathName.Split(new []{ "/" }, StringSplitOptions.RemoveEmptyEntries);
         
-        await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, pathName);
+        await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, path[^1]);
     }
 
     void IDisposable.Dispose()
