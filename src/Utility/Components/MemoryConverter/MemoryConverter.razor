@@ -1,0 +1,93 @@
+@using System.Text
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <h2>Memory Converter</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <input type="number" id="input" class="form-control" @bind="Input"/>
+                <span class="input-group-btn">
+                    <button id="btnClear" name="btnBinaryClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>@*Clear*@</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="btnConvert" name="btnConvert" class="btn btn-success float-right" @onclick="Convert">Convert</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <input id="output" class="form-control" @bind="Output"/>
+                <span class="input-group-btn">
+                    <button id="btnCopy" name="btnCopy" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@code {
+    long Input = 1030;
+    string Output = string.Empty;
+    
+    void Convert()
+    {
+        var data = SizeSuffix(Input);
+        Output = data;
+    }
+    
+    private void Clear()
+    {
+        Input = 0;
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+    
+    #region Convert
+    // https://stackoverflow.com/a/14488941/2895831
+    static readonly string[] SizeSuffixes = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+    
+    static string SizeSuffix(Int64 value, int decimalPlaces = 1)
+    {
+        if (decimalPlaces < 0) { throw new ArgumentOutOfRangeException("decimalPlaces"); }
+        if (value < 0) { return "-" + SizeSuffix(-value, decimalPlaces); } 
+        if (value == 0) { return string.Format("{0:n" + decimalPlaces + "} bytes", 0); }
+
+        // mag is 0 for bytes, 1 for KB, 2, for MB, etc.
+        int mag = (int)Math.Log(value, 1024);
+
+        // 1L << (mag * 10) == 2 ^ (10 * mag) 
+        // [i.e. the number of bytes in the unit corresponding to mag]
+        decimal adjustedSize = (decimal)value / (1L << (mag * 10));
+
+        // make adjustment when the value is large enough that
+        // it would round up to 1000 or more
+        if (Math.Round(adjustedSize, decimalPlaces) >= 1000)
+        {
+            mag += 1;
+            adjustedSize /= 1024;
+        }
+
+        return string.Format("{0:n" + decimalPlaces + "} {1}", 
+            adjustedSize, 
+            SizeSuffixes[mag]);
+    }
+    #endregion Convert
+}
