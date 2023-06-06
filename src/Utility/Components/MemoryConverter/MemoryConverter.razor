@@ -44,8 +44,17 @@
 </div>
 
 @code {
-    long Input = 1030;
-    string Output = string.Empty;
+    [Parameter]
+    public long Input { get; set; }
+    
+    [Parameter]
+    public string? Output { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Input = 1030;
+        Output = string.Empty;
+    }
     
     void Convert()
     {
