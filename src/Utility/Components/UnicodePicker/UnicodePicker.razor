@@ -15,15 +15,15 @@
             
             <div>
                 <table>
-                @for (int i = 0; i <= (UnicodeCharacters.Count - 1) / 15; ++i)
-                {
-                    <tr>
-                    @for (int j = 0; j < 15 && i + j < UnicodeCharacters.Count; ++j)
-                    {
-                        <td>@((MarkupString)@$"\u{UnicodeCharacters[i+j]}")<br />@UnicodeCharacters[i+j]</td>
-                    }
-                    </tr>
-                }
+                @* @for (int i = 0; i <= (UnicodeCharacters.Count - 1) / 15; ++i) *@
+                @* { *@
+                @*     <tr> *@
+                @*     @for (int j = 0; j < 15 && i + j < UnicodeCharacters.Count; ++j) *@
+                @*     { *@
+                @*         <td>@((MarkupString)@$"\u{UnicodeCharacters[i+j]}")<br />@UnicodeCharacters[i+j]</td> *@
+                @*     } *@
+                @*     </tr> *@
+                @* } *@
                 </table>
             </div>
             
@@ -57,40 +57,40 @@
     
     private string errorMessage;
     
-    protected override async Task OnInitializedAsync()
-    {
-        // HttpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
-        // HttpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        
-        // var unicodeDataUrl = "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt";
-        var unicodeDataUrl = "data/UnicodeData.txt";
-        var content = await HttpClient.GetStringAsync(unicodeDataUrl);
-
-        // foreach (var line in content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None))
-        // {
-        //     // 0000;<control>;Cc;0;BN;;;;;N;NULL;;;;
-        //     var unicode = line.Split(";");
-        //     Console.WriteLine(unicode[0]);
-        // }
-
-        UnicodeCharacters = content
-            .Split(new string[] { Environment.NewLine }, StringSplitOptions.None)
-            .Select(line => line.Split(";").FirstOrDefault())
-            // .Select(u => $"&#x{u};")
-            // .Select(u => $@"\u{u}")
-            .ToList();
-        
-        // UnicodeCharacters.Insert(0, "&#x1F494;");
-        // UnicodeCharacters.Insert(0, "\u1F494");
-        Console.WriteLine(UnicodeCharacters.Count());
-        
-        string text = "\u2019";
-        byte[] textBytes = Encoding.Unicode.GetBytes(text);
-        Encoding.UTF8.GetString(Encoding.Convert(Encoding.Unicode, Encoding.UTF8, textBytes));
-        
-        var escaped = System.Text.RegularExpressions.Regex.Unescape(@"\u2019");
-        Console.WriteLine(escaped);
-    }
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     // HttpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
+    //     // HttpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //     
+    //     // var unicodeDataUrl = "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt";
+    //     var unicodeDataUrl = "data/UnicodeData.txt";
+    //     var content = await HttpClient.GetStringAsync(unicodeDataUrl);
+    //
+    //     // foreach (var line in content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None))
+    //     // {
+    //     //     // 0000;<control>;Cc;0;BN;;;;;N;NULL;;;;
+    //     //     var unicode = line.Split(";");
+    //     //     Console.WriteLine(unicode[0]);
+    //     // }
+    //
+    //     UnicodeCharacters = content
+    //         .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.None)
+    //         .Select(line => line.Split(";").FirstOrDefault())
+    //         // .Select(u => $"&#x{u};")
+    //         // .Select(u => $@"\u{u}")
+    //         .ToList();
+    //     
+    //     // UnicodeCharacters.Insert(0, "&#x1F494;");
+    //     // UnicodeCharacters.Insert(0, "\u1F494");
+    //     Console.WriteLine(UnicodeCharacters.Count());
+    //     
+    //     string text = "\u2019";
+    //     byte[] textBytes = Encoding.Unicode.GetBytes(text);
+    //     Encoding.UTF8.GetString(Encoding.Convert(Encoding.Unicode, Encoding.UTF8, textBytes));
+    //     
+    //     var escaped = System.Text.RegularExpressions.Regex.Unescape(@"\u2019");
+    //     Console.WriteLine(escaped);
+    // }
     
     // private void Clear()
     // {

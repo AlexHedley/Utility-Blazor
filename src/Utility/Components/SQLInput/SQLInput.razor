@@ -60,7 +60,7 @@
 
     private void Parse()
     {
-        var items = Input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        var items = Input.Split(new[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
         var likeItems = string.Join(" OR ", items.Select(i => $"{Field} LIKE {wildcard}{i.Trim()}{wildcard}"));
 
         Output = likeItems;
