@@ -1,0 +1,59 @@
+@using System.Net
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Markdown Converter</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <textarea id="html" class="form-control" rows="5" @bind="HTML"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnConvert" name="btnConvert" class="btn btn-success float-right" @onclick="Convert">Convert</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <textarea id="markdown" class="form-control" rows="5" @bind="Markdown"></textarea>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+        <div class="col">
+            <p>Powered by <a href="https://github.com/mysticmind/reversemarkdown-net/" target="_blank">ReverseMarkdown</a> and <a href="https://html-agility-pack.net" target="_blank">HtmlAgilityPack</a>.</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string HTML { get; set; }
+    
+    [Parameter]
+    public string Markdown { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // html = "&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;";
+        HTML = "<html><body><h1>Hello</h1></body></html>";
+        Markdown = string.Empty;
+    }
+
+    private void Convert()
+    {
+        var writer = new StringWriter();
+        WebUtility.HtmlDecode(HTML, writer);
+        HTML = writer.ToString();
+        
+        var converter = new ReverseMarkdown.Converter();
+        Markdown = converter.Convert(HTML);
+    }
+
+}
