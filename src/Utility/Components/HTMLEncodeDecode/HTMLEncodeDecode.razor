@@ -1,0 +1,75 @@
+@using System.IO;
+@using System.Net;
+
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h2>HTML Encode / Decode</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <textarea id="decoded" class="form-control" rows="5" @bind="Decoded"></textarea>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnEncode" name="btnEncode" class="btn btn-success float-right" @onclick="Encode">Encode</button>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <textarea id="encoded" class="form-control" rows="5" @bind="Encoded"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnDecode" name="btnDecode" class="btn btn-success float-right" @onclick="Decode">Decode</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>@((MarkupString)Encoded)</div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Decoded { get; set; }
+    
+    [Parameter]
+    public string Encoded { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Decoded = "&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;";
+        Encoded = string.Empty;
+    }
+
+    private void Encode()
+    {
+        var writer = new StringWriter();
+        WebUtility.HtmlDecode(Decoded, writer);
+        Encoded = writer.ToString();
+    }
+
+    private void Decode()
+    {
+        Decoded = WebUtility.HtmlEncode(Encoded);
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Encoded);
+    }
+}
