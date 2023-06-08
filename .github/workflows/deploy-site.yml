@@ -3,12 +3,17 @@ name: Deploy to GitHub Pages
 # Run workflow on every push to the master branch
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, dev ]
-    paths: src/**
-  pull_request:
-    branches: [ main ]
-    paths: src/**
+#   push:
+#     branches: [ main, dev ]
+#     paths: src/**
+#   pull_request:
+#     branches: [ main ]
+#     paths: src/**
+  # Only trigger, when the build workflow succeeded
+  workflow_run:
+    workflows: ["Build / Test (with Reports)"]
+    types:
+      - completed
 
 jobs:
   deploy-to-github-pages:
@@ -24,17 +29,13 @@ jobs:
         dotnet-version: '6.0.x'
         include-prerelease: true
     
-    # Run Tests
-    - name: Unit Testing
-      run: dotnet test src/Utility.Test/Utility.Test.csproj
-    
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
       run: dotnet publish src/Utility/Utility.csproj -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'Utility' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to Utility-Blazor
-      run: sed -i 's/<base href="\/" \/>/<base href="\/Utility-Blazor\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/app\/Utility-Blazor\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
@@ -50,9 +51,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: release/wwwroot
-    
-    #- name: Deploy to GitHub Pages
-    #  uses: peaceiris/actions-gh-pages@v3.6.1
-    #  with:
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    publish_dir: release/wwwroot
+        target-folder: app
