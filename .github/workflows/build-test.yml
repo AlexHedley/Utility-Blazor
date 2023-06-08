@@ -10,13 +10,13 @@ on:
     branches: [ main ]
     paths: src/**
 
-permissions:
-  contents: read
-  issues: read
-  checks: write
-  pull-requests: write
-  pages: write
-  #id-token: write
+# permissions:
+#   contents: read
+#   issues: read
+#   checks: write
+#   pull-requests: write
+#   pages: write
+#   #id-token: write
 
 jobs:
   build-test:
