@@ -48,8 +48,9 @@ jobs:
     
     # Run Tests
     - name: Unit Testing
-      # run: dotnet test src/Utility.Test/Utility.Test.csproj
-      run: dotnet test src/Utility.Test/Utility.Test.csproj --collect:"XPlat Code Coverage" 
+      # run: dotnet test Utility.Test/Utility.Test.csproj
+      run: dotnet test Utility.Test/Utility.Test.csproj --collect:"XPlat Code Coverage"
+      working-directory: src
       
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
@@ -57,6 +58,7 @@ jobs:
       with:
         xunit_files: 'src/Utility.Test/TestResults/**/coverage.cobertura.xml'
     
+    # ReportGenerator -reports:"src/Utility.Test/TestResults/**/coverage.cobertura.xml" -targetdir:coveragereport
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.1.9
       with:
@@ -81,7 +83,7 @@ jobs:
 #       # if: github.event_name == 'push'
 #       with:
 #         github_token: ${{ secrets.GITHUB_TOKEN }}
-#         publish_dir: CoverageReport
+#         publish_dir: coveragereport
 #         destination_dir: coverage
 #         enable_jekyll: true
         
@@ -90,7 +92,7 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: CoverageReport
+        FOLDER: coveragereport
         TARGET_FOLDER: coverage
     
     - name: Upload coverage report artifact
