@@ -1,0 +1,89 @@
+@using System.Linq;
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <input id="luhnCheck" name="luhnCheck" class="form-control" @bind="check" placeholder="378282246310005" />
+                <span class="input-group-btn">
+                    <button id="btnLuhnCheckClear" name="btnLuhnCheckClear" class="btn btn-danger float-right" @onclick="ClearSingle"><i class="far fa-trash-alt"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnLuhnCheck" name="btnLuhnCheck" class="btn btn-success float-right"@onclick="CheckSingle">Check</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label class="label-control">Valid?</label>
+            <label class="label-control" id="luhnCheckLabel">@valid.ToString()</label>
+        </div>
+    </div>
+    @*<div class="row">
+        <textarea id="luhnChecks" class="form-control" @bind="checks"></textarea>
+    </div>
+    <div class="row">
+        <button id="btnLuhnChecks" name="btnLuhnChecks" class="btn btn-success float-right"
+                @onclick="CheckMultiple">
+            Check
+        </button>
+        <button id="btnLuhnChecksClear" name="btnLuhnChecksClear" class="btn btn-danger float-right"
+                @onclick="ClearMultiple">
+            <i class="far fa-trash-alt"></i>
+        </button>
+    </div>*@
+</div>
+
+@code {
+
+    [Parameter]
+    public string check  { get; set; }
+    
+    [Parameter]
+    public bool valid  { get; set; }
+    //string checks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // check = "378282246310005"; //string.Empty;
+        valid = false;
+        // valid = LuhnCheck(check);
+        //checks = "b"; //string.Empty;
+    }
+
+    private void CheckSingle()
+    {
+        valid = LuhnCheck(check);
+    }
+
+    private void ClearSingle()
+    {
+        check = string.Empty;
+    }
+
+    @*private void CheckMultiple()
+    {
+        var valid = LuhnCheck(check);
+    }
+
+    private void ClearMultiple()
+    {
+        checks = string.Empty;
+    }*@
+
+    // https://stackoverflow.com/a/40491537
+    private static bool LuhnCheck(string digits)
+    {
+        if (string.IsNullOrEmpty(digits)) return false;
+        
+        return digits.All(char.IsDigit) && digits.Reverse()
+            .Select(c => c - 48)
+            .Select((thisNum, i) => i % 2 == 0
+                ? thisNum
+                : ((thisNum *= 2) > 9 ? thisNum - 9 : thisNum)
+            ).Sum() % 10 == 0;
+    }
+}
