@@ -76,14 +76,22 @@ jobs:
         # customSettings: '' # Optional custom settings (separated by semicolon). See: https://github.com/danielpalme/ReportGenerator/wiki/Settings.
         toolpath: 'reportgeneratortool' # Default directory for installing the dotnet tool.
     
+#     - name: Deploy Code Coverage Report
+#       uses: peaceiris/actions-gh-pages@v3
+#       # if: github.event_name == 'push'
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir: CoverageReport
+#         destination_dir: coverage
+#         enable_jekyll: true
+        
     - name: Deploy Code Coverage Report
-      uses: peaceiris/actions-gh-pages@v3
-      # if: github.event_name == 'push'
+      uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: CoverageReport
-        destination_dir: coverage
-        enable_jekyll: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: CoverageReport
+        TARGET_FOLDER: coverage
     
     - name: Upload coverage report artifact
       uses: actions/upload-artifact@v2.2.3
