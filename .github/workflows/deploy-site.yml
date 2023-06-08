@@ -15,13 +15,13 @@ on:
     types:
       - completed
 
-permissions:
-  contents: read
-  issues: read
-  checks: write
-  pull-requests: write
-  pages: write
-  id-token: write
+# permissions:
+#   contents: read
+#   issues: read
+#   checks: write
+#   pull-requests: write
+#   pages: write
+#   id-token: write
 
 jobs:
   deploy-to-github-pages:
