@@ -3,12 +3,12 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success float-right" @onclick="Clear">Clear</button>
+            <div class="input-group">
+                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
+                </span>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -20,7 +20,7 @@
                     <option value="'">'</option>
                 </select>
                 <span class="input-group-btn">
-                    <button class="btn btn-info" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
+                    <button class="btn btn-success" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
                 </span>
             </div>
         </div>
@@ -37,12 +37,13 @@
     </div>
     <div class="row">
         <div class="col">
-            <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+            <div class="input-group">
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -57,9 +58,12 @@
     {
         Input = string.Empty;
     }
+    
 
     private void Parse()
     {
+        if (Input.Length == 0) return;
+        
         Output = string.Empty;
         var items = Input.Split().Where(x => x != string.Empty);
         if (RemoveDuplicates) items = items.Distinct();

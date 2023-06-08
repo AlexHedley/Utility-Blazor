@@ -3,7 +3,7 @@
 <div class="container">
     <label class="label-control">Field:</label>
     <div class="input-group">
-        <input type="text" id="field" name="field" class="form-control" @bind="Field">@*placeholder="i.[Guid]"*@
+        <input type="text" id="field" name="field" class="form-control" @bind="Field">
         <span class="input-group-btn">
             <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
             <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
@@ -17,12 +17,21 @@
                     <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
                 </span>
             </div>
-            
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <button class="btn btn-success" type="button" id="btnParse" name="btnParse" @onclick="Parse">Parse</button>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkIncludeWildcard" @bind-value="IncludeWildcard" checked="@(IncludeWildcard ? "checked" : null)">
+                <label class="form-check-label" for="chkIncludeWildcard">
+                    Include Wildcard
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-success" type="button" id="btnParse" name="btnParse" @onclick="Create">Create</button>
         </div>
     </div>
     <div class="row">
@@ -40,10 +49,27 @@
 
 @code {
 
-    string Field = string.Empty;
-    string Input = string.Empty;
-    string Output = string.Empty;
-    string wildcard = "%";
+    [Parameter]
+    public string? Field { get; set; }
+    
+    [Parameter]
+    public string? Input { get; set; }
+    
+    [Parameter]
+    public string? Output { get; set; }
+
+    [Parameter]
+    public bool IncludeWildcard { get; set; }
+    
+    string wildcard = "*";
+    
+    protected override void OnInitialized()
+    {
+        // Field = string.Empty;
+        // Input = string.Empty;
+        // Output = string.Empty;
+        IncludeWildcard = false;
+    }
 
     async Task CopyField()
     {
@@ -60,10 +86,14 @@
         Input = string.Empty;
     }
 
-    private void Parse()
+    private void Create()
     {
+        // CONTAINS(Description, @SearchWord)
+        // WHERE CONTAINS(t.something, '"bla*" OR "foo*" OR "batz*"')
+
+        wildcard = IncludeWildcard ? "*" : "";
         var items = Input.Split(new[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-        var likeItems = string.Join(" OR ", items.Select(i => $"{Field} LIKE {wildcard}{i.Trim()}{wildcard}"));
+        var likeItems = string.Join(" OR ", items.Select(i => $"CONTAINS ({Field}, {wildcard}{i.Trim()}{wildcard})"));
 
         Output = likeItems;
     }

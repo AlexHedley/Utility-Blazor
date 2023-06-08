@@ -2,6 +2,7 @@
 
 @using Utility.Components.SQLInClause
 @using Utility.Components.SQLInput
+@using Utility.Components.SQLContains
 
 @inject IJSRuntime JSRuntime
 
@@ -29,6 +30,19 @@
             <SQLInput />
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col">
+            
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Contains</h1>
+            </div>
+            
+            <SQLContains />
+        </div>
+    </div>
+    
+    <br />
 
 </div>
 
