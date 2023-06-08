@@ -1,9 +1,9 @@
-﻿body {
+::deep body {
     font-family: Helvetica, Arial, sans-serif;
     background-color: #EEEEEE;
 }
 
-div.main {
+::deep div.main {
     background-color: white;
     border-radius: 10px;
     border: 2px solid #666666;
@@ -13,7 +13,7 @@ div.main {
     max-width: 1000px;
 }
 
-div.output {
+::deep div.output {
     margin: 3em 0;
     border: 1px solid #666666;
     padding: 0.4em 0.2em;
@@ -21,41 +21,41 @@ div.output {
     cursor: default;
 }
 
-    div.output span.symbol {
-        color: white;
-        background-color: #999999;
-        padding: 0 2px;
-        margin: 0 2px;
-    }
+::deep div.output span.symbol {
+    color: white;
+    background-color: #999999;
+    padding: 0 2px;
+    margin: 0 2px;
+}
 
-    div.output span.hex {
-        color: black;
-        background-color: #9999FF;
-        padding: 0 2px;
-        margin: 0 2px;
-    }
+::deep div.output span.hex {
+    color: black;
+    background-color: #9999FF;
+    padding: 0 2px;
+    margin: 0 2px;
+}
 
-span.S2Tooltip.anchor {
+::deep span.S2Tooltip.anchor {
     white-space: nowrap;
 }
 
-span.S2Tooltip.container {
+::deep span.S2Tooltip.container {
     position: absolute;
     z-index: 999;
     left: -99999px;
     top: -99999px;
 }
 
-span.S2Tooltip.anchor:hover {
+::deep span.S2Tooltip.anchor:hover {
     background-color: #FF9999;
 }
 
-    span.S2Tooltip.anchor:hover + span.S2Tooltip.container {
-        left: auto;
-        top: auto;
-    }
+::deep span.S2Tooltip.anchor:hover + span.S2Tooltip.container {
+    left: auto;
+    top: auto;
+}
 
-span.S2Tooltip.tiptext {
+::deep span.S2Tooltip.tiptext {
     position: absolute;
     left: -2em;
     top: 1.5em;

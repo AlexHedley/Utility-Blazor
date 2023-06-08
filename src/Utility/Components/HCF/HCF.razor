@@ -1,0 +1,267 @@
+@using System.IO
+@using System.Text
+@using System.Text.RegularExpressions
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p><a href="https://www.soscisurvey.de/tools/view-chars.php" target="_blank">View non-printable unicode characters</a></p>
+            <p><a href="https://github.com/BurninLeo/see-non-printable-characters/blob/main/view-chars.php"target="_blank">Source</a></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <h2>View non-printable unicode characters</h2>
+            <p>Online tool to display non-printable characters that may be hidden in copy&pasted strings.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="s">Please paste the string here:</label>
+            <textarea id="s" name="s" class="form-control" rows="8" cols="40" 
+                @bind="s" style="width: 100%; box-sizing: border-box;"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnEncode" name="btnEncode" class="btn btn-success float-right" @onclick="Encode"> Show me the characters</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @* <div class="output">
+                @((MarkupString)output)
+            </div> *@
+
+            @((MarkupString)output)
+
+            <p># characters, # bytes</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="output2">
+                <span class="S2Tooltip anchor">S</span>
+                <span class="S2Tooltip container">
+                    <span class="S2Tooltip tiptext rounded shadow">83<br>0x53</span>
+                </span>
+                <span class="hex S2Tooltip anchor">U+A0</span>
+                <span class="S2Tooltip container">
+                    <span class="S2Tooltip tiptext rounded shadow">&amp;#160;<br>\u00A0</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <h2>Helpful Sites for Details on UTF Characters</h2>
+            <ul>
+                <li><a href="https://www.branah.com/unicode-converter" target="_blank">Branah.com Unicode Converter</a></li>
+                <li><a href="http://www.fileformat.info/info/unicode/char/search.htm" target="_blank">FileFormat.Info</a></li>
+                <li><a href="http://utf8-chartable.de/unicode-utf8-table.pl" target="_blank">utf8-chartable.de</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@code {
+    string s;
+    string output;
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* s = "See what's hidden in your string…	or be​hind﻿"; *@
+        //s = "See\u00A0what\'s hidden in your string\u2026\tor be\\u200Bhind\uFEFF";
+        s = "a …	​﻿⟶b";
+        output = string.Empty;
+        @* var conversion = htmlChar("S"); *@
+        //var conversion = htmlChar("⟶");
+        var conversion = htmlChar("a …	​﻿⟶b");
+        Console.WriteLine($"Conversion: {conversion}");
+        output = conversion;
+    }
+
+    private void Encode()
+    {
+        var writer = new StringWriter();
+        @* output = "abc"; // writer.ToString(); *@
+
+        var html = text2html(s);
+        output = html;
+    }
+
+    private void Decode()
+    {
+        s = "";
+    }
+
+    private string parseWhitespace(string c)
+    {
+        var symbol = "";
+        if (c == "\r")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>CR</span>";
+        }
+        else if (c == "\n")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>LF</span>";
+        }
+        else if (c == "\t")
+        {
+            symbol = "<span class='symbol S2Tooltip anchor'>⟶</span>&#8203;";
+        }
+        else if (c == " ")
+        {
+            symbol = "<span class='white S2Tooltip anchor'>·</span>&#8203;";
+        }
+        return symbol;
+    }
+
+    // Checks that the character is not in other or seperator groups.
+    private bool isRegularUnicodeCharacter(string c) 
+    {
+
+        Console.WriteLine($"isRegularUnicodeCharacter Character: {c}");
+
+        //\p{M}\p{N}\p{P}\p{S}
+        var pattern = @"[\p{L}\p{M}\p{N}\p{P}\p{S}]";
+        Regex rx = new Regex(pattern);
+        MatchCollection matches = rx.Matches(c);
+
+        Console.WriteLine($"isRegularUnicodeCharacter Character: {matches.Count}");
+
+        return matches.Count > 0;
+    }
+
+    private string htmlChar(string c)
+    {
+        var desc = "";
+        var hex = "";
+        
+        //var theSize = System.Runtime.InteropServices.Marshal.SizeOf(c);
+        //Console.WriteLine($"Size: {theSize}")
+        
+        Console.WriteLine($"Length: {c.Length}");
+        var bytes = Encoding.UTF8.GetBytes(c);
+        Console.WriteLine($"Byte Length: {bytes.Length}");
+
+        if (bytes.Length == 1)
+        {
+            var c1 = char.Parse(c);
+            desc = Convert.ToByte(c1) + "<br>\r\n" + String.Format("0x{0,2:X2}", (Convert.ToByte(c1)));
+            hex = String.Format("{0,2:X2}", (Convert.ToByte(c1)));
+        }
+        else 
+        {
+            //@* $n = unpack('V', iconv('UTF-8', 'UCS-4LE', $c))[1]; *@
+            // unassigned long
+
+            bytes = Encoding.UTF8.GetBytes(c);
+            //var bytes = BitConverter.GetBytes(c);
+            var isLittleEndian = BitConverter.IsLittleEndian;
+            if (isLittleEndian) {
+                Array.Reverse(bytes);
+            }
+            
+            desc = $"&amp;#{bytes.Select(x => (int)x).Sum()};<br>";
+            hex = "\\u" + BitConverter.ToString(bytes).Replace("-", String.Empty); // \u00A0
+        }
+
+        Console.WriteLine($"CHAR: {c}");
+        Console.WriteLine($"DESC: {desc}");
+        Console.WriteLine($"HEX: {hex}");
+
+        var symbol = parseWhitespace(c);
+        // If symbol is not a whitespace char.
+        if (symbol == String.Empty)
+        {
+            var isRegularCharacter = isRegularUnicodeCharacter(c);
+            
+            if (isRegularCharacter)
+            {
+                symbol = "<span class='S2Tooltip anchor'>" + c + "</span>";
+            }
+            else
+            {
+                symbol = "<span class='hex S2Tooltip anchor'>" + hex + "</span>";
+            }
+        }
+
+        return symbol + 
+            "<span class='S2Tooltip container'>" + 
+            "<span class='S2Tooltip tiptext rounded shadow'>" + desc + "</span>" +
+            "</span>";
+    }
+
+    private string text2html(string s)
+    {
+        // UTF-8 global?
+        var html = "<div class='output'>" + "\r\n";
+        
+        var sl = s.Length;
+        var nlc = 0;
+
+        // \n = LF (Line Feed) // Used as a new line character on Unix
+        // \r = CR (Carriage Return) // Used as a new line character on Mac
+        // \r\n = CR + LF // Used as a new line character on Windows
+        // (char)13 = \r = CR
+        // Environment.NewLine = any of the above code based on the operating system
+
+        for (var i=0; i < sl; i++) 
+        {
+            var c = s.Substring(i, 1); // Get Character from string at position.
+            
+            //if and else is to deal with newline characters.
+            if (c == "\r")
+            {
+                if (nlc == 0)
+                {
+                    nlc = 1;
+	                html += htmlChar(c);
+                }
+                else if (nlc == 1)
+                {
+                    html += "<br>" + "\r\n" + htmlChar(c);
+	                nlc = 1;
+                }
+                else if (nlc == 2) {
+	                html += htmlChar(c) + "<br>" + "\r\n";
+	                nlc = 0;
+	            }
+            }
+            else if (c == "\n")
+            {
+                var sym = htmlChar(c);
+                
+                if (nlc == 0)
+                {
+	                nlc = 2;
+	                html += sym;
+	            }
+                else if (nlc == 2)
+                {
+	                html += "<br>" + "\r\n" + htmlChar(c);
+	                nlc = 2;
+	            }
+                else if (nlc == 1)
+                {
+	                html += htmlChar(c) + "<br>" + "\r\n";
+	                nlc = 0;
+	            }
+            }
+            else
+            {
+	            html += htmlChar(c);
+	        }
+        }
+
+        return html + "</div>" + "\r\n";
+    }
+}
