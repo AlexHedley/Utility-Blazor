@@ -3,3 +3,6 @@
 
 # JetBrains
 src/.idea/
+
+# Coverage Report
+src/Utility.Test/coveragereport/
