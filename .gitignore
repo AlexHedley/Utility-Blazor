@@ -6,3 +6,10 @@ src/.idea/
 
 # Coverage Report
 src/Utility.Test/coveragereport/
+coveragereport/
+
+# VSCode
+.vscode/
+
+# Ionide 
+.ionide/
