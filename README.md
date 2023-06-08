@@ -44,9 +44,10 @@ Utility Web App written in Blazor WebAssembly (WASM)
 
 ### Todo
 
-- SQL Formatter
-- XML Pretty
-- JSON Pretty
+- Monaco Editor ?
+  - SQL Formatter
+  - XML Pretty
+  - JSON Pretty
 
 ### Not Possible
 
