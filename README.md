@@ -34,6 +34,7 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Monaco Editor
 - kb - mb - gb converter
 - time converter
+- Base64 Encode/Decode
 
 ---
 
