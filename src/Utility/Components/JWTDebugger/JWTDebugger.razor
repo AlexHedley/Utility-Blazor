@@ -1,0 +1,72 @@
+@using System.Text
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>JWT Debugger</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <label class="label-control" for="algorithm-select">Algorithm:</label>
+            <select id="algorithm-select" name="algorithm-select" class="form-control" >
+                <option name="algorithm" value="HS256" selected="">HS256</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <textarea id="Input" class="form-control" rows="5" @bind="Input" placeholder="JWT"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnDecode" name="btnDecode" class="btn btn-success" @onclick="Decode"><i class="fas fa-arrows-alt-h"></i></button>
+                    <button id="btnClear" name="btnClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>@*Clear*@</button>
+                </span>
+            </div>
+        </div>
+        <div class="col">
+            <p>HEADER:ALGORITHM & TOKEN TYPE</p>
+            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+            <p>PAYLOAD:DATA</p>
+            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+            <p>VERIFY SIGNATURE</p>
+            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p>Inspired from <a href="https://jwt.io" target="_blank">JWT.io</a>.</p>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string? Input { get; set; }
+
+    [Parameter]
+    public string? Output { get; set; }
+
+    // protected override void OnInitialized() {}
+    
+    void Decode()
+    {
+        if (string.IsNullOrEmpty(Input)) return;
+        Output = "Decoded";
+    }
+    
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+}
