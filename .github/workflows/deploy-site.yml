@@ -10,10 +10,10 @@ on:
 #     branches: [ main ]
 #     paths: src/**
   # Only trigger, when the build workflow succeeded
-  workflow_run:
-    workflows: ["Build / Test (with Reports)"]
-    types:
-      - completed
+#   workflow_run:
+#     workflows: ["Build / Test (with Reports)"]
+#     types:
+#       - completed
 
 # permissions:
 #   contents: read
