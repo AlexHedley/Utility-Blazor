@@ -15,7 +15,11 @@ public class MarkdownConverterTest: TestContext
     [Fact]
     public void CheckDefaultConversion()
     {
-        var cut = RenderComponent<MarkdownConverter>();
+        var html = "<html><body><h1>Hello</h1></body></html>";
+        
+        var cut = RenderComponent<MarkdownConverter>(parameters => parameters
+            .Add(p => p.HTML, html)
+        );
         cut.Find("button").Click();
         
         string markup = "<textarea id=\"markdown\" class=\"form-control\" rows=\"5\" value=\"# Hello\"></textarea>";
