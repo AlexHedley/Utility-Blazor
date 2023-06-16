@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.23014586709886548" branch-rate="0.14705882352941177" lines-covered="142" lines-valid="617" branches-covered="20" branches-valid="136" complexity="247" version="0" timestamp="1686927365">
+<coverage line-rate="0.22575516693163752" branch-rate="0.14492753623188406" lines-covered="142" lines-valid="629" branches-covered="20" branches-valid="138" complexity="253" version="0" timestamp="1686933018">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
   <packages>
-    <package name="Utility" line-rate="0.23666666666666666" branch-rate="0.15873015873015872" complexity="237">
+    <package name="Utility" line-rate="0.23202614379084968" branch-rate="0.15625" complexity="243">
       <classes>
         <class name="Program" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -864,6 +864,56 @@
             <line number="72" hits="0" branch="false" />
             <line number="73" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="Utility.Components.JWTDebugger.JWTDebugger" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/JWTDebugger/JWTDebugger.razor" line-rate="0" branch-rate="0" complexity="6">
+          <methods>
+            <method name="get_Input" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="50" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_Output" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="53" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Decode" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Clear" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="64" hits="0" branch="false" />
+                <line number="65" hits="0" branch="false" />
+                <line number="66" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="69" hits="0" branch="false" />
+                <line number="70" hits="0" branch="false" />
+                <line number="71" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="50" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="64" hits="0" branch="false" />
+            <line number="65" hits="0" branch="false" />
+            <line number="66" hits="0" branch="false" />
+            <line number="69" hits="0" branch="false" />
+            <line number="70" hits="0" branch="false" />
+            <line number="71" hits="0" branch="false" />
           </lines>
         </class>
         <class name="Utility.Components.LuhnChecker.LuhnChecker" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/LuhnChecker/LuhnChecker.razor" line-rate="0.8571428571428571" branch-rate="0.75" complexity="5">
@@ -1886,28 +1936,28 @@
           <methods>
             <method name="get_NavMenuCssClass" signature="()" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="112" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="117" hits="0" branch="true" condition-coverage="0% (0/2)" />
               </lines>
             </method>
             <method name="ToggleNavMenu" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="115" hits="0" branch="false" />
-                <line number="116" hits="0" branch="false" />
-                <line number="117" hits="0" branch="false" />
+                <line number="120" hits="0" branch="false" />
+                <line number="121" hits="0" branch="false" />
+                <line number="122" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="110" hits="0" branch="false" />
+                <line number="115" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="110" hits="0" branch="false" />
-            <line number="112" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="115" hits="0" branch="false" />
-            <line number="116" hits="0" branch="false" />
-            <line number="117" hits="0" branch="false" />
+            <line number="117" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="120" hits="0" branch="false" />
+            <line number="121" hits="0" branch="false" />
+            <line number="122" hits="0" branch="false" />
           </lines>
         </class>
       </classes>
