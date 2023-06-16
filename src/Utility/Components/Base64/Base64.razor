@@ -1,0 +1,92 @@
+@using System.Text
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Base64 Encode/Decode</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <textarea id="binary" class="form-control" rows="5" @bind="Input" placeholder="Base64"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnDecode" name="btnDecode" class="btn btn-success" @onclick="Decode"><i class="fas fa-arrows-alt-h"></i></button>
+                    <button id="btnClear" name="btnClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>@*Clear*@</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <textarea id="output" class="form-control" rows="5" @bind="Output" placeholder="String"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnEncode" name="btnEncode" class="btn btn-success" @onclick="Encode"><i class="fas fa-arrows-alt-h"></i></button>
+                    @* <button id="btnClear" name="btnClear" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i>$1$Clear#1#</button> *@
+                    <button id="btnCopy" name="btnCopy" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>Inspired from <a href="https://www.base64encode.org" target="_blank">base64encode</a></p>
+            <p>Inspired from <a href="https://www.base64decode.org" target="_blank">base64decode</a></p>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string? Input { get; set; }
+    
+    [Parameter]
+    public string? Output { get; set; }
+    
+    // protected override void OnInitialized()
+    // {
+    //     Input = "QWxleEhlZGxleQ=="; // How self important //string.Empty;
+    //     Output = string.Empty;
+    // }
+    
+    void Encode()
+    {
+        if (string.IsNullOrEmpty(Output)) return;
+        Input = Base64Encode(Output);
+    }
+    
+    void Decode()
+    {
+        if (string.IsNullOrEmpty(Input)) return;
+        Output = Base64Decode(Input);
+    }
+    
+    private void Clear()
+    {
+        Input = string.Empty;
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+    
+    // https://stackoverflow.com/a/11743162/2895831
+    
+    public static string Base64Encode(string plainText) 
+    {
+        var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        return System.Convert.ToBase64String(plainTextBytes);
+    }
+    
+    public static string Base64Decode(string base64EncodedData) 
+    {
+        var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+        return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+    }
+}
