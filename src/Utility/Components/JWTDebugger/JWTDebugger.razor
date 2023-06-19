@@ -1,4 +1,5 @@
 @using System.Text
+@using System.IdentityModel.Tokens.Jwt
 @inject IJSRuntime JSRuntime
 
 <div class="container">
@@ -29,11 +30,11 @@
         </div>
         <div class="col">
             <p>HEADER:ALGORITHM & TOKEN TYPE</p>
-            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+            <textarea id="Header" class="form-control" rows="5" @bind="Header" placeholder="DECODED"></textarea>
             <p>PAYLOAD:DATA</p>
-            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+            <textarea id="Payload" class="form-control" rows="5" @bind="Payload" placeholder="DECODED"></textarea>
             <p>VERIFY SIGNATURE</p>
-            <textarea id="Output" class="form-control" rows="5" @bind="Output" placeholder="DECODED"></textarea>
+            <textarea id="VerifySignature" class="form-control" rows="5" @bind="Signature" placeholder="DECODED"></textarea>
         </div>
     </div>
     
@@ -51,13 +52,27 @@
 
     [Parameter]
     public string? Output { get; set; }
-
+    
+    [Parameter]
+    public string Header { get; set; }
+    
+    [Parameter]
+    public string Payload { get; set; }
+    
+    [Parameter]
+    public string Signature { get; set; }
+    
     // protected override void OnInitialized() {}
     
     void Decode()
     {
         if (string.IsNullOrEmpty(Input)) return;
-        Output = "Decoded";
+
+        var handler = new JwtSecurityTokenHandler();
+        var jwtSecurityToken = handler.ReadJwtToken(Input);
+        Header = jwtSecurityToken.Header.SerializeToJson();
+        Payload = jwtSecurityToken.Payload.SerializeToJson();
+        Signature = jwtSecurityToken.RawSignature;
     }
     
     private void Clear()
