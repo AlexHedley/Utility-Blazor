@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.24213836477987422" branch-rate="0.15942028985507245" lines-covered="154" lines-valid="636" branches-covered="22" branches-valid="138" complexity="256" version="0" timestamp="1687188878">
+<coverage line-rate="0.24213836477987422" branch-rate="0.17266187050359713" lines-covered="154" lines-valid="636" branches-covered="24" branches-valid="139" complexity="257" version="0" timestamp="1692171895">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
   <packages>
-    <package name="Utility" line-rate="0.24878836833602586" branch-rate="0.171875" complexity="246">
+    <package name="Utility" line-rate="0.24878836833602586" branch-rate="0.18604651162790697" complexity="247">
       <classes>
-        <class name="Program" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Program.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Program" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Program.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
-            <method name="&lt;Main&gt;$" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="&lt;Main&gt;$" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="8" hits="0" branch="false" />
                 <line number="9" hits="0" branch="false" />
@@ -29,9 +29,9 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.Ascii.Ascii" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Ascii/Ascii.razor" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Utility.Components.Ascii.Ascii" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Ascii/Ascii.razor" line-rate="0" branch-rate="1" complexity="3">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="33" hits="0" branch="false" />
                 <line number="34" hits="0" branch="false" />
@@ -77,7 +77,7 @@
             <line number="66" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.Base64.Base64" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Base64/Base64.razor" line-rate="0.75" branch-rate="1" complexity="8">
+        <class name="Utility.Components.Base64.Base64" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Base64/Base64.razor" line-rate="0.75" branch-rate="1" complexity="9">
           <methods>
             <method name="get_Input" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -112,7 +112,7 @@
                 <line number="72" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Base64Encode" signature="(System.String)" line-rate="1" branch-rate="1" complexity="NaN">
+            <method name="Base64Encode" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="82" hits="1" branch="false" />
                 <line number="83" hits="1" branch="false" />
@@ -120,7 +120,7 @@
                 <line number="85" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="Base64Decode" signature="(System.String)" line-rate="1" branch-rate="1" complexity="NaN">
+            <method name="Base64Decode" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="88" hits="1" branch="false" />
                 <line number="89" hits="1" branch="false" />
@@ -128,7 +128,7 @@
                 <line number="91" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="75" hits="0" branch="false" />
                 <line number="76" hits="0" branch="false" />
@@ -163,7 +163,7 @@
             <line number="91" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.Binary.Binary" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Binary/Binary.razor" line-rate="0" branch-rate="0" complexity="4">
+        <class name="Utility.Components.Binary.Binary" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Binary/Binary.razor" line-rate="0" branch-rate="0" complexity="5">
           <methods>
             <method name="Swap" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -182,7 +182,7 @@
                 <line number="45" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="GetBytesFromBinaryString" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="GetBytesFromBinaryString" signature="(System.String)" line-rate="0" branch-rate="0" complexity="2">
               <lines>
                 <line number="54" hits="0" branch="false" />
                 <line number="55" hits="0" branch="false" />
@@ -201,7 +201,7 @@
                 <line number="32" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="48" hits="0" branch="false" />
                 <line number="49" hits="0" branch="false" />
@@ -235,9 +235,9 @@
             <line number="65" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.EpochConverter.EpochConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/EpochConverter/EpochConverter.razor" line-rate="0" branch-rate="1" complexity="3">
+        <class name="Utility.Components.EpochConverter.EpochConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/EpochConverter/EpochConverter.razor" line-rate="0" branch-rate="1" complexity="4">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="25" hits="0" branch="false" />
                 <line number="26" hits="0" branch="false" />
@@ -285,7 +285,7 @@
             <line number="70" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.GuidGenerator.GuidGenerator" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/GuidGenerator/GuidGenerator.razor" line-rate="0.44" branch-rate="0.25" complexity="15">
+        <class name="Utility.Components.GuidGenerator.GuidGenerator" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/GuidGenerator/GuidGenerator.razor" line-rate="0.44" branch-rate="0.25" complexity="8">
           <methods>
             <method name="RemoveDashesFromZeroGuid" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
               <lines>
@@ -340,35 +340,35 @@
                 <line number="143" hits="5" branch="false" />
               </lines>
             </method>
-            <method name="CopyMultipleGuids" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="CopyMultipleGuids" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="182" hits="0" branch="false" />
                 <line number="183" hits="0" branch="false" />
                 <line number="184" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="CopyNewGuid" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="CopyNewGuid" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="151" hits="0" branch="false" />
                 <line number="152" hits="0" branch="false" />
                 <line number="153" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="CopyZeroGuid" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="CopyZeroGuid" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="115" hits="0" branch="false" />
                 <line number="116" hits="0" branch="false" />
                 <line number="117" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="DeleteMultipleGuids" signature="()" line-rate="1" branch-rate="1" complexity="1">
+            <method name="DeleteMultipleGuids" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="187" hits="1" branch="false" />
                 <line number="188" hits="1" branch="false" />
                 <line number="189" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="GenerateMultipleGuids" signature="()" line-rate="0" branch-rate="0" complexity="2">
+            <method name="GenerateMultipleGuids" signature="()" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
                 <line number="162" hits="0" branch="false" />
                 <line number="163" hits="0" branch="false" />
@@ -382,7 +382,7 @@
                 <line number="179" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="1">
+            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="101" hits="5" branch="false" />
                 <line number="102" hits="5" branch="false" />
@@ -446,9 +446,9 @@
             <line number="189" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.HCF.HCF" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HCF/HCF.razor" line-rate="0" branch-rate="0" complexity="3">
+        <class name="Utility.Components.HCF.HCF" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HCF/HCF.razor" line-rate="0" branch-rate="0" complexity="38">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="38" hits="0" branch="false" />
               </lines>
@@ -469,7 +469,7 @@
                 <line number="103" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="parseWhitespace" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="parseWhitespace" signature="(System.String)" line-rate="0" branch-rate="0" complexity="8">
               <lines>
                 <line number="106" hits="0" branch="false" />
                 <line number="107" hits="0" branch="false" />
@@ -493,7 +493,7 @@
                 <line number="125" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="isRegularUnicodeCharacter" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="isRegularUnicodeCharacter" signature="(System.String)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="129" hits="0" branch="false" />
                 <line number="131" hits="0" branch="false" />
@@ -505,7 +505,7 @@
                 <line number="141" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="htmlChar" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="htmlChar" signature="(System.String)" line-rate="0" branch-rate="0" complexity="8">
               <lines>
                 <line number="144" hits="0" branch="false" />
                 <line number="145" hits="0" branch="false" />
@@ -550,7 +550,7 @@
                 <line number="201" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="text2html" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="text2html" signature="(System.String)" line-rate="0" branch-rate="0" complexity="18">
               <lines>
                 <line number="204" hits="0" branch="false" />
                 <line number="206" hits="0" branch="false" />
@@ -603,7 +603,7 @@
                 <line number="266" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="79" hits="0" branch="false" />
                 <line number="82" hits="0" branch="false" />
@@ -752,9 +752,9 @@
             <line number="266" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.HexToRGB.HexToRGB" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HexToRGB/HexToRGB.razor" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Utility.Components.HexToRGB.HexToRGB" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HexToRGB/HexToRGB.razor" line-rate="0" branch-rate="1" complexity="3">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="22" hits="0" branch="false" />
               </lines>
@@ -796,9 +796,9 @@
             <line number="85" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.HTMLEncodeDecode.HTMLEncodeDecode" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HTMLEncodeDecode/HTMLEncodeDecode.razor" line-rate="0.6666666666666666" branch-rate="1" complexity="6">
+        <class name="Utility.Components.HTMLEncodeDecode.HTMLEncodeDecode" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HTMLEncodeDecode/HTMLEncodeDecode.razor" line-rate="0.6666666666666666" branch-rate="1" complexity="5">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="41" hits="2" branch="false" />
               </lines>
@@ -829,14 +829,14 @@
                 <line number="69" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="72" hits="0" branch="false" />
                 <line number="73" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="1">
+            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="54" hits="1" branch="false" />
                 <line number="55" hits="1" branch="false" />
@@ -866,7 +866,7 @@
             <line number="74" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.JWTDebugger.JWTDebugger" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/JWTDebugger/JWTDebugger.razor" line-rate="0.631578947368421" branch-rate="1" complexity="9">
+        <class name="Utility.Components.JWTDebugger.JWTDebugger" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/JWTDebugger/JWTDebugger.razor" line-rate="0.631578947368421" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Input" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -912,7 +912,7 @@
                 <line number="81" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="84" hits="0" branch="false" />
                 <line number="85" hits="0" branch="false" />
@@ -942,9 +942,9 @@
             <line number="86" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.LuhnChecker.LuhnChecker" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/LuhnChecker/LuhnChecker.razor" line-rate="0.8571428571428571" branch-rate="0.75" complexity="5">
+        <class name="Utility.Components.LuhnChecker.LuhnChecker" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/LuhnChecker/LuhnChecker.razor" line-rate="0.8571428571428571" branch-rate="0.8" complexity="15">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="22" hits="4" branch="false" />
               </lines>
@@ -973,11 +973,11 @@
                 <line number="65" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="LuhnCheck" signature="(System.String)" line-rate="1" branch-rate="0.75" complexity="NaN">
+            <method name="LuhnCheck" signature="(System.String)" line-rate="1" branch-rate="0.8" complexity="10">
               <lines>
                 <line number="79" hits="2" branch="false" />
                 <line number="80" hits="2" branch="true" condition-coverage="50% (1/2)" />
-                <line number="82" hits="2" branch="true" condition-coverage="50% (1/2)" />
+                <line number="82" hits="2" branch="true" condition-coverage="75% (3/4)" />
                 <line number="83" hits="16" branch="false" />
                 <line number="84" hits="16" branch="true" condition-coverage="100% (4/4)" />
                 <line number="85" hits="16" branch="false" />
@@ -986,7 +986,7 @@
                 <line number="88" hits="2" branch="false" />
               </lines>
             </method>
-            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="1">
+            <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="50" hits="2" branch="false" />
                 <line number="52" hits="2" branch="false" />
@@ -1009,7 +1009,7 @@
             <line number="65" hits="0" branch="false" />
             <line number="79" hits="2" branch="false" />
             <line number="80" hits="2" branch="true" condition-coverage="50% (1/2)" />
-            <line number="82" hits="2" branch="true" condition-coverage="50% (1/2)" />
+            <line number="82" hits="2" branch="true" condition-coverage="75% (3/4)" />
             <line number="83" hits="16" branch="false" />
             <line number="84" hits="16" branch="true" condition-coverage="100% (4/4)" />
             <line number="85" hits="16" branch="false" />
@@ -1054,7 +1054,7 @@
             <line number="57" hits="3" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.MD5Converter.MD5Converter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MD5Converter/MD5Converter.razor" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Utility.Components.MD5Converter.MD5Converter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MD5Converter/MD5Converter.razor" line-rate="0" branch-rate="1" complexity="3">
           <methods>
             <method name="ConvertString" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1063,7 +1063,7 @@
                 <line number="50" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="CreateMD5" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="CreateMD5" signature="(System.String)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="55" hits="0" branch="false" />
                 <line number="57" hits="0" branch="false" />
@@ -1096,7 +1096,7 @@
             <line number="72" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.MemoryConverter.MemoryConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MemoryConverter/MemoryConverter.razor" line-rate="0.6875" branch-rate="0.5" complexity="7">
+        <class name="Utility.Components.MemoryConverter.MemoryConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MemoryConverter/MemoryConverter.razor" line-rate="0.6875" branch-rate="0.5" complexity="14">
           <methods>
             <method name="get_Input" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1131,7 +1131,7 @@
                 <line number="68" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="SizeSuffix" signature="(System.Int64,System.Int32)" line-rate="0.7333333333333333" branch-rate="0.5" complexity="NaN">
+            <method name="SizeSuffix" signature="(System.Int64,System.Int32)" line-rate="0.7333333333333333" branch-rate="0.5" complexity="8">
               <lines>
                 <line number="80" hits="1" branch="false" />
                 <line number="81" hits="1" branch="true" condition-coverage="50% (1/2)" />
@@ -1155,7 +1155,7 @@
                 <line number="77" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="71" hits="0" branch="false" />
                 <line number="72" hits="0" branch="false" />
@@ -1198,9 +1198,9 @@
             <line number="103" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.MonacoDiffEditor.MonacoDiffEditor" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MonacoDiffEditor/MonacoDiffEditor.razor" line-rate="0" branch-rate="0" complexity="9">
+        <class name="Utility.Components.MonacoDiffEditor.MonacoDiffEditor" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MonacoDiffEditor/MonacoDiffEditor.razor" line-rate="0" branch-rate="0" complexity="8">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="24" hits="0" branch="false" />
               </lines>
@@ -1220,7 +1220,7 @@
                 <line number="48" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="DiffEditorConstructionOptions" signature="(BlazorMonaco.Editor.StandaloneDiffEditor)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="DiffEditorConstructionOptions" signature="(BlazorMonaco.Editor.StandaloneDiffEditor)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="53" hits="0" branch="false" />
                 <line number="54" hits="0" branch="false" />
@@ -1230,14 +1230,14 @@
                 <line number="58" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnKeyUpOriginal" signature="(BlazorMonaco.KeyboardEvent)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="OnKeyUpOriginal" signature="(BlazorMonaco.KeyboardEvent)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="81" hits="0" branch="false" />
                 <line number="82" hits="0" branch="false" />
                 <line number="83" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnKeyUpModified" signature="(BlazorMonaco.KeyboardEvent)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="OnKeyUpModified" signature="(BlazorMonaco.KeyboardEvent)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="86" hits="0" branch="false" />
                 <line number="87" hits="0" branch="false" />
@@ -1249,7 +1249,7 @@
                 <line number="50" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="ChangeTheme" signature="()" line-rate="0" branch-rate="0" complexity="4">
+            <method name="ChangeTheme" signature="()" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
                 <line number="91" hits="0" branch="false" />
                 <line number="92" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -1257,7 +1257,7 @@
                 <line number="94" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnAfterRenderAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="OnAfterRenderAsync" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="61" hits="0" branch="false" />
                 <line number="63" hits="0" branch="false" />
@@ -1311,9 +1311,9 @@
             <line number="94" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.MonacoEditor.MonacoEditor" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MonacoEditor/MonacoEditor.razor" line-rate="0" branch-rate="0" complexity="5">
+        <class name="Utility.Components.MonacoEditor.MonacoEditor" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MonacoEditor/MonacoEditor.razor" line-rate="0" branch-rate="0" complexity="2">
           <methods>
-            <method name="EditorConstructionOptions" signature="(BlazorMonaco.Editor.StandaloneCodeEditor)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="EditorConstructionOptions" signature="(BlazorMonaco.Editor.StandaloneCodeEditor)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="38" hits="0" branch="false" />
                 <line number="39" hits="0" branch="false" />
@@ -1332,7 +1332,7 @@
                 <line number="35" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="ChangeTheme" signature="()" line-rate="0" branch-rate="0" complexity="4">
+            <method name="ChangeTheme" signature="()" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
                 <line number="50" hits="0" branch="false" />
                 <line number="51" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -1360,7 +1360,7 @@
             <line number="53" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.SQLContains.SQLContains" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLContains/SQLContains.razor" line-rate="0.5384615384615384" branch-rate="1" complexity="12">
+        <class name="Utility.Components.SQLContains.SQLContains" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLContains/SQLContains.razor" line-rate="0.5384615384615384" branch-rate="1" complexity="10">
           <methods>
             <method name="get_Field" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1418,14 +1418,14 @@
                 <line number="64" hits="2" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="102" hits="0" branch="false" />
                 <line number="103" hits="0" branch="false" />
                 <line number="104" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="CopyField" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="CopyField" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="75" hits="0" branch="false" />
                 <line number="76" hits="0" branch="false" />
@@ -1462,7 +1462,7 @@
             <line number="104" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.SQLInClause.SQLInClause" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLInClause/SQLInClause.razor" line-rate="0" branch-rate="0" complexity="9">
+        <class name="Utility.Components.SQLInClause.SQLInClause" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLInClause/SQLInClause.razor" line-rate="0" branch-rate="0" complexity="8">
           <methods>
             <method name="Clear" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1495,7 +1495,7 @@
                 <line number="55" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="79" hits="0" branch="false" />
                 <line number="80" hits="0" branch="false" />
@@ -1528,7 +1528,7 @@
             <line number="81" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.SQLInput.SQLInput" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLInput/SQLInput.razor" line-rate="0" branch-rate="1" complexity="6">
+        <class name="Utility.Components.SQLInput.SQLInput" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/SQLInput/SQLInput.razor" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="ClearField" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1561,14 +1561,14 @@
                 <line number="46" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="72" hits="0" branch="false" />
                 <line number="73" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="CopyField" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="CopyField" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="49" hits="0" branch="false" />
                 <line number="50" hits="0" branch="false" />
@@ -1600,9 +1600,9 @@
             <line number="74" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.StringConverter.StringConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/StringConverter/StringConverter.razor" line-rate="0" branch-rate="0" complexity="42">
+        <class name="Utility.Components.StringConverter.StringConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/StringConverter/StringConverter.razor" line-rate="0" branch-rate="0" complexity="41">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="0" complexity="1">
               <lines>
                 <line number="16" hits="0" branch="false" />
                 <line number="19" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -1612,11 +1612,11 @@
                 <line number="31" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Convert" signature="()" line-rate="0" branch-rate="0" complexity="38">
+            <method name="Convert" signature="()" line-rate="0" branch-rate="0" complexity="37">
               <lines>
                 <line number="65" hits="0" branch="false" />
                 <line number="66" hits="0" branch="false" />
-                <line number="68" hits="0" branch="true" condition-coverage="0% (0/38)" />
+                <line number="68" hits="0" branch="true" condition-coverage="0% (0/37)" />
                 <line number="71" hits="0" branch="false" />
                 <line number="72" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
@@ -1658,7 +1658,7 @@
                 <line number="108" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="102" hits="0" branch="false" />
                 <line number="103" hits="0" branch="false" />
@@ -1682,7 +1682,7 @@
             <line number="62" hits="0" branch="false" />
             <line number="65" hits="0" branch="false" />
             <line number="66" hits="0" branch="false" />
-            <line number="68" hits="0" branch="true" condition-coverage="0% (0/38)" />
+            <line number="68" hits="0" branch="true" condition-coverage="0% (0/37)" />
             <line number="71" hits="0" branch="false" />
             <line number="72" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
@@ -1725,7 +1725,7 @@
                 <line number="62" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="ConvertTime" signature="(System.Int64)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="ConvertTime" signature="(System.Int64)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="71" hits="0" branch="false" />
                 <line number="72" hits="0" branch="false" />
@@ -1739,7 +1739,7 @@
                 <line number="51" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="65" hits="0" branch="false" />
                 <line number="66" hits="0" branch="false" />
@@ -1812,9 +1812,9 @@
             <line number="66" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.UrlSplitter.UrlSplitter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/UrlSplitter/UrlSplitter.razor" line-rate="1" branch-rate="1" complexity="3">
+        <class name="Utility.Components.UrlSplitter.UrlSplitter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/UrlSplitter/UrlSplitter.razor" line-rate="1" branch-rate="1" complexity="5">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="17" hits="3" branch="false" />
                 <line number="71" hits="13" branch="true" condition-coverage="100% (2/2)" />
@@ -1884,9 +1884,9 @@
             <line number="5" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Pages.SQLBuilder" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Pages/SQLBuilder.razor" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Utility.Pages.SQLBuilder" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Pages/SQLBuilder.razor" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
-            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="52" hits="0" branch="false" />
                 <line number="54" hits="0" branch="false" />
@@ -1898,9 +1898,9 @@
             <line number="54" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Shared.MainLayout" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Shared/MainLayout.razor" line-rate="0" branch-rate="0" complexity="4">
+        <class name="Utility.Shared.MainLayout" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Shared/MainLayout.razor" line-rate="0" branch-rate="0" complexity="2">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="NaN">
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="18" hits="0" branch="false" />
               </lines>
@@ -1912,7 +1912,7 @@
                 <line number="56" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="LocationChanged" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="LocationChanged" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="41" hits="0" branch="false" />
                 <line number="45" hits="0" branch="false" />
@@ -1922,7 +1922,7 @@
                 <line number="50" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="0" complexity="2">
+            <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
                 <line number="27" hits="0" branch="false" />
                 <line number="29" hits="0" branch="false" />
@@ -1990,9 +1990,9 @@
     </package>
     <package name="Utility.Common" line-rate="0" branch-rate="0" complexity="10">
       <classes>
-        <class name="Utility.Common.InvertCharExtension" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="Utility.Common.InvertCharExtension" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
-            <method name="Invert" signature="(System.Char)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="Invert" signature="(System.Char)" line-rate="0" branch-rate="0" complexity="4">
               <lines>
                 <line number="32" hits="0" branch="false" />
                 <line number="33" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -2010,9 +2010,9 @@
             <line number="37" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Common.InvertStringExtension" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="Utility.Common.InvertStringExtension" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="2">
           <methods>
-            <method name="Invert" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="Invert" signature="(System.String)" line-rate="0" branch-rate="0" complexity="2">
               <lines>
                 <line number="19" hits="0" branch="false" />
                 <line number="20" hits="0" branch="false" />
@@ -2032,9 +2032,9 @@
             <line number="25" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Common.StringExtensions" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="Utility.Common.StringExtensions" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
-            <method name="FirstCharToUpper" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="FirstCharToUpper" signature="(System.String)" line-rate="0" branch-rate="0" complexity="4">
               <lines>
                 <line number="7" hits="0" branch="true" condition-coverage="0% (0/4)" />
                 <line number="8" hits="0" branch="false" />
