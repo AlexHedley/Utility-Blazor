@@ -1,4 +1,4 @@
-# Utility-Blazor
+# Utility Blazor
 
 [![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![Blazor](https://img.shields.io/badge/blazor-%235C2D91.svg?style=for-the-badge&logo=blazor&logoColor=white)](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
@@ -11,9 +11,12 @@ Utility Web App written in Blazor WebAssembly (WASM)
 [![Deploy to GitHub Pages](https://github.com/AlexHedley/Utility-Blazor/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/AlexHedley/Utility-Blazor/actions?query=workflow%3A%22Deploy+to+GitHub+Pages%22)
 [![pages-build-deployment](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/pages/pages-build-deployment)
 
-[![Tests](https://gist.githubusercontent.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7/raw/6132cf4fe051fde2169d7850f0e2a33e1083e80f/utility_blazor_tests.md_badge.svg "Tests")](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7)
+[![Tests](https://gist.githubusercontent.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7/raw/utility_blazor_tests.md_badge.svg "Tests")](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7)
+
+## Site
 
 - [Site](https://alexhedley.github.io/Utility-Blazor/)
+- [Coverage Report](https://alexhedley.com/Utility-Blazor/coverage/)
 
 ## Features
 
@@ -59,11 +62,17 @@ Utility Web App written in Blazor WebAssembly (WASM)
 
 ---
 
-## Test
+## Tests
 
 Output using [dotnet-tests-report](https://github.com/marketplace/actions/dotnet-tests-report) ([Code](https://github.com/zyborg/dotnet-tests-report))
 
-- [Results](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7) 
+[![Tests](https://gist.githubusercontent.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7/raw/utility_blazor_tests.md_badge.svg "Tests")](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7)
+
+- [Results](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7)
+
+## Coverage
+
+- [Report](https://alexhedley.com/Utility-Blazor/coverage/)
 
 ---
 
