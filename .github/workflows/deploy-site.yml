@@ -35,13 +35,12 @@ jobs:
 #     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     # uses GitHub's checkout action to checkout code form the master branch
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
-    - name: Setup .NET 6.0
-      uses: actions/setup-dotnet@v1
+    - name: Setup .NET 7.0
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
-        include-prerelease: true
+        dotnet-version: '7.0.x'
     
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
@@ -62,9 +61,8 @@ jobs:
       run: touch release/wwwroot/.nojekyll
       
     - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@v4.4.3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
-#         TARGET_FOLDER: app
+        branch: gh-pages
+        folder: release/wwwroot
+        # target-folder: app
