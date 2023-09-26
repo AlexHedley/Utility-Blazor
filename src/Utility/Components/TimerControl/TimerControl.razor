@@ -1,0 +1,109 @@
+@using System.Timers
+@implements IDisposable
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><i class="far fa-hourglass"></i> Timer</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <input id="input" name="input" class="form-control" @bind="Input" placeholder="00:00" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="btnStartStop" name="btnStartStop" class="btn btn-success" @onclick="StartStop"><i class="fas fa-play"></i><i class="fas fa-stop"></i></button>
+            <button id="btnReset" name="btnReset" class="btn btn-info float-right" @onclick="Reset"><i class="fas fa-sync"></i></button>
+        </div>
+    </div>
+
+    @* <div class="row"> *@
+    @*     <div class="col"> *@
+    @*         <p>Inspired from <a href="" target="_blank"></a></p> *@
+    @*     </div> *@
+    @* </div> *@
+
+</div>
+
+@code {
+    [Parameter]
+    public string? Input { get; set; }
+
+    [Parameter]
+    public EventCallback TimerOut { get; set; }
+    
+    private Timer timer = null!;
+    private int secondsToRun = 0;
+    
+    // protected override void OnInitialized()
+    // {
+    //     // Input = "00:00";
+    //     timer = new System.Threading.Timer(async _ =>  // async void
+    //     {
+    //         Input = 
+    //         // we need StateHasChanged() because this is an async void handler
+    //         // we need to Invoke it because we could be on the wrong Thread          
+    //         await InvokeAsync(StateHasChanged);
+    //     }, null, 0, 1000);
+    // }
+    
+    void StartStop()
+    {
+        if (string.IsNullOrEmpty(Input)) return;
+        
+    }
+    
+    void Reset()
+    {
+        
+    }
+    
+    public void Start(int secondsToRun)
+    {
+        if (secondsToRun > 0)
+        {
+            Input = TimeSpan.FromSeconds(secondsToRun).ToString(@"mm\:ss");
+            StateHasChanged();
+            timer.Start();
+        }
+    }
+
+    public void Stop()
+    {
+        timer.Stop();
+    }
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer(1000);
+        timer.Elapsed += OnTimedEvent;
+        timer.AutoReset = true;
+    }
+
+    private async void OnTimedEvent(object? sender, ElapsedEventArgs e)
+    {
+        secondsToRun--;
+
+        await InvokeAsync(() =>
+        {
+            Input = TimeSpan.FromSeconds(secondsToRun).ToString(@"mm\:ss");
+            StateHasChanged();
+        });
+        
+        if (secondsToRun <= 0)
+        {
+            timer.Stop();
+            await TimerOut.InvokeAsync();
+        }
+    }
+
+    public void Dispose()
+    {
+        timer.Dispose();
+    }
+    
+}
