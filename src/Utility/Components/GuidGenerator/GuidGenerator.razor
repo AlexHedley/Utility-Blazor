@@ -21,17 +21,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="@removeDashes" id="chkRemoveDashesZero"
-                   @onchange="@(eventArgs => { removeDashes = (bool)eventArgs.Value; RemoveDashesFromZeroGuid(); })"/>
+                   @onchange="@(eventArgs => { removeDashes = (bool)eventArgs.Value; Update(); })"/>
             <label class="form-check-label" for="chkRemoveDashesZero">
                 Remove Dashes
             </label>
         </div>
         &nbsp;|&nbsp;
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="@addBraces" id="chkAddBracesZero"
-                   @onchange="@(eventArgs => { addBraces = (bool)eventArgs.Value; AddBracesToZeroGuid(); })"/>
+                   @onchange="@(eventArgs => { addBraces = (bool)eventArgs.Value; Update(); })"/>
             <label class="form-check-label" for="chkAddBracesZero">
                 Add Braces
             </label>
@@ -120,13 +120,18 @@
     void RemoveDashesFromZeroGuid()
     {
         zeroGuid = (removeDashes) ? defaultZeroGuid.ToString().Replace("-", "") : defaultZeroGuid.ToString();
-        //removeDashes = !removeDashes;
     }
 
     private bool addBraces = false;
     void AddBracesToZeroGuid()
     {
         zeroGuid = (addBraces) ? $"{{{zeroGuid}}}" : zeroGuid.Replace("{", "").Replace("}", "");
+    }
+
+    void Update()
+    {
+        RemoveDashesFromZeroGuid();
+        AddBracesToZeroGuid();
     }
 
     #endregion Zero
@@ -138,6 +143,7 @@
         var guid = Guid.NewGuid();
         newGuid = guid.ToString();
         newGuidHidden = guid;
+        RemoveDashesFromNewGuid();
     }
 
     private bool removeDashesNew = false;
