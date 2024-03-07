@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Utility</title>
     <base href="/" />
+    <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome/css/all.min.css" rel="stylesheet" />
     <script src="css/font-awesome/js/all.min.js"></script>
@@ -34,10 +35,11 @@
 
 <body>
     <div id="app">
-        <div style="position:absolute; top:30vh; width:100%; text-align:center">
-            <h1>Utility</h1>
-            <p><i class="fas fa-spin fa-spinner"></i> The application is loading...</p>
-        </div>
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
     </div>
 
     <div id="blazor-error-ui">
