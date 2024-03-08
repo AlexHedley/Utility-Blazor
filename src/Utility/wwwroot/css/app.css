@@ -21,7 +21,7 @@ body {
 .body-content {
     align-self: stretch;
     height: unset !important;
-    display: flex;
+    /* display: flex; */
 }
 
 .content {
