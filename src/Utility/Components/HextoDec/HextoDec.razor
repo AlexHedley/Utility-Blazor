@@ -1,0 +1,56 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <h2>HEX to DEC</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Hex:</span>
+                </div>
+                <input id="hex" name="hex" class="form-control" @bind="hex">
+                <span class="input-group-btn">
+                    <button id="ConvertToDecimal" name="ConvertToDecimal" @onclick="ConvertToDecimal" class="btn btn-success float-right">Convert To Decimal</button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Dec:</span>
+                </div>
+                <input id="dec" name="dec" class="form-control" @bind="dec">
+                <div class="input-group-append">
+                    <button id="ConvertToHex" name="ConvertToHex" @onclick="ConvertToHex" class="btn btn-success float-right">Convert To Hex</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@code {
+    string hex = "12";
+    int dec = 0;
+
+    private void ConvertToDecimal()
+    {
+        dec = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+    }
+
+    private void ConvertToHex()
+    {
+        hex = dec.ToString("X");
+    }
+}

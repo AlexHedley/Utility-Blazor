@@ -1,128 +1,33 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        @*<img src="images/apple-touch-icon-57x57.png" alt="Utility" height="40px" />*@
-        <a class="navbar-brand" href="">Utility</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="urls">
-                <span class="oi oi-code" aria-hidden="true"></span> Urls
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="guid">
-                <span class="oi oi-code" aria-hidden="true"></span> Guid
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="sql">
-                @*<span class="oi oi-code" aria-hidden="true"></span> SQL*@
-                <span class="oi" aria-hidden="true"><i class="fas fa-database"></i></span> SQL
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="html">
-                <span class="oi oi-browser" aria-hidden="true"></span> HTML
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="markdown">
-                <span class="oi oi-arrow-thick-bottom" aria-hidden="true"></span> Markdown
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="timerstopwatch">
-                <span class="oi oi-timer" aria-hidden="true"></span> Timer / Stopwatch
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="ascii">
-                <span class="oi oi-text" aria-hidden="true"></span> Ascii
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="colourconverter">
-                <span class="oi oi-droplet" aria-hidden="true"></span> Colour Converter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="binary">
-                <span class="oi oi-code" aria-hidden="true"></span> Binary
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="stringconverter">
-                <span class="oi oi-dollar" aria-hidden="true"></span> String
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="epoch">
-                <span class="oi oi-timer" aria-hidden="true"></span> Epoch
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="converter">
-                <span class="oi oi-loop" aria-hidden="true"></span> Converter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="jwt">
-                <span class="oi oi-code" aria-hidden="true"></span> JWT
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="luhn">
-                <span class="oi oi-code" aria-hidden="true"></span> Luhn
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="hcf">
-                <span class="oi oi-code" aria-hidden="true"></span> Hidden Char Finder
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="codeeditor">
-                <span class="oi oi-code" aria-hidden="true"></span> Code Editor
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="diffeditor">
-                <span class="oi oi-code" aria-hidden="true"></span> Diff Editor
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="unicode">
-                <span class="oi oi-text" aria-hidden="true"></span> Unicode
-            </NavLink>
-        </div>
-        
-        @* <div class="nav-item px-3"> *@
-        @*     <NavLink class="nav-link" href="cryptography"> *@
-        @*         <span class="oi oi-lock-locked" aria-hidden="true"></span> Cryptography *@
-        @*     </NavLink> *@
-        @* </div> *@
-        
+﻿
+<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu" onclick="document.getElementById('navmenu-toggle').click();">
+        <FluentNavMenu Id="main-menu" Width="250" Collapsible="true" Title="Navigation menu" @bind-Expanded="expanded">
+            <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
+            <FluentNavLink Href="urls" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Urls</FluentNavLink>
+            <FluentNavLink Href="guid" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Guid</FluentNavLink>
+            <FluentNavLink Href="sql" Icon="@(new Icons.Regular.Size20.Database())" IconColor="Color.Accent">SQL</FluentNavLink>
+            <FluentNavLink Href="html" Icon="@(new Icons.Regular.Size20.Globe())" IconColor="Color.Accent">HTML</FluentNavLink>
+            <FluentNavLink Href="markdown" Icon="@(new Icons.Regular.Size20.ArrowDown())" IconColor="Color.Accent">Markdown</FluentNavLink>
+            <FluentNavLink Href="timerstopwatch" Icon="@(new Icons.Regular.Size20.Timer())" IconColor="Color.Accent">Timer / Stopwatch</FluentNavLink>
+            <FluentNavLink Href="ascii" Icon="@(new Icons.Regular.Size20.CodeText())" IconColor="Color.Accent">Ascii</FluentNavLink>
+            <FluentNavLink Href="colourconverter" Icon="@(new Icons.Regular.Size20.PaintBrush())" IconColor="Color.Accent">Colour Converter</FluentNavLink>
+            <FluentNavLink Href="binary" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Binary</FluentNavLink>
+            <FluentNavLink Href="stringconverter" Icon="@(new Icons.Regular.Size20.CurrencyDollarEuro())" IconColor="Color.Accent">String</FluentNavLink>
+            <FluentNavLink Href="epoch" Icon="@(new Icons.Regular.Size20.Timer())" IconColor="Color.Accent">Epoch</FluentNavLink>
+            <FluentNavLink Href="converter" Icon="@(new Icons.Regular.Size20.ConvertRange())" IconColor="Color.Accent">Converter</FluentNavLink>
+            <FluentNavLink Href="jwt" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">JWT</FluentNavLink>
+            <FluentNavLink Href="luhn" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Luhn</FluentNavLink>
+            <FluentNavLink Href="hcf" Icon="@(new Icons.Regular.Size20.Glasses())" IconColor="Color.Accent">Hidden Char Finder</FluentNavLink>
+            <FluentNavLink Href="codeeditor" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Code Editor</FluentNavLink>
+            <FluentNavLink Href="diffeditor" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Diff Editor</FluentNavLink>
+            <FluentNavLink Href="unicode" Icon="@(new Icons.Regular.Size20.Code())" IconColor="Color.Accent">Unicode</FluentNavLink>
+            <FluentNavLink Href="cryptography" Icon="@(new Icons.Regular.Size20.LockClosedKey())" IconColor="Color.Accent">Cryptography</FluentNavLink>
+        </FluentNavMenu>
     </nav>
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    private bool expanded = true;
 }
