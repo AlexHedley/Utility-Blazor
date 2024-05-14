@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 
 namespace Utility.Infrastructure;
 
-public class CacheStorageAccessor(IJSRuntime js) : JSModule(js, "./_content/FluentUI.Demo.Shared/js/CacheStorageAccessor.js")
+public class CacheStorageAccessor(IJSRuntime js) : JSModule(js, "./_content/Utility/js/CacheStorageAccessor.js")
 {
     public async ValueTask PutAsync(HttpRequestMessage requestMessage, HttpResponseMessage responseMessage)
     {
