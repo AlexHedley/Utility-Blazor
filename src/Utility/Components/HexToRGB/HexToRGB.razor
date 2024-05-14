@@ -78,7 +78,7 @@
     void ConvertColour()
     {
         ColourId = Colour;
-        Color color = ColorTranslator.FromHtml(Colour);
+        System.Drawing.Color color = ColorTranslator.FromHtml(Colour);
         Red = Convert.ToInt16(color.R);
         Green = Convert.ToInt16(color.G);
         Blue = Convert.ToInt16(color.B);
