@@ -1,4 +1,5 @@
 ﻿@implements IDialogContentComponent
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <div>
     <FluentDesignTheme @ref=_theme
@@ -29,5 +30,15 @@
                 </FluentStack>
             </OptionTemplate>
         </FluentSelect>
+        
+        <FluentLabel>Reset</FluentLabel>
+        <FluentButton OnClick="ResetSavedTab" Title="Reset">Reset</FluentButton>
     </FluentStack>
 </div>
+
+@code {
+    async void ResetSavedTab()
+    {
+        await localStorage.RemoveItemAsync(Constants.LOCAL_STORAGE_TAB);
+    }
+}
