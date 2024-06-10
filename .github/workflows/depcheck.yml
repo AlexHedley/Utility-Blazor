@@ -75,7 +75,7 @@ jobs:
           path: ${{github.workspace}}/reports
 
       - name: 🌍 Commit wwwroot to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: JamesIves/github-pages-deploy-action@v4.6.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
