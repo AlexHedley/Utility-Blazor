@@ -87,7 +87,7 @@ jobs:
 #         enable_jekyll: true
         
     - name: Deploy Code Coverage Report
-      uses: JamesIves/github-pages-deploy-action@v4.6.8
+      uses: JamesIves/github-pages-deploy-action@v4.6.9
       with:
         branch: gh-pages
         folder: coveragereport
