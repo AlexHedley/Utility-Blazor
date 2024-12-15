@@ -6,6 +6,21 @@ fluent-anchored-region[b-2ov9fhztky] {
     fluent-anchored-region > *[b-2ov9fhztky] {
         pointer-events: all;
     }
+/* _content/Microsoft.FluentUI.AspNetCore.Components/Components/Anchor/FluentAnchor.razor.rz.scp.css */
+
+fluent-anchor[appearance="hypertext"][b-acyx52swce]::part(start) {
+    display: unset;
+    position: relative;
+    top: calc(var(--design-unit)* 1px);
+    margin-inline-end: calc(var(--design-unit) * 1px);
+}
+
+fluent-anchor[appearance="hypertext"][b-acyx52swce]::part(end) {
+    display: unset;
+    position: relative;
+    top: calc(var(--design-unit)* 1px);
+    margin-inline-start: calc(var(--design-unit) * 1px);
+}
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/AppBar/FluentAppBar.razor.rz.scp.css */
 [b-dkkdhxy2t7] .fluent-appbar-item {
     width: 100%;
@@ -72,9 +87,21 @@ fluent-anchored-region[b-2ov9fhztky] {
 
 [b-dkkdhxy2t7] .fluent-appbar-item:hover svg[part="icon-rest"],
 [b-dkkdhxy2t7] .fluent-appbar-item:not(:hover):not(.active) svg[part="icon-active"],
-[b-dkkdhxy2t7] .fluent-appbar-item:not(:hover).active svg[part="icon-rest"],
+[b-dkkdhxy2t7] .fluent-appbar-item:not(:hover) a.active svg[part="icon-rest"],
 [b-dkkdhxy2t7] .fluent-appbar-item[overflow] {
     display: none;
+}
+
+[b-dkkdhxy2t7] .fluent-appbar-item:not(:hover) .active svg[part="icon-active"] {
+    display: block;
+}
+
+[b-dkkdhxy2t7] .fluent-appbar-item.popover:not(:hover) a.active svg[part="icon-active"] {
+    display: none;
+}
+
+[b-dkkdhxy2t7] .fluent-appbar-item.popover:not(:hover) a.active svg[part="icon-rest"] {
+    display: block;
 }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/BodyContent/FluentBodyContent.razor.rz.scp.css */
 .body-content[b-9l28a7kahd] {
@@ -92,6 +119,8 @@ fluent-anchored-region[b-2ov9fhztky] {
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/Button/FluentButton.razor.rz.scp.css */
 .loading-button[b-x1200685t0] {
     position: relative;
+    height: calc((var(--base-height-multiplier) + var(--density))* var(--design-unit)* 1px);
+    display: inline-block;
 }
 
     .loading-button[b-x1200685t0]  fluent-progress-ring {
@@ -191,20 +220,20 @@ fluent-data-grid[b-ppmhrkw1mj] {
 [b-ppmhrkw1mj] .empty-content-row,
 [b-ppmhrkw1mj] .loading-content-row {
     width: 100%;
-    height: 100% !important ;
+    height: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-[b-ppmhrkw1mj] .empty-content-cell, 
+[b-ppmhrkw1mj] .empty-content-cell,
 [b-ppmhrkw1mj] .loading-content-cell {
-
     font-weight: 600;
 }
 
-.col-options[b-ppmhrkw1mj] {
+.col-options[b-ppmhrkw1mj], .col-resize[b-ppmhrkw1mj] {
     position: absolute;
+    min-width: 250px;
     top: 2.2rem;
     background: var(--neutral-layer-2);
     border: 1px solid var(--neutral-layer-3);
@@ -220,12 +249,12 @@ fluent-data-grid[b-ppmhrkw1mj] {
 
 .col-justify-end .col-options[b-ppmhrkw1mj], .col-justify-right .col-options[b-ppmhrkw1mj] {
     left: unset;
-    right: 0.2rem;
+    margin-right:  0.6rem;
 }
 
 [dir=rtl] .col-justify-end .col-options[b-ppmhrkw1mj], [dir=rtl] .col-justify-right .col-options[b-ppmhrkw1mj] {
     right: unset;
-    left: 0.2rem;
+    margin-left: 0.6rem;
 }
 
 [b-ppmhrkw1mj] > fluent-data-grid-row > fluent-data-grid-cell.grid-cell-placeholder:after {
@@ -233,7 +262,12 @@ fluent-data-grid[b-ppmhrkw1mj] {
     opacity: 0.75;
 }
 
-
+.resize-options[b-ppmhrkw1mj] {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 [b-ppmhrkw1mj] .col-width-draghandle {
     height: auto;
@@ -242,6 +276,8 @@ fluent-data-grid[b-ppmhrkw1mj] {
     border-top: none;
     border-left: calc(var(--stroke-width) * 1px) solid var(--neutral-stroke-divider-rest);
     cursor: col-resize;
+    position: sticky;
+    min-width: calc(var(--design-unit) * 1px + 2px);
 }
 
 .col-width-draghandle:hover[b-ppmhrkw1mj], .col-width-draghandle:active[b-ppmhrkw1mj] {
@@ -250,6 +286,12 @@ fluent-data-grid[b-ppmhrkw1mj] {
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/DataGrid/FluentDataGridCell.razor.rz.scp.css */
 fluent-data-grid-cell[b-w6qdxfylwy] {
     text-overflow: ellipsis;
+}
+
+.auto-fit fluent-data-grid-cell[b-w6qdxfylwy] {
+    text-overflow: unset;
+    overflow: visible;
+    visibility: hidden;
 }
 
 .multiline-text[b-w6qdxfylwy] {
@@ -268,14 +310,12 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
 }
 
     .column-header.col-justify-end[b-w6qdxfylwy], .column-header.col-justify-right[b-w6qdxfylwy] {
-
         padding-right: 1px;
         padding-left: 1px;
         justify-content: end;
     }
 
     .column-header.col-justify-center[b-w6qdxfylwy] {
-
         padding-left: 1px;
         padding-right: 1px;
         justify-content: center;
@@ -286,23 +326,24 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
         flex-grow: 1;
     }
 
-    .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container {
-        display: flex;
-        flex-grow: 1;
-    }
-
-    .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container .col-sort-button {
-        flex-grow: 1;
-        padding-inline-end: 5px;
-    }
-
-        .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container .col-sort-button::part(content) {
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container {
+            display: flex;
+            flex-grow: 1;
         }
+
+            .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container .col-sort-button {
+                flex-grow: 1;
+                padding-inline-end: 5px;
+            }
+
+                .column-header[b-w6qdxfylwy] >  .keycapture .col-sort-container .col-sort-button::part(content) {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
 
     .column-header.col-justify-end[b-w6qdxfylwy]  .col-title-text, .column-header.col-justify-right[b-w6qdxfylwy]  .col-title-text {
         text-align: end;
+        padding-left: 4px;
     }
 
     .column-header.col-justify-end[b-w6qdxfylwy]  .col-sort-button, .column-header.col-justify-right[b-w6qdxfylwy]  .col-sort-button {
@@ -325,12 +366,20 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
     text-overflow: ellipsis;
 }
 
+[b-w6qdxfylwy] .col-sort-button.disabled::part(control) {
+    opacity: 1 !important;
+}
+
 .col-justify-center[b-w6qdxfylwy]  .col-sort-button::part(control) {
     justify-content: center;
 }
 
 .col-justify-end[b-w6qdxfylwy]  .col-sort-button::part(control), .col-justify-right[b-w6qdxfylwy]  .col-sort-button::part(control) {
     justify-content: end;
+}
+
+.col-justify-end[b-w6qdxfylwy]  .col-sort-button::part(start), .col-justify-right[b-w6qdxfylwy]  .col-sort-button::part(start) {
+    margin-inline-end: 0 !important;
 }
 
 .col-justify-center[b-w6qdxfylwy] {
@@ -358,9 +407,6 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
     white-space: nowrap;
     font-weight: 600;
 }
-
-
-
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/DataGrid/FluentDataGridRow.razor.rz.scp.css */
 .header[b-upi3f9mbnn] {
     padding: 0;
@@ -371,7 +417,7 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
     z-index: 3;
 }
 
-.hover:not([row-type='header'],[row-type='sticky-header']):hover[b-upi3f9mbnn] {
+.hover:not([row-type='header'],[row-type='sticky-header'],.loading-content-row):hover[b-upi3f9mbnn] {
     cursor: pointer;
     background-color: var(--datagrid-hover-color, var(--neutral-fill-stealth-hover));
 }
@@ -382,6 +428,7 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
 .fluent-calendar[b-bgn9u4guxz] {
     --calendar-cell-size: 28px;
     --calendar-gap: 2px;
+    --multi-select-opacity: 0.2;
     font-family: var(--body-font);
     font-size: var(--type-ramp-base-font-size);
     line-height: var(--type-ramp-base-line-height);
@@ -507,7 +554,7 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
         }
 
     /* Today */
-    .fluent-calendar[b-bgn9u4guxz]  .day:not([selected])[today] {
+    .fluent-calendar[b-bgn9u4guxz]  .day:not([selected]):not([multi-day])[today] {
         color: var(--foreground-on-accent-rest);
         background: var(--accent-fill-rest);
         border-radius: 50%;
@@ -519,6 +566,39 @@ fluent-data-grid-cell[b-w6qdxfylwy] {
         color: var(--accent-fill-rest);
         border: 1px solid var(--accent-fill-rest);
         background: var(--fill-color);
+    }
+
+    /* Selected Multiple Days */
+    .fluent-calendar[b-bgn9u4guxz]  .day[multi-day],
+    .fluent-calendar[b-bgn9u4guxz]  .day[multi-start],
+    .fluent-calendar[b-bgn9u4guxz]  .day[multi-end] {
+        position: relative;
+    }
+
+        .fluent-calendar[b-bgn9u4guxz]  .day[multi-day]::before,
+        .fluent-calendar[b-bgn9u4guxz]  .day[multi-start]::before,
+        .fluent-calendar[b-bgn9u4guxz]  .day[multi-end]::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background: var(--accent-fill-rest);
+            opacity: var(--multi-select-opacity);
+        }
+
+        .fluent-calendar[b-bgn9u4guxz]  .day[multi-start]::before {
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .fluent-calendar[b-bgn9u4guxz]  .day[multi-end]::before {
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+    .fluent-calendar[b-bgn9u4guxz]  .day[multi-day-over] {
+        background: var(--neutral-fill-stealth-hover);
     }
 
     /* Animations */
@@ -1843,6 +1923,10 @@ div[dragged-over][b-qxma62j335] {
     display: flex;
     flex-direction: column;
 }
+
+.layout[orientation='horizontal'][b-emdrz8ckod] {
+    flex-direction: row;
+}
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/List/FluentAutocomplete.razor.rz.scp.css */
 .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox] {
     overflow-y: auto;
@@ -1857,13 +1941,13 @@ div[dragged-over][b-qxma62j335] {
         min-height: 32px;
     }
 
-        .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox]  fluent-option:hover {
-            background-color: var(--neutral-fill-stealth-hover) !important;
-        }
-
         /* This first fluent-option will be selected when user presses Enter */
         .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox]  fluent-option:not([disabled])[selectable] {
-            background: var(--neutral-fill-secondary-hover);
+            border: var(--neutral-fill-strong-hover) solid 1px;
+        }
+
+        .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox]  fluent-option:not([disabled]):not([selected])[selectable]::before {
+            background: unset !important;
         }
 
 .fluent-autocomplete-multiselect[b-hg72r5b4ox]  fluent-text-field::part(start) {
@@ -1876,6 +1960,39 @@ div[dragged-over][b-qxma62j335] {
 
 .fluent-autocomplete-previous[b-hg72r5b4ox] {
     height: 25px;
+}
+
+/* Auto-height */
+.fluent-autocomplete-multiselect[auto-height][b-hg72r5b4ox]  .auto-height {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.fluent-autocomplete-multiselect[auto-height][b-hg72r5b4ox]  fluent-text-field::part(root) {
+    height: 100%;
+    padding: 6px 0px 4px 0px;
+}
+
+.fluent-autocomplete-multiselect[auto-height][b-hg72r5b4ox]  fluent-text-field::part(control) {
+    margin-bottom: 2px;
+}
+
+@media (forced-colors: active) {
+
+    .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox] {
+        border: calc(var(--stroke-width)* 1px) solid transparent;
+    }
+
+    .fluent-autocomplete-multiselect div[role=listbox][b-hg72r5b4ox]  fluent-option:not([disabled]):not([selected])[selectable] {
+        forced-color-adjust: none;
+        background: highlight;
+        color: highlighttext;
+    }
 }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/List/FluentPersona.razor.rz.scp.css */
 .fluent-persona[b-n7zog0zvqi] {
@@ -1955,6 +2072,9 @@ div[dragged-over][b-qxma62j335] {
     border-radius: calc(var(--control-corner-radius) * 1px);
     padding: 0 12px;
     column-gap: 8px;
+}
+
+.fluent-messagebar[animation="fadein"][b-ig2qs97tvl] {
     animation: fadein-b-ig2qs97tvl 1.5s;
 }
 
@@ -2063,7 +2183,6 @@ div[dragged-over][b-qxma62j335] {
     min-height: 36px;
     padding: 0 12px;
     column-gap: 8px;
-    animation: fadein-b-ig2qs97tvl 1.5s;
 }
 
     .fluent-messagebar-notification.intent-info[b-ig2qs97tvl] {
@@ -2418,19 +2537,19 @@ div[dragged-over][b-qxma62j335] {
 }
 
 /* level indenting */
-[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu > .fluent-nav-item .content-region {
+[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu .fluent-nav-item .content-region {
     padding-inline-start: 24px;
 }
 
-[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item .content-region {
+[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item .content-region {
     padding-inline-start: 48px;
 }
 
-[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item .content-region {
+[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item .content-region {
     padding-inline-start: 72px;
 }
 
-[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item * .fluent-nav-menu > .fluent-nav-item .content-region {
+[b-vs37bumpa7] .fluent-nav-group * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item * .fluent-nav-menu .fluent-nav-item .content-region {
     padding-inline-start: 96px;
 }
 
@@ -2488,6 +2607,13 @@ div[dragged-over][b-qxma62j335] {
 
 .fluent-overflow[b-vceposnczs]  > *[overflow] {
     display: none;
+}
+
+.fluent-overflow[b-vceposnczs]  .fluent-overflow-item[fixed='ellipsis'] {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: fit-content;
 }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/Overlay/FluentOverlay.razor.rz.scp.css */
 .fluent-overlay[b-xkrr7evqik] {
@@ -2580,22 +2706,33 @@ div[dragged-over][b-qxma62j335] {
     }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/ProfileMenu/FluentProfileMenu.razor.rz.scp.css */
 .fluent-profile-menu[b-rsm9d6pikk] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
 }
+
+    .fluent-profile-menu:hover[b-rsm9d6pikk] {
+        background-color: var(--fluent-profile-menu-hover);
+    }
 
     .fluent-profile-menu[b-rsm9d6pikk]  > .fluent-persona > .name {
         display: none;
     }
 
-    .fluent-profile-menu[top-corner][b-rsm9d6pikk]  fluent-anchored-region {
+    .fluent-profile-menu[top-corner][b-rsm9d6pikk]  + div + fluent-anchored-region {
         transform: unset !important;
         left: unset;
         right: -4px;
+        top: 32px;
     }
 
-[dir="rtl"] .fluent-profile-menu[top-corner][b-rsm9d6pikk]  fluent-anchored-region {
+[dir="rtl"] .fluent-profile-menu[top-corner][b-rsm9d6pikk]  + div + fluent-anchored-region {
     transform: unset !important;
     left: -4px;
     right: unset;
+    top: 32px;
 }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/PullToRefresh/FluentPullToRefresh.razor.rz.scp.css */
 .fluent-pull-container[b-rq0hhda1ik] {
@@ -2629,6 +2766,25 @@ div[dragged-over][b-qxma62j335] {
 fluent-radio[b-98313echfq] {
     margin: calc(var(--design-unit) * 1px) 0;
 }
+/* _content/Microsoft.FluentUI.AspNetCore.Components/Components/Rating/FluentRating.razor.rz.scp.css */
+.fluent-rating[b-9p46vl6e0d] {
+    justify-content: start;
+    align-items: start;
+    column-gap: 0px;
+}
+
+    .fluent-rating[b-9p46vl6e0d]  input[type='radio'] {
+        opacity: 0;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+    }
+
+    .fluent-rating:focus-within[b-9p46vl6e0d]  svg[selected] {
+        outline-style: auto;
+        outline-color: var(--focus-stroke-outer);
+        outline-width: var(--focus-stroke-width);
+    }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/SortableList/FluentSortableList.razor.rz.scp.css */
 /* 
   you need the ::deep identifier if you are using scoped styles like this
@@ -2807,7 +2963,11 @@ fluent-radio[b-98313echfq] {
     }
 
         .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="collapse"]:before {
-            content: '\025C0;';            
+            content: '\025C0';            
+        }
+
+        [dir="rtl"] .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="collapse"]:before {
+            content: '\025B6';
         }
 
         .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="resize"] {
@@ -2816,7 +2976,11 @@ fluent-radio[b-98313echfq] {
         }
 
         .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="expand"]:before {
-            content: '\025B6;';
+            content: '\025B6';
+        }
+
+        [dir="rtl"] .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="expand"]:before {
+            content: '\025C0';
         }
 
         .fluent-multi-splitter[orientation="horizontal"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar[status="resizable"]:hover {
@@ -2834,7 +2998,7 @@ fluent-radio[b-98313echfq] {
     }
 
         .fluent-multi-splitter[orientation="vertical"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="collapse"]:before {
-            content: '\025B2;';
+            content: '\025B2';
         }
 
         .fluent-multi-splitter[orientation="vertical"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="resize"] {
@@ -2843,7 +3007,7 @@ fluent-radio[b-98313echfq] {
         }
 
         .fluent-multi-splitter[orientation="vertical"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar > span[part="expand"]:before {
-            content: '\025BC;';
+            content: '\025BC';
         }
 
         .fluent-multi-splitter[orientation="vertical"][b-ug2ltnxcve]  > .fluent-multi-splitter-bar[status="resizable"]:hover {
@@ -2855,6 +3019,8 @@ fluent-radio[b-98313echfq] {
     overflow: hidden;
     position: relative;
     flex: 0 1 auto;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
     .fluent-multi-splitter[b-ug2ltnxcve]  > .fluent-multi-splitter-pane[status="collapsed"] {
@@ -2962,7 +3128,6 @@ fluent-tab[b-urryfr514w] {
         justify-content: flex-end;
         align-items: center;
         gap: 8px;
-        cursor: pointer;
         width: 48px;
         min-width: 48px;
         height: 20px;
@@ -2975,7 +3140,6 @@ fluent-tab[b-urryfr514w] {
         width: calc( 100% - 12px);
         justify-content: flex-start;
         padding-inline-start: 24px;
-
     }
 
     .fluent-toast[b-uq7572caeb]  .fluent-toast-small {
@@ -2985,6 +3149,7 @@ fluent-tab[b-urryfr514w] {
 
     .fluent-toast[b-uq7572caeb]  .fluent-toast-action:has(.timestamp) {
         cursor: initial;
+        width: auto;
     }
 
     .fluent-toast[b-uq7572caeb]  .fluent-toast-details {
@@ -3077,6 +3242,18 @@ fluent-tab[b-urryfr514w] {
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/TreeView/FluentTreeItem.razor.rz.scp.css */
 .treeitem-text[b-toee5o4b4e] {
     pointer-events: none;
+}
+
+[dir='rtl'] fluent-tree-item[selected][b-toee5o4b4e]::after {
+    right: calc(var(--focus-stroke-width)* 1px);
+}
+
+[dir='rtl'] fluent-tree-item.nested[b-toee5o4b4e]::part(expand-collapse-button) {
+    right: var(--expand-collapse-button-nested-width, calc((var(--base-height-multiplier) + var(--density))* var(--design-unit)* -1px));
+}
+
+[dir='rtl'] fluent-tree-item.nested:not(.expanded)[b-toee5o4b4e]::part(expand-collapse-button) {
+    transform: rotate(180deg);
 }
 /* _content/Microsoft.FluentUI.AspNetCore.Components/Components/Wizard/FluentWizard.razor.rz.scp.css */
 .fluent-wizard[b-l81u9o5gjc] {
@@ -3191,6 +3368,11 @@ fluent-tab[b-urryfr514w] {
         background-color: var(--neutral-stroke-hover);
     }
 
+[dir="rtl"] .fluent-wizard[position="left"] > ol > li:not(:last-child)[b-a5o5s1yurv]:after {
+    left: revert;
+    transform: translateX(calc(var(--fluent-wizard-circle-size) / -2));
+}
+
 /* Wizard with steps on Top */
 .fluent-wizard[position="top"] > ol > li[b-a5o5s1yurv] {
     flex-direction: column;
@@ -3217,10 +3399,10 @@ fluent-tab[b-urryfr514w] {
     }
 
 
-    [dir="rtl"] .fluent-wizard[position="top"] > ol > li:not(:last-child)[b-a5o5s1yurv]:after {
-        left: unset;
-        right: calc(50% + calc(var(--fluent-wizard-circle-size) / 2 + var(--fluent-wizard-spacing)));
-    }
+[dir="rtl"] .fluent-wizard[position="top"] > ol > li:not(:last-child)[b-a5o5s1yurv]:after {
+    left: unset;
+    right: calc(50% + calc(var(--fluent-wizard-circle-size) / 2 + var(--fluent-wizard-spacing)));
+}
 
 /* Icon */
 .fluent-wizard > ol > li .fluent-wizard-icon[b-a5o5s1yurv] {
@@ -3230,7 +3412,7 @@ fluent-tab[b-urryfr514w] {
 
 /* Icon Number */
 .fluent-wizard > ol > li .fluent-wizard-icon-number[b-a5o5s1yurv] {
-    margin-top: calc(var(--fluent-wizard-circle-size) * -1 - 4px);
+    margin-top: calc(var(--fluent-wizard-circle-size) * -1 - 5px);
     font-size: small;
     color: var(--accent-fill-rest);
     text-align: center;
