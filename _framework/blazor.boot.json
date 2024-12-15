@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Utility",
   "resources": {
-    "hash": "sha256-0dw+vv3ANrXAmC9etP66rML1dvWr9/Wa6wZ1mVd+SJo=",
+    "hash": "sha256-FNcPJ2xRpWnIYwwwVZJkDZ/cGsBzJSZ4JAatJZgLI1Q=",
     "jsModuleNative": {
       "dotnet.native.8.0.11.n1sf6xr5tz.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -80,8 +80,8 @@
       "System.Threading.wasm": "sha256-4C3ndI/Xg3W8vOvl13jkctoRhnF8IMqWfWFATomhvjM=",
       "System.wasm": "sha256-UsIFTsNRr1Sw/A0hEbTyYbQo5eHUNmMuOWT6/xaM3TE=",
       "System.Web.HttpUtility.wasm": "sha256-S3VX7mVMV6UU2oThxlP1HhnkGCpDm+kcC/XeXF0bBWQ=",
-      "Utility.Common.wasm": "sha256-YfGk1pOMKQC5FK0vnrglGLvN/wH/Zxe10axfhsBlrK4=",
-      "Utility.wasm": "sha256-2SnUeclWIm9rbOJiSVdG5oBSvwI9ZiYYvuGmPd0e92s="
+      "Utility.Common.wasm": "sha256-VKfFBCamcj++gEww6Yb+I0eHcWxH1jS86PQRX1rbx18=",
+      "Utility.wasm": "sha256-VhFV6LI3auVFb1vyvr+hMSfUi4VeEK6EW/kjDhXIiDw="
     },
     "libraryInitializers": {
       "_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js": "sha256-ZYkvi7NZG5XUqY/KZ9XuAzQnqyd9fRG223i5iclZQpw="
