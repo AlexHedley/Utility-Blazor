@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Utility.Common\Utility.Common.csproj" />
+    <ProjectReference Include="..\Utility.Components\Utility.Components.csproj" />
   </ItemGroup>
 
 </Project>
