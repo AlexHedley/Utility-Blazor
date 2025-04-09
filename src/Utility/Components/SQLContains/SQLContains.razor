@@ -1,50 +1,33 @@
 @inject IJSRuntime JSRuntime
 
-<div class="container">
-    <label class="label-control">Field:</label>
-    <div class="input-group">
-        <input type="text" id="field" name="field" class="form-control" @bind="Field">
-        <span class="input-group-btn">
-            <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
-            <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
-        </span>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="input-group">
-                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
-                <span class="input-group-btn">
-                    <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="chkIncludeWildcard" @bind-value="IncludeWildcard" checked="@(IncludeWildcard ? "checked" : null)">
-                <label class="form-check-label" for="chkIncludeWildcard">
-                    Include Wildcard
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button class="btn btn-success" type="button" id="btnParse" name="btnParse" @onclick="Create">Create</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="input-group">
-                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
-                <span class="input-group-btn">
-                    <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info" @onclick="Copy"><i class="far fa-copy"></i></button>
-                </span>
-            </div>
-            
-        </div>
-    </div>
+<div style="display: flex; width=100%">
+    <FluentTextField @bind-Value=Field>
+        <FluentLabel Typo="Typography.Body" Slot="start">Field:</FluentLabel>
+        <FluentButton OnClick="CopyField" Title="Copy" IconStart="@(new Icons.Regular.Size16.Copy())" Slot="end" />
+        <FluentButton OnClick="ClearField" Title="Clear" IconStart="@(new Icons.Regular.Size16.Delete())" Slot="end" />
+    </FluentTextField>
+</div>
+
+<div style="display: flex; width=100%">
+    <FluentTextArea @bind-Value=Input AriaLabel="Without label">
+        <FluentButton OnClick="Clear" Title="Clear" IconStart="@(new Icons.Regular.Size16.Delete())" Slot="end" />
+    </FluentTextArea>
+</div>
+
+<div style="display: flex; width=100%">
+    <FluentStack>
+        <FluentCheckbox @bind-Value="@IncludeWildcard" Label="Include Wildcard" />
+    </FluentStack>
+</div>
+
+<div style="display: flex; width=100%">
+    <FluentButton OnClick="Create" Title="Create">Create</FluentButton>
+</div>
+
+<div style="display: flex; width=100%">
+    <FluentTextArea @bind-Value=Output AriaLabel="Without label">
+        <FluentButton OnClick="Copy" Title="Copy" IconStart="@(new Icons.Regular.Size16.Copy())" Slot="end" />
+    </FluentTextArea>
 </div>
 
 @code {

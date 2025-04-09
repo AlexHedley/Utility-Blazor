@@ -1,4 +1,5 @@
 @implements IDisposable
+@using Microsoft.IdentityModel.Tokens
 @inherits LayoutComponentBase
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
@@ -19,9 +20,11 @@
         <FluentBodyContent Class="body-content">
             <ErrorBoundary>
                 <ChildContent>
-                    <div class="content">
-                        @Body
-                    </div>
+                    <article id="article">
+                        <div class="content">
+                            @Body
+                        </div>
+                    </article>
                 </ChildContent>
                 <ErrorContent Context="ex">
                     <div class="blazor-error-boundary">@ex.Message</div>
@@ -67,6 +70,7 @@
         Uri uri = new Uri(e.Location);
         string pathName = uri.AbsolutePath;
         var path = pathName.Split(new []{ "/" }, StringSplitOptions.RemoveEmptyEntries);
+        if (path.Length == 0) return;
         
         await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, path[^1]);
     }
