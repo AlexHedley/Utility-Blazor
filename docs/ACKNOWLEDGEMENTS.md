@@ -8,6 +8,7 @@
 - Humanizer
 - Blazored.LocalStorage
 - [BlazorMonaco](https://github.com/serdarciplak/BlazorMonaco)
+- Fare
 
 - OpenIconic https://www.appstudio.dev/app/OpenIconic.html
   - https://github.com/iconic/open-iconic

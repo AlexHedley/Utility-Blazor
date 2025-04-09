@@ -23,6 +23,7 @@ Utility Web App written in Blazor WebAssembly (WASM)
 - Url Encode
 - Url
 - Guid
+- Regex from String
 - SQL (IN Clause / LIKE)
 - Luhn
 - Hidden Char Finder ([Original](https://www.soscisurvey.de/tools/view-chars.php) [Source](https://github.com/BurninLeo/see-non-printable-characters/blob/main/view-chars.php))
