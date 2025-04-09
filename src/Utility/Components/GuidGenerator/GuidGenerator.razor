@@ -40,12 +40,11 @@
     <div class="row">
         <label class="label-control">New:</label>
         <div class="input-group">
-            <span class="input-group-btn">
-                <button class="btn btn-info" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate" @onclick="GenerateNewGuid">Generate</button>
-            </span>
+            @* <span class="input-group-btn"></span> *@
             <input type="text" id="newGuid" name="newGuid" class="form-control" value="@newGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly>
             <input type="hidden" id="newGuidHidden" name="newGuidHidden" class="form-control" value="@newGuidHidden" placeholder="00000000-0000-0000-0000-000000000000" readonly>
             <span class="input-group-btn">
+                <button class="btn btn-info" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate" @onclick="GenerateNewGuid">Generate</button>
                 <button class="btn btn-info" type="button" id="btnNewGuidCopy" name="btnNewGuidCopy" @onclick="CopyNewGuid"><i class="far fa-copy"></i></button>
             </span>
         </div>
@@ -87,7 +86,7 @@
         </div>
     </div>
     <div class="row">
-        <textarea id="guids" class="form-control" @bind="NewGuids"></textarea>
+        <textarea id="guids" class="form-control" @bind="NewGuids" rows="5"></textarea>
     </div>
 </div>
 
