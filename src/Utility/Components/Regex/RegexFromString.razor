@@ -32,7 +32,12 @@
 
     <div class="row">
         <div class="col">
-            <textarea id="output" class="form-control" rows="@Count" @bind="Output"></textarea>
+            <div class="input-group">
+                <textarea id="output" class="form-control" rows="@Count" @bind="Output"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnCopy" name="btnCopy" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
         </div>
     </div>
     
@@ -70,6 +75,11 @@
             builder.Append(random + System.Environment.NewLine);
         }
 
-        Output = builder.ToString();
+        Output = builder.ToString().Trim();
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
     }
 }
