@@ -1,0 +1,85 @@
+@using System.Text
+@using Fare
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <label class="label-control">Regular Expression:</label>
+            <div class="input-group">
+                <input type="regularExpression" id="regularExpression" name="regularExpression" class="form-control" @bind="RegularExpression">
+            </div>
+            
+        </div>
+
+        <div class="col">
+            
+            <label class="label-control">Count:</label>
+            <div class="input-group">
+                <input type="count" id="count" name="count" class="form-control" @bind="Count">
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="Generate" name="Generate" @onclick="Generate" class="btn btn-success float-right">Generate</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <textarea id="output" class="form-control" rows="@Count" @bind="Output"></textarea>
+                <span class="input-group-btn">
+                    <button id="btnCopy" name="btnCopy" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p>Inspired from <a href="https://onlinestringtools.com/generate-string-from-regex" target="_blank">String from Regex Generator</a></p>
+        </div>
+    </div>
+    
+</div>
+
+@code
+{
+    [Parameter]
+    public string Output { get; set; }
+    
+    string RegularExpression;
+    int Count;
+    
+    protected override void OnInitialized()
+    {
+        RegularExpression = @"\d{1,5}";
+        Count = 5;
+        Output = "";
+    }
+    
+    private void Generate()
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < Count; i++)
+        {
+            var xeger = new Xeger(RegularExpression);
+            var random = xeger.Generate();
+            
+            builder.Append(random + System.Environment.NewLine);
+        }
+
+        Output = builder.ToString().Trim();
+    }
+    
+    async Task Copy()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Output);
+    }
+}

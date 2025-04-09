@@ -12,6 +12,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53EC20CC-B77E-4620-91E4-90D0FA828C52}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		..\README.md = ..\README.md
+		..\docs\ACKNOWLEDGEMENTS.md = ..\docs\ACKNOWLEDGEMENTS.md
+		..\docs\CHANGELOG.md = ..\docs\CHANGELOG.md
+		..\docs\CONTRIBUTORS.md = ..\docs\CONTRIBUTORS.md
+		..\docs\README.md = ..\docs\README.md
 	EndProjectSection
 EndProject
 Global
