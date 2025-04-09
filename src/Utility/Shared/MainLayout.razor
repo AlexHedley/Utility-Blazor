@@ -34,6 +34,7 @@
         <div class="link1">
             <a href="https://alexhedley.com/Utility-Documentation/" target="_blank">Documentation</a>
         </div>
+        <FluentSpacer />
         <div class="link2">
             <a href="https://alexhedley.com/Utility/" target="_blank">About</a>
         </div>
@@ -67,8 +68,8 @@
         Uri uri = new Uri(e.Location);
         string pathName = uri.AbsolutePath;
         var path = pathName.Split(new []{ "/" }, StringSplitOptions.RemoveEmptyEntries);
-        
-        await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, path[^1]);
+        if (path.Length != 0)
+            await localStorage.SetItemAsync(Constants.LOCAL_STORAGE_TAB, path[^1]);
     }
 
     void IDisposable.Dispose()
