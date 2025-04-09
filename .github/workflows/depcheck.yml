@@ -1,0 +1,84 @@
+name: Dependency Check
+
+on:
+  workflow_dispatch:
+#   push:
+#     branches: [ main, dev ]
+#     paths: src/**
+#   pull_request:
+#     branches: [ main ]
+#     paths: src/**
+
+# # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+jobs:
+  depcheck:
+    runs-on: ubuntu-latest
+    name: OWASP Dependency-Check
+    # defaults:
+    #   run:
+    #     working-directory: src
+
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup .NET 8.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+          # include-prerelease: true
+
+      - name: ⬇️ Restore dependencies
+        run: dotnet restore
+        working-directory: src
+
+      - name: 🔨 Build
+        run: dotnet build --no-restore
+        working-directory: src
+
+      # - name: Unit Testing
+      #   run: dotnet test --collect:"XPlat Code Coverage"
+      #   working-directory: src
+
+      # - name: Publish Test Results
+      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      #   if: always()
+      #   with:
+      #     xunit_files: 'src/**/TestResults/**/coverage.cobertura.xml'
+
+      - name: 👴🏻 Check vulnerable packages
+        run: dotnet list package --vulnerable
+        working-directory: src
+
+      - name: 🏁 Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        with:
+          project: "test"
+          path: "./src"
+          format: "HTML"
+          out: "reports" # this is the default, no need to specify unless you wish to override it
+          args: >
+            --failOnCVSS 11
+            --enableRetired
+          # --suppression ./src/dependency-suppression.xml
+
+      - name: ⬆️ Upload Test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
+
+      - name: 🌍 Commit wwwroot to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: ${{github.workspace}}/reports
+          target-folder: reports
+          clean: false
