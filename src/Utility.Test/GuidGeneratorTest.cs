@@ -100,7 +100,7 @@ namespace Utility.Test
         {
             var cut = RenderComponent<GuidGenerator>();
             cut.FindAll("button")[5].Click();
-            string markup = "<textarea id=\"guids\" class=\"form-control\" value=\"\"  ></textarea>";
+            string markup = "<textarea id=\"guids\" class=\"form-control\" rows=\"5\" value=\"\"></textarea>";
             cut.FindAll("textarea")[0].MarkupMatches(markup); // guids
         }
         
