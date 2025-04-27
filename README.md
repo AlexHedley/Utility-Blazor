@@ -11,6 +11,9 @@ Utility Web App written in Blazor WebAssembly (WASM)
 [![Deploy to GitHub Pages](https://github.com/AlexHedley/Utility-Blazor/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/AlexHedley/Utility-Blazor/actions?query=workflow%3A%22Deploy+to+GitHub+Pages%22)
 [![pages-build-deployment](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlexHedley/Utility-Blazor/actions/workflows/pages/pages-build-deployment)
 
+[![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white)](https://github.com/AlexHedley/Utility-Blazor/security/dependabot)
+[![Dependency-Check](https://img.shields.io/badge/DependencyCheck-f78d0a.svg?style=for-the-badge&logo=dependencycheck&logoColor=white)](https://alexhedley.com/Utility-Blazor/reports/dependency-check-report.html)
+
 [![Tests](https://gist.githubusercontent.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7/raw/utility_blazor_tests.md_badge.svg "Tests")](https://gist.github.com/AlexHedley/2a77118fe86f8053c4245b6f29a74fb7)
 
 ## Site
@@ -80,5 +83,6 @@ Output using [dotnet-tests-report](https://github.com/marketplace/actions/dotnet
 ## Docs
 
 - [docs](docs/README.md)
+  - [Deployed Docs](https://alexhedley.github.io/Utility-Documentation/)
 
 - [Utility](https://github.com/AlexHedley/Utility)
