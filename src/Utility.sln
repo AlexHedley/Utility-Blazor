@@ -5,19 +5,22 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "Utility\Utility.csproj", "{DD1ACE1D-0EE1-4CC4-8603-85684E30D928}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.Test", "Utility.Test\Utility.Test.csproj", "{D3325538-0D45-478E-8FC1-EA280B21E368}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility.Common", "Utility.Common\Utility.Common.csproj", "{76F5E0AE-7A22-4471-A7B8-2E514D032BF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53EC20CC-B77E-4620-91E4-90D0FA828C52}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
-		..\README.md = ..\README.md
-		..\docs\ACKNOWLEDGEMENTS.md = ..\docs\ACKNOWLEDGEMENTS.md
-		..\docs\CHANGELOG.md = ..\docs\CHANGELOG.md
-		..\docs\CONTRIBUTORS.md = ..\docs\CONTRIBUTORS.md
-		..\docs\README.md = ..\docs\README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\build-test.yml = ..\.github\workflows\build-test.yml
+		..\.github\workflows\codeql-analysis.yml = ..\.github\workflows\codeql-analysis.yml
+		..\.github\workflows\depcheck.yml = ..\.github\workflows\depcheck.yml
+		..\.github\workflows\deploy-site.yml = ..\.github\workflows\deploy-site.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility.Test", "Utility.Test\Utility.Test.csproj", "{E45B2FBB-D209-9A2A-1C35-16C04F733ABD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +32,14 @@ Global
 		{DD1ACE1D-0EE1-4CC4-8603-85684E30D928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD1ACE1D-0EE1-4CC4-8603-85684E30D928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD1ACE1D-0EE1-4CC4-8603-85684E30D928}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3325538-0D45-478E-8FC1-EA280B21E368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3325538-0D45-478E-8FC1-EA280B21E368}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3325538-0D45-478E-8FC1-EA280B21E368}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3325538-0D45-478E-8FC1-EA280B21E368}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76F5E0AE-7A22-4471-A7B8-2E514D032BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76F5E0AE-7A22-4471-A7B8-2E514D032BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76F5E0AE-7A22-4471-A7B8-2E514D032BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76F5E0AE-7A22-4471-A7B8-2E514D032BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45B2FBB-D209-9A2A-1C35-16C04F733ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45B2FBB-D209-9A2A-1C35-16C04F733ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45B2FBB-D209-9A2A-1C35-16C04F733ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45B2FBB-D209-9A2A-1C35-16C04F733ABD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
