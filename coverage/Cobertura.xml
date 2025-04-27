@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.18635809987819732" branch-rate="0.1518987341772152" lines-covered="153" lines-valid="821" branches-covered="24" branches-valid="158" complexity="304" version="0" timestamp="1745760759">
+<coverage line-rate="0.18635809987819732" branch-rate="0.1518987341772152" lines-covered="153" lines-valid="821" branches-covered="24" branches-valid="158" complexity="304" version="0" timestamp="1745761568">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
@@ -2480,56 +2480,56 @@
           <methods>
             <method name="System.IDisposable.Dispose" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="76" hits="0" branch="false" />
-                <line number="78" hits="0" branch="false" />
-                <line number="79" hits="0" branch="false" />
+                <line number="80" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
+                <line number="83" hits="0" branch="false" />
               </lines>
             </method>
             <method name="LocationChanged" signature="()" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="64" hits="0" branch="false" />
                 <line number="68" hits="0" branch="false" />
-                <line number="69" hits="0" branch="false" />
-                <line number="70" hits="0" branch="false" />
-                <line number="71" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="72" hits="0" branch="false" />
                 <line number="73" hits="0" branch="false" />
+                <line number="74" hits="0" branch="false" />
+                <line number="75" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="76" hits="0" branch="false" />
+                <line number="77" hits="0" branch="false" />
               </lines>
             </method>
             <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="50" hits="0" branch="false" />
-                <line number="52" hits="0" branch="false" />
                 <line number="54" hits="0" branch="false" />
-                <line number="55" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="56" hits="0" branch="false" />
-                <line number="57" hits="0" branch="false" />
                 <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="60" hits="0" branch="false" />
                 <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
+                <line number="64" hits="0" branch="false" />
+                <line number="65" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="50" hits="0" branch="false" />
-            <line number="52" hits="0" branch="false" />
             <line number="54" hits="0" branch="false" />
-            <line number="55" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="56" hits="0" branch="false" />
-            <line number="57" hits="0" branch="false" />
             <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="60" hits="0" branch="false" />
             <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
             <line number="64" hits="0" branch="false" />
+            <line number="65" hits="0" branch="false" />
             <line number="68" hits="0" branch="false" />
-            <line number="69" hits="0" branch="false" />
-            <line number="70" hits="0" branch="false" />
-            <line number="71" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="72" hits="0" branch="false" />
             <line number="73" hits="0" branch="false" />
+            <line number="74" hits="0" branch="false" />
+            <line number="75" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="76" hits="0" branch="false" />
-            <line number="78" hits="0" branch="false" />
-            <line number="79" hits="0" branch="false" />
+            <line number="77" hits="0" branch="false" />
+            <line number="80" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
+            <line number="83" hits="0" branch="false" />
           </lines>
         </class>
         <class name="Utility.Shared.NavMenu" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Shared/NavMenu.razor" line-rate="0" branch-rate="1" complexity="1">
