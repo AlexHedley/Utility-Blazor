@@ -1,48 +1,48 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            
+
             <label class="label-control">Character:</label>
             <div class="input-group">
-                <input id="ascii" name="ascii" class="form-control" @bind="AsciiValue" placeholder="'">
+                <input id="ascii" name="ascii" class="form-control" @bind="AsciiValue" placeholder="'" maxlength="1">
                 <span class="input-group-btn">
                     <button id="btnAscii" name="btnAscii" type="button" class="btn btn-info float-right" @onclick="GetAsciiValues">Get ASCII Values</button>
                 </span>
             </div>
-            
+
         </div>
     </div>
-    
+
     <br />
-    
+
     <div class="row">
         <div class="col">
-            
+
             <table id="asciiItems">
                 <thead>
-                <tr>
-                    <th>Char</th>
-                    <th>Dec</th>
-                    <th>Hex</th>
-                    <th>Oct</th>
-                </tr>
+                    <tr>
+                        <th>Char</th>
+                        <th>Dec</th>
+                        <th>Hex</th>
+                        <th>Oct</th>
+                    </tr>
                 </thead>
                 <tfoot></tfoot>
                 <tbody>
-                <tr>
-                    <td>@Char</td>
-                    <td>@Dec</td>
-                    <td>@Hex</td>
-                    <td>@Oct</td>
-                </tr>
+                    <tr>
+                        <td>@Char</td>
+                        <td>@Dec</td>
+                        <td>@Hex</td>
+                        <td>@Oct</td>
+                    </tr>
                 </tbody>
             </table>
-            
+
         </div>
     </div>
-    
+
     <hr />
-    
+
     <div class="row">
         <div class="col">
             <p>Inspired from <a href="http://asciivalue.com/" target="_blank">ASCIIvalue</a></p>
@@ -59,10 +59,17 @@
 
     void GetAsciiValues()
     {
+        char character = char.Parse(AsciiValue);
+
         Char = AsciiValue;
-        Dec = "N/A";
+        
+        int uiValue = (int)character;
+        Dec = uiValue.ToString();
+
         Hex = String.Concat(AsciiValue.Select(x => ((int)x).ToString("x2")));
-        Oct = "N/A"; //Convert.ToInt32(AsciiValue, 8).ToString();
+
+        // Oct = Convert.ToInt32(AsciiValue, 8).ToString(); // Could not find any recognizable digits.
+        Oct = Convert.ToString(character, 8);
     }
 
 }
