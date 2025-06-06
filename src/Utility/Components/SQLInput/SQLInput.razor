@@ -3,7 +3,7 @@
 <div class="container">
     <label class="label-control">Field:</label>
     <div class="input-group">
-        <input type="text" id="field" name="field" class="form-control" @bind="Field">@*placeholder="i.[Guid]"*@
+        <input type="text" id="field" name="field" class="form-control" @bind="Field" placeholder="FirstName">@*placeholder="i.[Guid]"*@
         <span class="input-group-btn">
             <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
             <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input" placeholder="Alex"></textarea>
                 <span class="input-group-btn">
                     <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
                 </span>
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output" placeholder="FirstName LIKE %Alex%"></textarea>
                 <span class="input-group-btn">
                     <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info" @onclick="Copy"><i class="far fa-copy"></i></button>
                 </span>

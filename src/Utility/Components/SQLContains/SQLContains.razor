@@ -3,7 +3,7 @@
 <div class="container">
     <label class="label-control">Field:</label>
     <div class="input-group">
-        <input type="text" id="field" name="field" class="form-control" @bind="Field">
+        <input type="text" id="field" name="field" class="form-control" @bind="Field" placeholder="FirstName">
         <span class="input-group-btn">
             <button class="btn btn-info" type="button" id="btnFieldCopy" name="btnFieldCopy" @onclick="CopyField"><i class="far fa-copy"></i></button>
             <button class="btn btn-danger" type="button" id="btnFieldClear" name="btnFieldClear" @onclick="ClearField"><i class="far fa-trash-alt"></i></button>
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input" placeholder="Alex"></textarea>
                 <span class="input-group-btn">
                     <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
                 </span>
@@ -37,12 +37,12 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output" placeholder="CONTAINS (FirstName, Alex)"></textarea>
                 <span class="input-group-btn">
                     <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info" @onclick="Copy"><i class="far fa-copy"></i></button>
                 </span>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -50,19 +50,19 @@
 @code {
 
     [Parameter]
-    public string? Field { get; set; }
-    
-    [Parameter]
-    public string? Input { get; set; }
-    
-    [Parameter]
-    public string? Output { get; set; }
+    public string? Field { get; set; } = string.Empty;
 
     [Parameter]
-    public bool IncludeWildcard { get; set; }
-    
+    public string? Input { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Output { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool IncludeWildcard { get; set; } = false;
+
     string wildcard = "*";
-    
+
     protected override void OnInitialized()
     {
         // Field = string.Empty;
@@ -91,9 +91,14 @@
         // CONTAINS(Description, @SearchWord)
         // WHERE CONTAINS(t.something, '"bla*" OR "foo*" OR "batz*"')
 
+        var likeItems = "";
         wildcard = IncludeWildcard ? "*" : "";
+
         var items = Input.Split(new[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-        var likeItems = string.Join(" OR ", items.Select(i => $"CONTAINS ({Field}, {wildcard}{i.Trim()}{wildcard})"));
+        if (items.Length != 0)
+        {
+            likeItems = string.Join(" OR ", items.Select(i => $"CONTAINS ({Field}, {wildcard}{i.Trim()}{wildcard})"));
+        }
 
         Output = likeItems;
     }

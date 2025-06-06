@@ -16,7 +16,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Encode:</span>
                 </div>
-                <input id="urlEncode" name="urlEncode" class="form-control" @bind="url">
+                <input id="urlEncode" name="urlEncode" class="form-control" @bind="url" placeholder="http://www.alexhedley.com">
                 <span class="input-group-btn">
                     <button id="btnEncode" name="btnEncode" @onclick="Encode" class="btn btn-success float-right">Encode</button>
                 </span>
@@ -32,7 +32,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Decode:</span>
                 </div>
-                <input id="urlDecode" name="urlDecode" class="form-control" @bind="dUrl">
+                <input id="urlDecode" name="urlDecode" class="form-control" @bind="dUrl" placeholder="http%3A%2F%2Fwww.alexhedley.com">
                 <div class="input-group-append">
                     <button id="btnDecode" name="btnDecode" @onclick="Decode" class="btn btn-success float-right">Decode</button>
                 </div>

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input"></textarea>
+                <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5" @bind="Input" placeholder="abc"></textarea>
                 <span class="input-group-btn">
                     <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-danger float-right" @onclick="Clear"><i class="far fa-trash-alt"></i></button>
                 </span>
@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output"></textarea>
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output" placeholder="IN (a,b,c)"></textarea>
                 <span class="input-group-btn">
                     <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info float-right" @onclick="Copy"><i class="far fa-copy"></i></button>
                 </span>
