@@ -37,7 +37,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group">
-                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output" placeholder="CONTAINS (FirstName, Alex)"></textarea>
+                <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5" @bind="Output" placeholder="CONTAINS (FirstName, 'Alex')"></textarea>
                 <span class="input-group-btn">
                     <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-info" @onclick="Copy"><i class="far fa-copy"></i></button>
                 </span>
@@ -97,7 +97,7 @@
         var items = Input.Split(new[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
         if (items.Length != 0)
         {
-            likeItems = string.Join(" OR ", items.Select(i => $"CONTAINS ({Field}, {wildcard}{i.Trim()}{wildcard})"));
+            likeItems = string.Join(" OR ", items.Select(i => $"CONTAINS ({Field}, '{wildcard}{i.Trim()}{wildcard}')"));
         }
 
         Output = likeItems;
