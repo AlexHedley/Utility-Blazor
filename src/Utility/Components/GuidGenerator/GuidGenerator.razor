@@ -21,20 +21,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="@removeDashes" id="chkRemoveDashesZero"
-                   @onchange="@(eventArgs => { removeDashes = (bool)eventArgs.Value; Update(); })"/>
-            <label class="form-check-label" for="chkRemoveDashesZero">
-                Remove Dashes
-            </label>
-        </div>
-        &nbsp;|&nbsp;
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="@addBraces" id="chkAddBracesZero"
-                   @onchange="@(eventArgs => { addBraces = (bool)eventArgs.Value; Update(); })"/>
-            <label class="form-check-label" for="chkAddBracesZero">
-                Add Braces
-            </label>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="@removeDashes" id="chkRemoveDashesZero"
+                       @onchange="@(eventArgs => { removeDashes = (bool)eventArgs.Value; Update(); })"/>
+                <label class="form-check-label" for="chkRemoveDashesZero">
+                    Remove Dashes
+                </label>
+            </div>
+            @* &nbsp;|&nbsp; *@
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="@addBraces" id="chkAddBracesZero"
+                       @onchange="@(eventArgs => { addBraces = (bool)eventArgs.Value; Update(); })"/>
+                <label class="form-check-label" for="chkAddBracesZero">
+                    Add Braces
+                </label>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -44,18 +46,20 @@
             <input type="text" id="newGuid" name="newGuid" class="form-control" value="@newGuid" placeholder="00000000-0000-0000-0000-000000000000" readonly>
             <input type="hidden" id="newGuidHidden" name="newGuidHidden" class="form-control" value="@newGuidHidden" placeholder="00000000-0000-0000-0000-000000000000" readonly>
             <span class="input-group-btn">
-                <button class="btn btn-info" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate" @onclick="GenerateNewGuid">Generate</button>
+                <button class="btn btn-success" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate" @onclick="GenerateNewGuid">Generate</button>
                 <button class="btn btn-info" type="button" id="btnNewGuidCopy" name="btnNewGuidCopy" @onclick="CopyNewGuid"><i class="far fa-copy"></i></button>
             </span>
         </div>
     </div>
     <div class="row">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="@removeDashesNew" id="chkRemoveDashes"
-                   @onchange="@(eventArgs => { removeDashesNew = (bool)eventArgs.Value; RemoveDashesFromNewGuid(); })">
-            <label class="form-check-label" for="chkRemoveDashes">
-                Remove Dashes
-            </label>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="@removeDashesNew" id="chkRemoveDashes"
+                       @onchange="@(eventArgs => { removeDashesNew = (bool)eventArgs.Value; RemoveDashesFromNewGuid(); })">
+                <label class="form-check-label" for="chkRemoveDashes">
+                    Remove Dashes
+                </label>
+            </div>
         </div>
     </div>
     <hr/>
@@ -63,7 +67,9 @@
         <label class="label-control">How many Guids do you wish to generate:</label>
         <div class="input-group">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="chkRemoveDashesMultiple">
+                <input class="form-check-input" type="checkbox" value="" id="chkRemoveDashesMultiple" />
+                @* <input class="form-check-input" type="checkbox" value="@removeMultipleDashesNew" id="chkRemoveDashesMultiple" *@
+                @*        @onchange="@(eventArgs => { removeMultipleDashesNew = (bool)eventArgs.Value; RemoveDashesFromNewGuid(); })"> *@
                 <label class="form-check-label" for="chkRemoveDashesMultiple">
                     Remove Dashes
                 </label>
@@ -149,7 +155,6 @@
     void RemoveDashesFromNewGuid()
     {
         newGuid = (removeDashesNew) ? newGuidHidden.ToString().Replace("-", "") : newGuidHidden.ToString();
-        //removeDashes = !removeDashes;
     }
 
     async Task CopyNewGuid()
@@ -172,16 +177,23 @@
         {
             var guid = System.Guid.NewGuid().ToString() + System.Environment.NewLine;
 
-            //if (RemoveDashesMultiple)
-            ///{
+            // if (RemoveDashesMultiple)
+            // {
             //    guid = Regex.Replace(guid, @"\-", "");
-            //}
+            // }
+            // guid = (RemoveDashesMultiple) ? guid.ToString().Replace("-", "") : guid.ToString();
 
             builder.Append(guid);
         }
 
         NewGuids = builder.ToString();
     }
+
+    // private bool removeMultipleDashesNew = false;
+    // void RemoveDashesFromNewMultipleGuid()
+    // {
+    //     newGuid = (removeMultipleDashesNew) ? newGuidHidden.ToString().Replace("-", "") : newGuidHidden.ToString();
+    // }
 
     async Task CopyMultipleGuids()
     {
