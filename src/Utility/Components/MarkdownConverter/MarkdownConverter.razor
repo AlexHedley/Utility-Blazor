@@ -1,3 +1,5 @@
+@inject IJSRuntime JSRuntime
+
 @using System.Net
 
 <div class="container">
@@ -9,17 +11,25 @@
     
     <div class="row">
         <div class="col">
-            <textarea id="html" class="form-control" rows="5" @bind="HTML"></textarea>
+            <textarea id="html" class="form-control" rows="5" @bind="HTML" placeholder="<html><body><h1>Hello</h1></body></html>"></textarea>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <button id="btnConvert" name="btnConvert" class="btn btn-success float-right" @onclick="Convert">Convert</button>
+            <button id="btnConvert" name="btnConvert" class="btn btn-success float-start" @onclick="Convert">Convert</button>
+            <button id="btnClearHTML" name="btnClearHTML" class="btn btn-danger float-end" @onclick="ClearHTML"><i class="far fa-trash-alt"></i></button>
+            <button id="btnCopyHTML" name="btnCopyHTML" class="btn btn-info float-end" @onclick="CopyHTML"><i class="far fa-copy"></i></button>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <textarea id="markdown" class="form-control" rows="5" @bind="Markdown"></textarea>
+            <textarea id="markdown" class="form-control" rows="5" @bind="Markdown" placeholder="# Hello"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnClearMD" name="btnClearMD" class="btn btn-danger float-end" @onclick="ClearMD"><i class="far fa-trash-alt"></i></button>
+            <button id="btnCopyMD" name="btnCopyMD" class="btn btn-info float-end" @onclick="CopyMD"><i class="far fa-copy"></i></button>
         </div>
     </div>
 
@@ -54,6 +64,26 @@
         
         var converter = new ReverseMarkdown.Converter();
         Markdown = converter.Convert(HTML);
+    }
+
+    private void ClearHTML()
+    {
+        HTML = string.Empty;
+    }
+
+    async Task CopyHTML()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", HTML);
+    }
+
+    private void ClearMD()
+    {
+        Markdown = string.Empty;
+    }
+
+    async Task CopyMD()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", Markdown);
     }
 
 }
