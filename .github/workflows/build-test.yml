@@ -32,10 +32,10 @@ jobs:
     - name: 🛎️ Checkout
       uses: actions/checkout@v5
     
-    - name: Setup .NET 9.0
+    - name: Setup .NET 10.0
       uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: '9.0.x'
+        dotnet-version: '10.0.x'
     
     - name: ⬇️ Restore dependencies
       run: dotnet restore
