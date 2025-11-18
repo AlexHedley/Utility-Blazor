@@ -20,7 +20,7 @@ namespace Utility.Test
             var cut = RenderComponent<UrlEncode>();
             cut.Find("button").Click();
 
-            string markup = "<input id=\"urlDecode\" name=\"urlDecode\" class=\"form-control\" value=\"http%3A%2F%2Fwww.alexhedley.com\" >";
+            string markup = "<input id=\"urlDecode\" name=\"urlDecode\" class=\"form-control\" placeholder=\"http%3A%2F%2Fwww.alexhedley.com\" value=\"http%3A%2F%2Fwww.alexhedley.com\" >";
 
             // Assert: first find the <p> element, then verify its content
             cut.FindAll("input")[1].MarkupMatches(markup);
@@ -36,7 +36,7 @@ namespace Utility.Test
             cut.FindAll("button")[1].Click();
 
             //string markup = "<input id=\"urlEncode\" name=\"urlEncode\" class=\"form-control\" value=\"http://www.alexhedley.com\" >";
-            string markup = "<input id=\"urlEncode\" name=\"urlEncode\" class=\"form-control\" value=\"\" >";
+            string markup = "<input id=\"urlEncode\" name=\"urlEncode\" class=\"form-control\" placeholder=\"http://www.alexhedley.com\" value=\"\" >";
 
             // Assert: first find the <p> element, then verify its content
             cut.FindAll("input")[0].MarkupMatches(markup);

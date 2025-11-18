@@ -32,7 +32,7 @@ public class SQLContainsTest : TestContext
         SQLContains sqlContains = cut.Instance;
         Assert.Equal(sqlContains.Field, field);
         Assert.Equal(sqlContains.Input, input);
-        Assert.Equal(sqlContains.Output, "CONTAINS (FIELD, a) OR CONTAINS (FIELD, b) OR CONTAINS (FIELD, c)");
+        Assert.Equal(sqlContains.Output, "CONTAINS (FIELD, 'a') OR CONTAINS (FIELD, 'b') OR CONTAINS (FIELD, 'c')");
     }
     
     [Fact]
@@ -56,6 +56,6 @@ public class SQLContainsTest : TestContext
         SQLContains sqlContains = cut.Instance;
         Assert.Equal(sqlContains.Field, field);
         Assert.Equal(sqlContains.Input, input);
-        Assert.Equal(sqlContains.Output, "CONTAINS (FIELD, *a*) OR CONTAINS (FIELD, *b*) OR CONTAINS (FIELD, *c*)");
+        Assert.Equal(sqlContains.Output, "CONTAINS (FIELD, '*a*') OR CONTAINS (FIELD, '*b*') OR CONTAINS (FIELD, '*c*')");
     }
 }

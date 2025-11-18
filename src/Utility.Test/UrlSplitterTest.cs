@@ -22,7 +22,7 @@ namespace Utility.Test
             );
 
             var path = "https://www.alexhedley.com/path?query=this&param=that";
-            string markup = $"<input type=\"text\" id=\"path\" name=\"path\" class=\"form-control\" value=\"{path}\" >";
+            string markup = $"<input type=\"text\" id=\"path\" name=\"path\" class=\"form-control\" placeholder=\"https://www.alexhedley.com/path?query=this&amp;param=that\" value=\"{path}\" >";
             cut.FindAll("input")[0].MarkupMatches(markup);
         }
         
@@ -35,7 +35,7 @@ namespace Utility.Test
             cut.Find("button").Click();
             
             var url = "https://www.alexhedley.com/path?query=this&param=that";
-            string markup = $"<input type=\"text\" id=\"path\" name=\"path\" class=\"form-control\" value=\"{url}\" >";
+            string markup = $"<input type=\"text\" id=\"path\" name=\"path\" class=\"form-control\" placeholder=\"https://www.alexhedley.com/path?query=this&amp;param=that\" value=\"{url}\" >";
             cut.FindAll("input")[0].MarkupMatches(markup);
 
             var hostname = "www.alexhedley.com";

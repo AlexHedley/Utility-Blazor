@@ -22,7 +22,7 @@ public class MarkdownConverterTest: TestContext
         );
         cut.Find("button").Click();
         
-        string markup = "<textarea id=\"markdown\" class=\"form-control\" rows=\"5\" value=\"# Hello\"></textarea>";
+        string markup = "<textarea id=\"markdown\" class=\"form-control\" rows=\"5\" placeholder=\"# Hello\" value=\"# Hello\"></textarea>";
         cut.FindAll("textarea")[1].MarkupMatches(markup);
     }
     
