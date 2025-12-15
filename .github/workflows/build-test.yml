@@ -94,7 +94,7 @@ jobs:
         target-folder: coverage
     
     - name: Upload coverage report artifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: CoverageReport # Artifact name        
         path: coveragereport # Directory containing files to upload
