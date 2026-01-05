@@ -22,7 +22,7 @@
 
   <ItemGroup>
 
-    <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.0" />
+    <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.1" />
     <ProjectReference Include="..\Utility.Common\Utility.Common.csproj" />
   </ItemGroup>
 
