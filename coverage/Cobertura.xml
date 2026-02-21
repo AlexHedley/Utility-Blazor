@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.1883720930232558" branch-rate="0.1625" lines-covered="162" lines-valid="860" branches-covered="26" branches-valid="160" complexity="318" version="0" timestamp="1771444226">
+<coverage line-rate="0.1883720930232558" branch-rate="0.1625" lines-covered="162" lines-valid="860" branches-covered="26" branches-valid="160" complexity="318" version="0" timestamp="1771675326">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
