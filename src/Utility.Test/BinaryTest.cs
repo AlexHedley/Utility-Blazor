@@ -4,7 +4,7 @@ using Utility.Components.Binary;
 
 namespace Utility.Test;
 
-public class BinaryTest : TestContext
+public class BinaryTest : BunitContext
 {
     public BinaryTest()
     {
@@ -13,7 +13,7 @@ public class BinaryTest : TestContext
     // [Fact]
     public void BinaryShouldConvertWhenClicked()
     {
-        var cut = RenderComponent<Binary>();
+        var cut = Render<Binary>();
         cut.Find("button").Click();
 
         string markup = "";

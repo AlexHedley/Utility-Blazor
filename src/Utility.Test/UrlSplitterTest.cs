@@ -5,7 +5,7 @@ using Utility.Components.UrlSplitter;
 
 namespace Utility.Test
 {
-    public class UrlSplitterTest : TestContext
+    public class UrlSplitterTest : BunitContext
     {
         private readonly string _defaultUrl;
         
@@ -17,7 +17,7 @@ namespace Utility.Test
         [Fact]
         public void UrlShouldContainAUrl()
         {
-            var cut = RenderComponent<UrlSplitter>(parameters => parameters
+            var cut = Render<UrlSplitter>(parameters => parameters
                 .Add(p => p.Path, _defaultUrl)
             );
 
@@ -29,7 +29,7 @@ namespace Utility.Test
         [Fact]
         public void UrlShouldSplitWhenClicked()
         {
-            var cut = RenderComponent<UrlSplitter>(parameters => parameters
+            var cut = Render<UrlSplitter>(parameters => parameters
                 .Add(p => p.Path, _defaultUrl)
             );
             cut.Find("button").Click();

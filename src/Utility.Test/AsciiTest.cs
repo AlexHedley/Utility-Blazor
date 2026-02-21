@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class AsciiTest : TestContext
+public class AsciiTest : BunitContext
 {
     public AsciiTest() {}
     

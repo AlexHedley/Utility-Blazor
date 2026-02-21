@@ -5,7 +5,7 @@ using Utility.Components.LuhnChecker;
 
 namespace Utility.Test;
 
-public class LuhnCheckerTest : TestContext
+public class LuhnCheckerTest : BunitContext
 {
     public LuhnCheckerTest()
     {}
@@ -16,7 +16,7 @@ public class LuhnCheckerTest : TestContext
         string input = "1";
         bool valid = false;
         
-        var cut = RenderComponent<LuhnChecker>(parameters => parameters
+        var cut = Render<LuhnChecker>(parameters => parameters
             .Add(p => p.check, input)
             .Add(p => p.valid, valid)
         );
@@ -33,7 +33,7 @@ public class LuhnCheckerTest : TestContext
         string input = "378282246310005";
         bool valid = true;
         
-        var cut = RenderComponent<LuhnChecker>(parameters => parameters
+        var cut = Render<LuhnChecker>(parameters => parameters
             .Add(p => p.check, input)
             .Add(p => p.valid, valid)
         );
