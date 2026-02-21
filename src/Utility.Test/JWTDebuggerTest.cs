@@ -5,7 +5,7 @@ using Utility.Components.JWTDebugger;
 
 namespace Utility.Test;
 
-public class JWTDebuggerTest : TestContext
+public class JWTDebuggerTest : BunitContext
 {
     public JWTDebuggerTest() {}
 
@@ -17,7 +17,7 @@ public class JWTDebuggerTest : TestContext
         string expectedPayload = "{\"sub\":\"1234567890\",\"name\":\"John Doe\",\"iat\":1516239022}";
         string exptectedSignature = "SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
         
-        var cut = RenderComponent<JWTDebugger>(parameters => parameters
+        var cut = Render<JWTDebugger>(parameters => parameters
             .Add(p => p.Input, input)
         );
         

@@ -5,7 +5,7 @@ using Utility.Components.Stopwatch;
 
 namespace Utility.Test;
 
-public class StopwatchTest : TestContext
+public class StopwatchTest : BunitContext
 {
     public StopwatchTest() {}
     
@@ -16,7 +16,7 @@ public class StopwatchTest : TestContext
         string expectedInput = "";
         
         
-        var cut = RenderComponent<Stopwatch>(parameters => parameters
+        var cut = Render<Stopwatch>(parameters => parameters
             .Add(p => p.Input, input)
         );
         

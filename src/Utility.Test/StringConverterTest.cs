@@ -2,7 +2,7 @@ using Bunit;
 
 namespace Utility.Test;
 
-public class StringConverterTest: TestContext
+public class StringConverterTest: BunitContext
 {
     public StringConverterTest()
     {
@@ -11,7 +11,7 @@ public class StringConverterTest: TestContext
     //[Fact]
     //public void FieldShouldClearWhenClicked()
     //{
-    //    var cut = RenderComponent<SQLBuilder>();
+    //    var cut = Render<SQLBuilder>();
     //    cut.Find("btnFieldClear").Click();
 
     //    cut.Find("field").MarkupMatches("");

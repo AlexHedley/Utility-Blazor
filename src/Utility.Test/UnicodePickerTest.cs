@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class UnicodePickerTest : TestContext
+public class UnicodePickerTest : BunitContext
 {
     public UnicodePickerTest() {}
     

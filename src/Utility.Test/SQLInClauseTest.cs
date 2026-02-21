@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class SQLInClauseTest : TestContext
+public class SQLInClauseTest : BunitContext
 {
     public SQLInClauseTest() {}
     

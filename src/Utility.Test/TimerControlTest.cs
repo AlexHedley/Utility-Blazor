@@ -5,7 +5,7 @@ using Utility.Components.TimerControl;
 
 namespace Utility.Test;
 
-public class TimerControlTest : TestContext
+public class TimerControlTest : BunitContext
 {
     public TimerControlTest() {}
     
@@ -14,7 +14,7 @@ public class TimerControlTest : TestContext
     {
         string input = "5m 00s";
         string expectedInput = "";
-        var cut = RenderComponent<TimerControl>(parameters => parameters
+        var cut = Render<TimerControl>(parameters => parameters
             .Add(p => p.Input, input)
         );
         

@@ -5,7 +5,7 @@ using Utility.Components.HCF;
 
 namespace Utility.Test;
 
-public class HCFTest : TestContext
+public class HCFTest : BunitContext
 {
     public HCFTest()
     {}
@@ -13,7 +13,7 @@ public class HCFTest : TestContext
     // [Fact]
     public void HiddenCharacterFinderShouldFindHiddenCharacters()
     {
-        var cut = RenderComponent<HCF>();
+        var cut = Render<HCF>();
         // string markup = "";
         // cut.FindAll("input")[0].MarkupMatches(markup);
     }

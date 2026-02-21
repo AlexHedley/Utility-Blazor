@@ -6,7 +6,7 @@ using Utility.Pages;
 
 namespace Utility.Test;
 
-public class MarkdownConverterTest: TestContext
+public class MarkdownConverterTest: BunitContext
 {
     public MarkdownConverterTest()
     {
@@ -17,7 +17,7 @@ public class MarkdownConverterTest: TestContext
     {
         var html = "<html><body><h1>Hello</h1></body></html>";
         
-        var cut = RenderComponent<MarkdownConverter>(parameters => parameters
+        var cut = Render<MarkdownConverter>(parameters => parameters
             .Add(p => p.HTML, html)
         );
         cut.Find("button").Click();
@@ -33,7 +33,7 @@ public class MarkdownConverterTest: TestContext
         var html = "<html><body><h1>Hello</h1></body></html>";
         var markdown = "# Hello";
 
-        var cut = RenderComponent<MarkdownConverter>(parameters => parameters
+        var cut = Render<MarkdownConverter>(parameters => parameters
             .Add(p => p.HTML, html)
             .Add(p => p.Markdown, markdown)
         );
@@ -51,7 +51,7 @@ public class MarkdownConverterTest: TestContext
         // var html = "<html><body><h1>Hello</h1></body></html>";
         var markdown = "# Hello";
 
-        var cut = RenderComponent<MarkdownConverter>(parameters => parameters
+        var cut = Render<MarkdownConverter>(parameters => parameters
             .Add(p => p.HTML, html)
             .Add(p => p.Markdown, markdown)
         );

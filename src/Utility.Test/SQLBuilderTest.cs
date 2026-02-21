@@ -6,12 +6,12 @@ using Utility.Pages;
 
 namespace Utility.Test
 {
-    public class SQLBuilderTest : TestContext
+    public class SQLBuilderTest : BunitContext
     {
         //[Fact]
         //public void FieldShouldClearWhenClicked()
         //{
-        //    var cut = RenderComponent<SQLBuilder>();
+        //    var cut = Render<SQLBuilder>();
         //    cut.Find("btnFieldClear").Click();
 
         //    cut.Find("field").MarkupMatches("");
