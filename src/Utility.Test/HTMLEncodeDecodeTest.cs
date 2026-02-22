@@ -5,7 +5,7 @@ using Utility.Components.HTMLEncodeDecode;
 
 namespace Utility.Test;
 
-public class HTMLEncodeDecodeTest : TestContext
+public class HTMLEncodeDecodeTest : BunitContext
 {
     public HTMLEncodeDecodeTest()
     {}
@@ -16,7 +16,7 @@ public class HTMLEncodeDecodeTest : TestContext
         var decoded = "&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;";
         var encoded = string.Empty;
         
-        var cut = RenderComponent<HTMLEncodeDecode>(parameters => parameters
+        var cut = Render<HTMLEncodeDecode>(parameters => parameters
             .Add(p => p.Decoded, decoded)
             .Add(p => p.Encoded, encoded)
         );
@@ -34,7 +34,7 @@ public class HTMLEncodeDecodeTest : TestContext
         var decoded = string.Empty;
         var encoded = "<html><body><h1>Hello</h1></body></html>";
         
-        var cut = RenderComponent<HTMLEncodeDecode>(parameters => parameters
+        var cut = Render<HTMLEncodeDecode>(parameters => parameters
             .Add(p => p.Decoded, decoded)
             .Add(p => p.Encoded, encoded)
         );

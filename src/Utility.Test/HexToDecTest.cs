@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class HexToDecTest : TestContext
+public class HexToDecTest : BunitContext
 {
     public HexToDecTest() {}
     

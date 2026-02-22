@@ -5,7 +5,7 @@ using Utility.Components.MemoryConverter;
 
 namespace Utility.Test;
 
-public class MemoryConverterTest: TestContext
+public class MemoryConverterTest: BunitContext
 {
     public MemoryConverterTest()
     {
@@ -14,7 +14,7 @@ public class MemoryConverterTest: TestContext
     [Fact]
     public void MemoryShouldConvertWhenClicked()
     {
-        var cut = RenderComponent<MemoryConverter>();
+        var cut = Render<MemoryConverter>();
         
         cut.FindAll("button")[1].Click();
         string markup = "<input id=\"output\" class=\"form-control\" placeholder=\"KB / MB / GB / TB / PB / EB / ZB / YB\" readonly=\"readonly\" value=\"1.0 KB\">";

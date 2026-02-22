@@ -5,7 +5,7 @@ using Utility.Components.SQLContains;
 
 namespace Utility.Test;
 
-public class SQLContainsTest : TestContext
+public class SQLContainsTest : BunitContext
 {
     public SQLContainsTest()
     {
@@ -18,7 +18,7 @@ public class SQLContainsTest : TestContext
         string input = "a" + System.Environment.NewLine + "b" + System.Environment.NewLine + "c";
         string output = string.Empty;
         
-        var cut = RenderComponent<SQLContains>(parameters => parameters
+        var cut = Render<SQLContains>(parameters => parameters
             .Add(p => p.Field, field)
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)
@@ -41,7 +41,7 @@ public class SQLContainsTest : TestContext
         string input = "a" + System.Environment.NewLine + "b" + System.Environment.NewLine + "c";
         string output = string.Empty;
         
-        var cut = RenderComponent<SQLContains>(parameters => parameters
+        var cut = Render<SQLContains>(parameters => parameters
             .Add(p => p.Field, field)
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)

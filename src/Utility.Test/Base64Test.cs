@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class Base64Test : TestContext
+public class Base64Test : BunitContext
 {
     public Base64Test() {}
 
@@ -15,7 +15,7 @@ public class Base64Test : TestContext
         string output = string.Empty;
         string expectedOutput = "AlexHedley";
         
-        var cut = RenderComponent<Base64>(parameters => parameters
+        var cut = Render<Base64>(parameters => parameters
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)
         );
@@ -36,7 +36,7 @@ public class Base64Test : TestContext
         string output = string.Empty;
         string expectedOutput = "";
         
-        var cut = RenderComponent<Base64>(parameters => parameters
+        var cut = Render<Base64>(parameters => parameters
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)
         );
@@ -57,7 +57,7 @@ public class Base64Test : TestContext
         string output = "AlexHedley";
         string expectedInput = "QWxleEhlZGxleQ==";
         
-        var cut = RenderComponent<Base64>(parameters => parameters
+        var cut = Render<Base64>(parameters => parameters
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)
         );
@@ -78,7 +78,7 @@ public class Base64Test : TestContext
         string output = string.Empty;
         string expectedOutput = "";
         
-        var cut = RenderComponent<Base64>(parameters => parameters
+        var cut = Render<Base64>(parameters => parameters
             .Add(p => p.Input, input)
             .Add(p => p.Output, output)
         );

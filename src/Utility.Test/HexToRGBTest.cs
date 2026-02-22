@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class ColourConverterTest : TestContext
+public class ColourConverterTest : BunitContext
 {
     public ColourConverterTest()
     {
@@ -13,7 +13,7 @@ public class ColourConverterTest : TestContext
     // [Fact]
     public void MarkdownShouldConvertWhenClicked()
     {
-        var cut = RenderComponent<HexToRGB>();
+        var cut = Render<HexToRGB>();
         cut.Find("button").Click();
 
         string markupRed = "";

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Utility.Test;
 
-public class MonacoEditorTest : TestContext
+public class MonacoEditorTest : BunitContext
 {
     public MonacoEditorTest() {}
     
