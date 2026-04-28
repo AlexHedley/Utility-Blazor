@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="BlazorMonaco" Version="3.4.0" />
-    <PackageReference Include="Fare" Version="2.2.1" />
+    <PackageReference Include="Fare" Version="2.2.2" />
     <PackageReference Include="Humanizer.Core" Version="3.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.7" PrivateAssets="all" />
