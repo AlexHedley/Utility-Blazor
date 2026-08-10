@@ -17,7 +17,7 @@
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.14.4" />
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.14.4" />
     <PackageReference Include="ReverseMarkdown" Version="5.4.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.21.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.22.0" />
   </ItemGroup>
 
   <ItemGroup>
