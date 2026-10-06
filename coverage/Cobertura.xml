@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.1883720930232558" branch-rate="0.15625" lines-covered="162" lines-valid="860" branches-covered="25" branches-valid="160" complexity="318" version="0" timestamp="1790404598">
+<coverage line-rate="0.1883720930232558" branch-rate="0.176056338028169" lines-covered="162" lines-valid="860" branches-covered="25" branches-valid="142" complexity="300" version="0" timestamp="1791305034">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
   <packages>
-    <package name="Utility" line-rate="0.19217081850533807" branch-rate="0.16666666666666666" complexity="308">
+    <package name="Utility" line-rate="0.19217081850533807" branch-rate="0.1865671641791045" complexity="292">
       <classes>
         <class name="Program" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -2046,7 +2046,7 @@
             <line number="107" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Components.StringConverter.StringConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/StringConverter/StringConverter.razor" line-rate="0" branch-rate="0" complexity="43">
+        <class name="Utility.Components.StringConverter.StringConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/StringConverter/StringConverter.razor" line-rate="0" branch-rate="0" complexity="27">
           <methods>
             <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="0" complexity="1">
               <lines>
@@ -2058,11 +2058,11 @@
                 <line number="31" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="Convert" signature="()" line-rate="0" branch-rate="0" complexity="38">
+            <method name="Convert" signature="()" line-rate="0" branch-rate="0" complexity="22">
               <lines>
                 <line number="65" hits="0" branch="false" />
                 <line number="66" hits="0" branch="false" />
-                <line number="68" hits="0" branch="true" condition-coverage="0% (0/38)" />
+                <line number="68" hits="0" branch="true" condition-coverage="0% (0/22)" />
                 <line number="71" hits="0" branch="false" />
                 <line number="72" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
@@ -2128,7 +2128,7 @@
             <line number="62" hits="0" branch="false" />
             <line number="65" hits="0" branch="false" />
             <line number="66" hits="0" branch="false" />
-            <line number="68" hits="0" branch="true" condition-coverage="0% (0/38)" />
+            <line number="68" hits="0" branch="true" condition-coverage="0% (0/22)" />
             <line number="71" hits="0" branch="false" />
             <line number="72" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
@@ -2672,7 +2672,7 @@
         </class>
       </classes>
     </package>
-    <package name="Utility.Common" line-rate="0" branch-rate="0" complexity="10">
+    <package name="Utility.Common" line-rate="0" branch-rate="0" complexity="8">
       <classes>
         <class name="Utility.Common.InvertCharExtension" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
@@ -2716,11 +2716,11 @@
             <line number="25" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Utility.Common.StringExtensions" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="4">
+        <class name="Utility.Common.StringExtensions" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility.Common/StringExtensions.cs" line-rate="0" branch-rate="0" complexity="2">
           <methods>
-            <method name="FirstCharToUpper" signature="(System.String)" line-rate="0" branch-rate="0" complexity="4">
+            <method name="FirstCharToUpper" signature="(System.String)" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="7" hits="0" branch="true" condition-coverage="0% (0/4)" />
+                <line number="7" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="8" hits="0" branch="false" />
                 <line number="9" hits="0" branch="false" />
                 <line number="10" hits="0" branch="false" />
@@ -2730,7 +2730,7 @@
             </method>
           </methods>
           <lines>
-            <line number="7" hits="0" branch="true" condition-coverage="0% (0/4)" />
+            <line number="7" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="8" hits="0" branch="false" />
             <line number="9" hits="0" branch="false" />
             <line number="10" hits="0" branch="false" />
