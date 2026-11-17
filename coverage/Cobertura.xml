@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.1883720930232558" branch-rate="0.176056338028169" lines-covered="162" lines-valid="860" branches-covered="25" branches-valid="142" complexity="300" version="0" timestamp="1794310988">
+<coverage line-rate="0.1883720930232558" branch-rate="0.176056338028169" lines-covered="162" lines-valid="860" branches-covered="25" branches-valid="142" complexity="300" version="0" timestamp="1794894986">
   <sources>
     <source>/home/runner/work/Utility-Blazor/Utility-Blazor/src/</source>
   </sources>
@@ -35,14 +35,6 @@
         </class>
         <class name="Utility.Components.Ascii.Ascii" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/Ascii/Ascii.razor" line-rate="0" branch-rate="1" complexity="3">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="33" hits="0" branch="false" />
-                <line number="34" hits="0" branch="false" />
-                <line number="35" hits="0" branch="false" />
-                <line number="36" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="GetAsciiValues" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="61" hits="0" branch="false" />
@@ -53,6 +45,14 @@
                 <line number="69" hits="0" branch="false" />
                 <line number="72" hits="0" branch="false" />
                 <line number="73" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="33" hits="0" branch="false" />
+                <line number="34" hits="0" branch="false" />
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -245,13 +245,6 @@
         </class>
         <class name="Utility.Components.EpochConverter.EpochConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/EpochConverter/EpochConverter.razor" line-rate="0" branch-rate="1" complexity="4">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="25" hits="0" branch="false" />
-                <line number="26" hits="0" branch="false" />
-                <line number="27" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="Refresh" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="57" hits="0" branch="false" />
@@ -268,6 +261,13 @@
                 <line number="68" hits="0" branch="false" />
                 <line number="69" hits="0" branch="false" />
                 <line number="70" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -475,11 +475,6 @@
         </class>
         <class name="Utility.Components.HCF.HCF" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HCF/HCF.razor" line-rate="0" branch-rate="0" complexity="39">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="38" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="Encode" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="92" hits="0" branch="false" />
@@ -628,6 +623,11 @@
                 <line number="263" hits="0" branch="false" />
                 <line number="265" hits="0" branch="false" />
                 <line number="266" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="38" hits="0" branch="false" />
               </lines>
             </method>
             <method name="OnInitializedAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -815,11 +815,6 @@
         </class>
         <class name="Utility.Components.HexToRGB.HexToRGB" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HexToRGB/HexToRGB.razor" line-rate="0" branch-rate="1" complexity="3">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="22" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="ConvertColour" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="79" hits="0" branch="false" />
@@ -829,6 +824,11 @@
                 <line number="83" hits="0" branch="false" />
                 <line number="84" hits="0" branch="false" />
                 <line number="85" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -859,11 +859,6 @@
         </class>
         <class name="Utility.Components.HTMLEncodeDecode.HTMLEncodeDecode" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/HTMLEncodeDecode/HTMLEncodeDecode.razor" line-rate="0.6666666666666666" branch-rate="1" complexity="7">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="41" hits="2" branch="false" />
-              </lines>
-            </method>
             <method name="get_Decoded" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="48" hits="7" branch="false" />
@@ -888,6 +883,11 @@
                 <line number="67" hits="0" branch="false" />
                 <line number="68" hits="0" branch="false" />
                 <line number="69" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="41" hits="2" branch="false" />
               </lines>
             </method>
             <method name="Copy" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -1005,11 +1005,6 @@
         </class>
         <class name="Utility.Components.LuhnChecker.LuhnChecker" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/LuhnChecker/LuhnChecker.razor" line-rate="0.8571428571428571" branch-rate="0.75" complexity="14">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="22" hits="4" branch="false" />
-              </lines>
-            </method>
             <method name="get_check" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="43" hits="12" branch="false" />
@@ -1045,6 +1040,11 @@
                 <line number="86" hits="16" branch="false" />
                 <line number="87" hits="2" branch="false" />
                 <line number="88" hits="2" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="4" branch="false" />
               </lines>
             </method>
             <method name="OnInitializedAsync" signature="()" line-rate="1" branch-rate="1" complexity="1">
@@ -1301,11 +1301,6 @@
         </class>
         <class name="Utility.Components.MonacoDiffEditor.MonacoDiffEditor" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/MonacoDiffEditor/MonacoDiffEditor.razor" line-rate="0" branch-rate="0" complexity="13">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="24" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="get_Language" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="44" hits="0" branch="false" />
@@ -1343,6 +1338,11 @@
                 <line number="86" hits="0" branch="false" />
                 <line number="87" hits="0" branch="false" />
                 <line number="88" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -2048,16 +2048,6 @@
         </class>
         <class name="Utility.Components.StringConverter.StringConverter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/StringConverter/StringConverter.razor" line-rate="0" branch-rate="0" complexity="27">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="0" complexity="1">
-              <lines>
-                <line number="16" hits="0" branch="false" />
-                <line number="19" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="20" hits="0" branch="false" />
-                <line number="21" hits="0" branch="false" />
-                <line number="22" hits="0" branch="false" />
-                <line number="31" hits="0" branch="false" />
-              </lines>
-            </method>
             <method name="Convert" signature="()" line-rate="0" branch-rate="0" complexity="22">
               <lines>
                 <line number="65" hits="0" branch="false" />
@@ -2086,6 +2076,16 @@
                 <line number="97" hits="0" branch="false" />
                 <line number="98" hits="0" branch="false" />
                 <line number="99" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="false" />
+                <line number="19" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="20" hits="0" branch="false" />
+                <line number="21" hits="0" branch="false" />
+                <line number="22" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -2388,16 +2388,6 @@
         </class>
         <class name="Utility.Components.UrlSplitter.UrlSplitter" filename="/home/runner/work/Utility-Blazor/Utility-Blazor/src/Utility/Components/UrlSplitter/UrlSplitter.razor" line-rate="1" branch-rate="1" complexity="5">
           <methods>
-            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="2">
-              <lines>
-                <line number="17" hits="3" branch="false" />
-                <line number="71" hits="13" branch="true" condition-coverage="100% (2/2)" />
-                <line number="72" hits="2" branch="false" />
-                <line number="74" hits="2" branch="false" />
-                <line number="75" hits="2" branch="false" />
-                <line number="77" hits="2" branch="false" />
-              </lines>
-            </method>
             <method name="get_Path" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="88" hits="14" branch="false" />
@@ -2421,6 +2411,16 @@
                 <line number="108" hits="1" branch="false" />
                 <line number="109" hits="1" branch="false" />
                 <line number="110" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="BuildRenderTree" signature="(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="17" hits="3" branch="false" />
+                <line number="71" hits="13" branch="true" condition-coverage="100% (2/2)" />
+                <line number="72" hits="2" branch="false" />
+                <line number="74" hits="2" branch="false" />
+                <line number="75" hits="2" branch="false" />
+                <line number="77" hits="2" branch="false" />
               </lines>
             </method>
           </methods>
